@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bwt6jyui0ysal"]
+
+[node name="CropButton" type="PanelContainer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2

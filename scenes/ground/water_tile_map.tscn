@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqrfd3uubg43"]
+
+[ext_resource type="Texture2D" uid="uid://c1bm4fcvp7oeg" path="res://assets/ground/water/Water Objects.png" id="1_ellva"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owfpo"]
+texture = ExtResource("1_ellva")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3hinr"]
+sources/0 = SubResource("TileSetAtlasSource_owfpo")
+
+[node name="WaterTileMap" type="TileMap"]
+tile_set = SubResource("TileSet_3hinr")
+format = 2

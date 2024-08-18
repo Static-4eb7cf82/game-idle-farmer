@@ -1,0 +1,2142 @@
+[gd_scene load_steps=9 format=3 uid="uid://isj6fe114qca"]
+
+[ext_resource type="PackedScene" uid="uid://bf0tfmhh62ylj" path="res://scenes/ground/water.tscn" id="1_8ocar"]
+[ext_resource type="PackedScene" uid="uid://bqrfd3uubg43" path="res://scenes/ground/water_tile_map.tscn" id="2_0nsll"]
+[ext_resource type="PackedScene" uid="uid://bkryf4aii122f" path="res://scenes/ground/bright_grass_tile_map.tscn" id="3_in8wm"]
+[ext_resource type="PackedScene" uid="uid://cds8uwxnv0jyh" path="res://scenes/ground/tilled_tile_map.tscn" id="4_n1pfy"]
+[ext_resource type="Texture2D" uid="uid://cx043manifvys" path="res://assets/ground/watered_tile.png" id="5_4wpa6"]
+[ext_resource type="PackedScene" uid="uid://dvxmb51r25x5t" path="res://scenes/growables/radish.tscn" id="6_mvqfo"]
+[ext_resource type="PackedScene" uid="uid://lpexokwjiav8" path="res://scenes/character.tscn" id="7_phhhc"]
+[ext_resource type="PackedScene" uid="uid://c8jlk70a3dkkf" path="res://scenes/ground/ground_objects_tile_map.tscn" id="8_mjx5k"]
+
+[node name="Region1" type="Node2D"]
+
+[node name="Water" type="Node2D" parent="."]
+
+[node name="Water" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 8)
+
+[node name="Water2" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 24)
+
+[node name="Water3" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 8)
+
+[node name="Water65" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 8)
+
+[node name="Water66" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 8)
+
+[node name="Water67" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 8)
+
+[node name="Water68" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 8)
+
+[node name="Water69" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 8)
+
+[node name="Water70" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 8)
+
+[node name="Water71" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 8)
+
+[node name="Water72" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 8)
+
+[node name="Water73" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 8)
+
+[node name="Water74" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 8)
+
+[node name="Water75" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 8)
+
+[node name="Water76" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 8)
+
+[node name="Water77" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 8)
+
+[node name="Water78" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 8)
+
+[node name="Water79" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 8)
+
+[node name="Water80" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 8)
+
+[node name="Water81" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 8)
+
+[node name="Water82" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 8)
+
+[node name="Water83" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 8)
+
+[node name="Water142" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 24)
+
+[node name="Water143" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 24)
+
+[node name="Water195" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 24)
+
+[node name="Water196" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 24)
+
+[node name="Water197" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 24)
+
+[node name="Water198" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 24)
+
+[node name="Water199" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 24)
+
+[node name="Water200" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 24)
+
+[node name="Water201" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 24)
+
+[node name="Water202" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 24)
+
+[node name="Water203" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 24)
+
+[node name="Water204" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 24)
+
+[node name="Water205" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 24)
+
+[node name="Water206" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 24)
+
+[node name="Water207" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 24)
+
+[node name="Water208" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 24)
+
+[node name="Water209" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 24)
+
+[node name="Water210" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 24)
+
+[node name="Water211" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 24)
+
+[node name="Water84" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 8)
+
+[node name="Water85" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 8)
+
+[node name="Water86" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 8)
+
+[node name="Water87" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 8)
+
+[node name="Water88" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 8)
+
+[node name="Water89" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 248)
+
+[node name="Water90" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 248)
+
+[node name="Water91" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 248)
+
+[node name="Water92" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 248)
+
+[node name="Water93" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 248)
+
+[node name="Water94" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 248)
+
+[node name="Water95" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 248)
+
+[node name="Water96" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 248)
+
+[node name="Water97" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 344)
+
+[node name="Water98" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 344)
+
+[node name="Water99" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 344)
+
+[node name="Water100" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 344)
+
+[node name="Water101" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 344)
+
+[node name="Water102" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 344)
+
+[node name="Water103" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 344)
+
+[node name="Water376" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 328)
+
+[node name="Water377" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 328)
+
+[node name="Water378" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 328)
+
+[node name="Water379" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 328)
+
+[node name="Water380" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 328)
+
+[node name="Water381" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 328)
+
+[node name="Water104" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 344)
+
+[node name="Water105" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 344)
+
+[node name="Water106" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 344)
+
+[node name="Water107" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 344)
+
+[node name="Water108" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 344)
+
+[node name="Water109" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 344)
+
+[node name="Water110" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 344)
+
+[node name="Water111" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 344)
+
+[node name="Water112" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 344)
+
+[node name="Water121" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 232)
+
+[node name="Water122" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 232)
+
+[node name="Water123" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 232)
+
+[node name="Water144" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 216)
+
+[node name="Water147" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 200)
+
+[node name="Water148" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 200)
+
+[node name="Water151" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 184)
+
+[node name="Water152" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 184)
+
+[node name="Water153" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 184)
+
+[node name="Water182" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 232)
+
+[node name="Water183" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 232)
+
+[node name="Water184" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 232)
+
+[node name="Water185" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 216)
+
+[node name="Water154" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 168)
+
+[node name="Water155" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 168)
+
+[node name="Water156" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 168)
+
+[node name="Water157" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 184)
+
+[node name="Water158" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 184)
+
+[node name="Water159" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 184)
+
+[node name="Water160" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 168)
+
+[node name="Water161" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 168)
+
+[node name="Water162" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 168)
+
+[node name="Water145" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 216)
+
+[node name="Water149" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 200)
+
+[node name="Water192" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 184)
+
+[node name="Water146" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 216)
+
+[node name="Water150" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 200)
+
+[node name="Water194" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 184)
+
+[node name="Water193" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 168)
+
+[node name="Water186" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 152)
+
+[node name="Water187" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 152)
+
+[node name="Water188" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 152)
+
+[node name="Water189" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 152)
+
+[node name="Water190" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 152)
+
+[node name="Water191" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 152)
+
+[node name="Water124" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 232)
+
+[node name="Water125" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 232)
+
+[node name="Water133" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 328)
+
+[node name="Water134" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 328)
+
+[node name="Water135" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 328)
+
+[node name="Water382" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 312)
+
+[node name="Water383" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 312)
+
+[node name="Water136" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 328)
+
+[node name="Water137" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 328)
+
+[node name="Water138" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 328)
+
+[node name="Water139" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 328)
+
+[node name="Water140" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 328)
+
+[node name="Water141" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 328)
+
+[node name="Water166" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 312)
+
+[node name="Water167" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 312)
+
+[node name="Water168" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 312)
+
+[node name="Water169" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 312)
+
+[node name="Water384" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 296)
+
+[node name="Water385" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 296)
+
+[node name="Water386" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 296)
+
+[node name="Water170" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 312)
+
+[node name="Water171" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 312)
+
+[node name="Water172" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 296)
+
+[node name="Water173" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 296)
+
+[node name="Water387" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 280)
+
+[node name="Water5" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 40)
+
+[node name="Water6" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 56)
+
+[node name="Water9" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 72)
+
+[node name="Water10" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 88)
+
+[node name="Water13" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 104)
+
+[node name="Water14" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 120)
+
+[node name="Water17" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 136)
+
+[node name="Water18" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 152)
+
+[node name="Water20" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 152)
+
+[node name="Water21" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 168)
+
+[node name="Water22" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 184)
+
+[node name="Water23" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 168)
+
+[node name="Water24" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 184)
+
+[node name="Water25" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 200)
+
+[node name="Water26" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 216)
+
+[node name="Water27" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 200)
+
+[node name="Water28" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 216)
+
+[node name="Water29" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 232)
+
+[node name="Water30" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 248)
+
+[node name="Water31" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 232)
+
+[node name="Water34" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 56)
+
+[node name="Water37" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 72)
+
+[node name="Water46" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 24)
+
+[node name="Water49" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 40)
+
+[node name="Water38" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 88)
+
+[node name="Water41" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 104)
+
+[node name="Water42" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 120)
+
+[node name="Water45" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 136)
+
+[node name="Water50" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 248)
+
+[node name="Water53" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 264)
+
+[node name="Water54" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 280)
+
+[node name="Water57" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 296)
+
+[node name="Water58" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 312)
+
+[node name="Water61" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 328)
+
+[node name="Water113" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 56)
+
+[node name="Water114" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 72)
+
+[node name="Water115" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 24)
+
+[node name="Water116" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 40)
+
+[node name="Water117" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 88)
+
+[node name="Water118" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 104)
+
+[node name="Water119" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 216)
+
+[node name="Water120" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 232)
+
+[node name="Water32" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 248)
+
+[node name="Water325" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 296)
+
+[node name="Water326" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 296)
+
+[node name="Water327" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 296)
+
+[node name="Water328" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 296)
+
+[node name="Water329" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 296)
+
+[node name="Water330" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 296)
+
+[node name="Water331" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 296)
+
+[node name="Water332" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 296)
+
+[node name="Water333" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 280)
+
+[node name="Water334" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 280)
+
+[node name="Water335" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 280)
+
+[node name="Water336" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 280)
+
+[node name="Water337" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 280)
+
+[node name="Water338" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 280)
+
+[node name="Water339" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 280)
+
+[node name="Water340" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 280)
+
+[node name="Water341" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 280)
+
+[node name="Water342" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 296)
+
+[node name="Water343" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 280)
+
+[node name="Water344" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 296)
+
+[node name="Water345" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 328)
+
+[node name="Water346" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 328)
+
+[node name="Water347" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 328)
+
+[node name="Water348" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 328)
+
+[node name="Water349" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 328)
+
+[node name="Water350" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 328)
+
+[node name="Water351" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 328)
+
+[node name="Water352" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 328)
+
+[node name="Water353" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 312)
+
+[node name="Water354" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 312)
+
+[node name="Water355" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 312)
+
+[node name="Water356" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 312)
+
+[node name="Water357" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 312)
+
+[node name="Water358" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 312)
+
+[node name="Water359" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 312)
+
+[node name="Water360" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 312)
+
+[node name="Water361" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 312)
+
+[node name="Water362" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 328)
+
+[node name="Water363" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 312)
+
+[node name="Water364" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 328)
+
+[node name="Water33" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 8)
+
+[node name="Water174" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 24)
+
+[node name="Water175" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 24)
+
+[node name="Water176" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 24)
+
+[node name="Water177" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 24)
+
+[node name="Water178" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 40)
+
+[node name="Water179" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 56)
+
+[node name="Water181" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 72)
+
+[node name="Water212" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 88)
+
+[node name="Water180" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 24)
+
+[node name="Water35" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 8)
+
+[node name="Water36" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 24)
+
+[node name="Water39" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 40)
+
+[node name="Water40" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 56)
+
+[node name="Water43" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 72)
+
+[node name="Water44" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 88)
+
+[node name="Water47" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 104)
+
+[node name="Water48" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 216)
+
+[node name="Water51" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 232)
+
+[node name="Water52" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 248)
+
+[node name="Water55" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 264)
+
+[node name="Water56" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 280)
+
+[node name="Water59" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 296)
+
+[node name="Water60" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 312)
+
+[node name="Water62" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 344)
+
+[node name="Water63" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 328)
+
+[node name="Water64" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 344)
+
+[node name="Water126" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 264)
+
+[node name="Water127" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 264)
+
+[node name="Water128" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 264)
+
+[node name="Water129" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 264)
+
+[node name="Water130" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 264)
+
+[node name="Water131" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 264)
+
+[node name="Water132" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 264)
+
+[node name="Water163" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 264)
+
+[node name="Water164" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 360)
+
+[node name="Water165" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 360)
+
+[node name="Water213" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 360)
+
+[node name="Water214" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 360)
+
+[node name="Water215" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 360)
+
+[node name="Water216" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 360)
+
+[node name="Water217" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 360)
+
+[node name="Water218" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 360)
+
+[node name="Water219" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 360)
+
+[node name="Water220" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 360)
+
+[node name="Water221" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 360)
+
+[node name="Water222" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 360)
+
+[node name="Water223" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 360)
+
+[node name="Water224" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 360)
+
+[node name="Water225" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 360)
+
+[node name="Water226" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 360)
+
+[node name="Water227" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 264)
+
+[node name="Water228" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 264)
+
+[node name="Water229" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 360)
+
+[node name="Water230" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 360)
+
+[node name="Water231" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 248)
+
+[node name="Water232" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 264)
+
+[node name="Water233" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 280)
+
+[node name="Water234" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 296)
+
+[node name="Water235" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 312)
+
+[node name="Water236" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 328)
+
+[node name="Water237" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 56)
+
+[node name="Water238" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 72)
+
+[node name="Water239" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 24)
+
+[node name="Water240" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 40)
+
+[node name="Water241" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 88)
+
+[node name="Water242" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 104)
+
+[node name="Water243" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 216)
+
+[node name="Water244" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 232)
+
+[node name="Water245" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 8)
+
+[node name="Water246" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 8)
+
+[node name="Water247" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 24)
+
+[node name="Water265" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 8)
+
+[node name="Water266" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 8)
+
+[node name="Water267" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 8)
+
+[node name="Water268" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 24)
+
+[node name="Water269" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 24)
+
+[node name="Water270" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 24)
+
+[node name="Water271" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 8)
+
+[node name="Water272" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 8)
+
+[node name="Water273" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 8)
+
+[node name="Water274" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 8)
+
+[node name="Water275" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 8)
+
+[node name="Water276" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 24)
+
+[node name="Water277" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 8)
+
+[node name="Water278" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 24)
+
+[node name="Water279" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 24)
+
+[node name="Water280" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 24)
+
+[node name="Water281" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 24)
+
+[node name="Water282" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 24)
+
+[node name="Water283" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 8)
+
+[node name="Water284" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 24)
+
+[node name="Water248" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 40)
+
+[node name="Water249" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 56)
+
+[node name="Water250" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 72)
+
+[node name="Water251" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 88)
+
+[node name="Water252" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 104)
+
+[node name="Water253" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 216)
+
+[node name="Water254" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 232)
+
+[node name="Water255" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 248)
+
+[node name="Water388" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 168)
+
+[node name="Water389" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 184)
+
+[node name="Water390" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 200)
+
+[node name="Water391" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 200)
+
+[node name="Water392" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 168)
+
+[node name="Water393" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 184)
+
+[node name="Water394" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 168)
+
+[node name="Water395" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 184)
+
+[node name="Water396" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 200)
+
+[node name="Water256" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 264)
+
+[node name="Water397" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 152)
+
+[node name="Water398" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 168)
+
+[node name="Water399" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 120)
+
+[node name="Water400" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 136)
+
+[node name="Water401" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 120)
+
+[node name="Water402" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 136)
+
+[node name="Water403" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 152)
+
+[node name="Water405" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 152)
+
+[node name="Water407" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 120)
+
+[node name="Water408" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 136)
+
+[node name="Water409" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 120)
+
+[node name="Water410" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 136)
+
+[node name="Water411" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 152)
+
+[node name="Water257" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 280)
+
+[node name="Water258" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 296)
+
+[node name="Water259" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 312)
+
+[node name="Water260" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 344)
+
+[node name="Water261" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 328)
+
+[node name="Water262" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 344)
+
+[node name="Water263" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 360)
+
+[node name="Water264" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 360)
+
+[node name="Water404" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 8)
+
+[node name="Water406" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 24)
+
+[node name="Water412" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 40)
+
+[node name="Water413" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 56)
+
+[node name="Water414" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 72)
+
+[node name="Water415" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 88)
+
+[node name="Water416" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 104)
+
+[node name="Water417" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 216)
+
+[node name="Water418" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 232)
+
+[node name="Water419" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 248)
+
+[node name="Water420" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 168)
+
+[node name="Water421" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 184)
+
+[node name="Water422" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 200)
+
+[node name="Water423" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 264)
+
+[node name="Water424" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 120)
+
+[node name="Water425" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 136)
+
+[node name="Water426" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 152)
+
+[node name="Water427" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 280)
+
+[node name="Water428" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 296)
+
+[node name="Water429" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 312)
+
+[node name="Water430" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 328)
+
+[node name="Water431" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 344)
+
+[node name="Water432" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 360)
+
+[node name="Water433" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 8)
+
+[node name="Water434" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 24)
+
+[node name="Water435" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 40)
+
+[node name="Water436" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 56)
+
+[node name="Water437" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 72)
+
+[node name="Water438" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 88)
+
+[node name="Water439" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 104)
+
+[node name="Water440" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 216)
+
+[node name="Water441" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 232)
+
+[node name="Water442" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 248)
+
+[node name="Water443" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 168)
+
+[node name="Water444" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 184)
+
+[node name="Water445" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 200)
+
+[node name="Water446" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 264)
+
+[node name="Water447" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 120)
+
+[node name="Water448" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 136)
+
+[node name="Water449" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 152)
+
+[node name="Water450" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 280)
+
+[node name="Water451" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 296)
+
+[node name="Water452" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 312)
+
+[node name="Water453" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 328)
+
+[node name="Water454" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 344)
+
+[node name="Water455" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 360)
+
+[node name="Water456" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 8)
+
+[node name="Water457" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 24)
+
+[node name="Water458" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 40)
+
+[node name="Water459" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 56)
+
+[node name="Water460" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 72)
+
+[node name="Water461" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 88)
+
+[node name="Water462" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 104)
+
+[node name="Water463" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 216)
+
+[node name="Water464" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 232)
+
+[node name="Water465" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 248)
+
+[node name="Water466" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 168)
+
+[node name="Water467" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 184)
+
+[node name="Water468" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 200)
+
+[node name="Water469" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 264)
+
+[node name="Water470" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 120)
+
+[node name="Water471" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 136)
+
+[node name="Water472" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 152)
+
+[node name="Water473" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 280)
+
+[node name="Water474" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 296)
+
+[node name="Water475" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 312)
+
+[node name="Water476" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 328)
+
+[node name="Water477" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 344)
+
+[node name="Water478" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 360)
+
+[node name="Water285" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 344)
+
+[node name="Water286" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 344)
+
+[node name="Water287" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 344)
+
+[node name="Water288" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 344)
+
+[node name="Water289" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 344)
+
+[node name="Water290" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 344)
+
+[node name="Water291" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 344)
+
+[node name="Water292" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 344)
+
+[node name="Water293" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 344)
+
+[node name="Water294" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 344)
+
+[node name="Water295" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 344)
+
+[node name="Water296" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 344)
+
+[node name="Water297" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 344)
+
+[node name="Water298" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 344)
+
+[node name="Water299" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 344)
+
+[node name="Water300" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 344)
+
+[node name="Water301" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 344)
+
+[node name="Water302" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 344)
+
+[node name="Water303" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 360)
+
+[node name="Water304" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 360)
+
+[node name="Water305" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 360)
+
+[node name="Water306" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 360)
+
+[node name="Water307" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 360)
+
+[node name="Water308" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 360)
+
+[node name="Water309" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 360)
+
+[node name="Water310" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 360)
+
+[node name="Water311" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 360)
+
+[node name="Water312" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 360)
+
+[node name="Water313" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 360)
+
+[node name="Water314" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 360)
+
+[node name="Water315" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 360)
+
+[node name="Water316" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 360)
+
+[node name="Water317" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 360)
+
+[node name="Water318" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 360)
+
+[node name="Water319" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 360)
+
+[node name="Water320" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 360)
+
+[node name="Water321" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 344)
+
+[node name="Water322" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 344)
+
+[node name="Water323" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 360)
+
+[node name="Water324" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 360)
+
+[node name="Water479" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 376)
+
+[node name="Water480" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 376)
+
+[node name="Water481" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 376)
+
+[node name="Water482" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 376)
+
+[node name="Water483" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 376)
+
+[node name="Water484" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 376)
+
+[node name="Water485" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 376)
+
+[node name="Water486" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 376)
+
+[node name="Water487" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 376)
+
+[node name="Water488" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 376)
+
+[node name="Water489" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 376)
+
+[node name="Water490" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 376)
+
+[node name="Water491" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 376)
+
+[node name="Water492" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 376)
+
+[node name="Water493" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 376)
+
+[node name="Water494" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 376)
+
+[node name="Water495" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 376)
+
+[node name="Water496" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 376)
+
+[node name="Water497" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 376)
+
+[node name="Water498" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 376)
+
+[node name="Water499" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 376)
+
+[node name="Water500" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 376)
+
+[node name="Water501" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 376)
+
+[node name="Water502" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 376)
+
+[node name="Water503" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 376)
+
+[node name="Water504" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 376)
+
+[node name="Water505" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 376)
+
+[node name="Water506" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 376)
+
+[node name="Water507" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 376)
+
+[node name="Water508" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 376)
+
+[node name="Water509" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 376)
+
+[node name="Water510" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 376)
+
+[node name="Water511" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 376)
+
+[node name="Water512" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 376)
+
+[node name="Water513" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 376)
+
+[node name="Water514" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 376)
+
+[node name="Water515" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 376)
+
+[node name="Water516" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 376)
+
+[node name="Water517" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 376)
+
+[node name="Water518" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 376)
+
+[node name="Water519" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 376)
+
+[node name="Water520" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 376)
+
+[node name="Water521" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 376)
+
+[node name="Water522" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 392)
+
+[node name="Water523" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, 392)
+
+[node name="Water524" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, 392)
+
+[node name="Water525" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, 392)
+
+[node name="Water526" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, 392)
+
+[node name="Water527" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, 392)
+
+[node name="Water528" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, 392)
+
+[node name="Water529" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, 392)
+
+[node name="Water530" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, 392)
+
+[node name="Water531" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, 392)
+
+[node name="Water532" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, 392)
+
+[node name="Water533" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, 392)
+
+[node name="Water534" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, 392)
+
+[node name="Water535" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, 392)
+
+[node name="Water536" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, 392)
+
+[node name="Water537" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, 392)
+
+[node name="Water538" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, 392)
+
+[node name="Water539" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, 392)
+
+[node name="Water540" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, 392)
+
+[node name="Water541" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, 392)
+
+[node name="Water542" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, 392)
+
+[node name="Water543" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, 392)
+
+[node name="Water544" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, 392)
+
+[node name="Water565" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 8)
+
+[node name="Water566" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 24)
+
+[node name="Water567" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 40)
+
+[node name="Water568" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 56)
+
+[node name="Water569" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 72)
+
+[node name="Water570" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 88)
+
+[node name="Water571" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 104)
+
+[node name="Water572" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 216)
+
+[node name="Water573" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 232)
+
+[node name="Water574" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 248)
+
+[node name="Water575" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 168)
+
+[node name="Water576" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 184)
+
+[node name="Water577" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 200)
+
+[node name="Water578" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 264)
+
+[node name="Water579" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 120)
+
+[node name="Water580" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 136)
+
+[node name="Water581" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 152)
+
+[node name="Water582" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 280)
+
+[node name="Water583" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 296)
+
+[node name="Water584" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 312)
+
+[node name="Water585" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 328)
+
+[node name="Water586" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 344)
+
+[node name="Water587" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 360)
+
+[node name="Water588" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 376)
+
+[node name="Water589" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, 392)
+
+[node name="Water590" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 8)
+
+[node name="Water591" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 24)
+
+[node name="Water592" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 40)
+
+[node name="Water593" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 56)
+
+[node name="Water594" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 72)
+
+[node name="Water595" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 88)
+
+[node name="Water596" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 104)
+
+[node name="Water597" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 216)
+
+[node name="Water598" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 232)
+
+[node name="Water599" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 248)
+
+[node name="Water600" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 168)
+
+[node name="Water601" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 184)
+
+[node name="Water602" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 200)
+
+[node name="Water603" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 264)
+
+[node name="Water604" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 120)
+
+[node name="Water605" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 136)
+
+[node name="Water606" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 152)
+
+[node name="Water607" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 280)
+
+[node name="Water608" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 296)
+
+[node name="Water609" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 312)
+
+[node name="Water610" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 328)
+
+[node name="Water611" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 344)
+
+[node name="Water612" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 360)
+
+[node name="Water613" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 376)
+
+[node name="Water614" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, 392)
+
+[node name="Water545" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, 392)
+
+[node name="Water546" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, 392)
+
+[node name="Water547" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, 392)
+
+[node name="Water548" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, 392)
+
+[node name="Water549" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, 392)
+
+[node name="Water550" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, 392)
+
+[node name="Water551" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, 392)
+
+[node name="Water552" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, 392)
+
+[node name="Water553" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, 392)
+
+[node name="Water554" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, 392)
+
+[node name="Water555" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 392)
+
+[node name="Water556" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 392)
+
+[node name="Water557" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 392)
+
+[node name="Water558" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 392)
+
+[node name="Water559" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 392)
+
+[node name="Water560" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 392)
+
+[node name="Water561" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 392)
+
+[node name="Water562" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 392)
+
+[node name="Water563" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 392)
+
+[node name="Water564" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 392)
+
+[node name="Water615" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, -24)
+
+[node name="Water616" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, -24)
+
+[node name="Water617" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, -24)
+
+[node name="Water618" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, -24)
+
+[node name="Water619" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, -24)
+
+[node name="Water620" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, -24)
+
+[node name="Water621" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, -24)
+
+[node name="Water622" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, -24)
+
+[node name="Water623" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, -24)
+
+[node name="Water624" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, -24)
+
+[node name="Water625" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, -24)
+
+[node name="Water626" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, -24)
+
+[node name="Water627" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, -24)
+
+[node name="Water628" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, -24)
+
+[node name="Water629" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, -24)
+
+[node name="Water630" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, -24)
+
+[node name="Water631" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, -24)
+
+[node name="Water632" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, -24)
+
+[node name="Water633" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, -24)
+
+[node name="Water634" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, -24)
+
+[node name="Water635" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, -24)
+
+[node name="Water636" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, -24)
+
+[node name="Water637" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, -24)
+
+[node name="Water638" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, -24)
+
+[node name="Water639" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, -24)
+
+[node name="Water640" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, -24)
+
+[node name="Water641" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, -24)
+
+[node name="Water642" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, -24)
+
+[node name="Water643" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, -24)
+
+[node name="Water644" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, -24)
+
+[node name="Water645" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, -24)
+
+[node name="Water646" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, -24)
+
+[node name="Water647" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, -24)
+
+[node name="Water648" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, -24)
+
+[node name="Water649" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, -24)
+
+[node name="Water650" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, -24)
+
+[node name="Water651" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, -24)
+
+[node name="Water652" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, -24)
+
+[node name="Water653" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, -24)
+
+[node name="Water654" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, -24)
+
+[node name="Water655" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, -24)
+
+[node name="Water656" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, -24)
+
+[node name="Water657" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, -24)
+
+[node name="Water658" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, -8)
+
+[node name="Water659" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(344, -8)
+
+[node name="Water660" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(360, -8)
+
+[node name="Water661" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(376, -8)
+
+[node name="Water662" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(392, -8)
+
+[node name="Water663" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(408, -8)
+
+[node name="Water664" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(424, -8)
+
+[node name="Water665" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(440, -8)
+
+[node name="Water666" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(456, -8)
+
+[node name="Water667" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(472, -8)
+
+[node name="Water668" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(488, -8)
+
+[node name="Water669" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(504, -8)
+
+[node name="Water670" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(520, -8)
+
+[node name="Water671" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(536, -8)
+
+[node name="Water672" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(552, -8)
+
+[node name="Water673" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(568, -8)
+
+[node name="Water674" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(584, -8)
+
+[node name="Water675" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(600, -8)
+
+[node name="Water676" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(616, -8)
+
+[node name="Water677" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(632, -8)
+
+[node name="Water678" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(648, -8)
+
+[node name="Water679" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(664, -8)
+
+[node name="Water680" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(680, -8)
+
+[node name="Water681" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, -24)
+
+[node name="Water682" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-8, -8)
+
+[node name="Water683" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, -24)
+
+[node name="Water684" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(-24, -8)
+
+[node name="Water685" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(8, -8)
+
+[node name="Water686" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(24, -8)
+
+[node name="Water687" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(40, -8)
+
+[node name="Water688" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(56, -8)
+
+[node name="Water689" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(72, -8)
+
+[node name="Water690" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(88, -8)
+
+[node name="Water691" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(104, -8)
+
+[node name="Water692" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(120, -8)
+
+[node name="Water693" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(136, -8)
+
+[node name="Water694" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(152, -8)
+
+[node name="Water695" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, -8)
+
+[node name="Water696" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, -8)
+
+[node name="Water697" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, -8)
+
+[node name="Water698" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, -8)
+
+[node name="Water699" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, -8)
+
+[node name="Water700" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, -8)
+
+[node name="Water701" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, -8)
+
+[node name="Water702" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, -8)
+
+[node name="Water703" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, -8)
+
+[node name="Water704" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, -8)
+
+[node name="Water365" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(328, 328)
+
+[node name="Water366" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(168, 328)
+
+[node name="Water367" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(184, 328)
+
+[node name="Water368" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(200, 328)
+
+[node name="Water369" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(216, 328)
+
+[node name="Water370" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(232, 328)
+
+[node name="Water371" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(248, 328)
+
+[node name="Water372" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(264, 328)
+
+[node name="Water373" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(280, 328)
+
+[node name="Water374" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(296, 328)
+
+[node name="Water375" parent="Water" instance=ExtResource("1_8ocar")]
+position = Vector2(312, 328)
+
+[node name="WaterTileMap" parent="." instance=ExtResource("2_0nsll")]
+layer_0/tile_data = PackedInt32Array(1245184, 589824, 0, 1245185, 655360, 0, 1179654, 458752, 0, 1114119, 131072, 0, 983048, 131072, 0, 1441797, 589824, 0, 983077, 65536, 0, 458790, 720896, 0, 17, 393216, 0, 27, 65536, 0, 34, 589824, 0, 524289, 327680, 1, 1048577, 262144, 0, 1048578, 327680, 0, 1310731, 65536, 0, 1310735, 262144, 0, 1310744, 655360, 0, 1376265, 655360, 0, 1310738, 196608, 0, 1572883, 393216, 0, 1376277, 720896, 0, 1507350, 524288, 0, 1376284, 196608, 0, 1507358, 0, 0, 983078, 589824, 0, 1048616, 65536, 0, 983082, 655360, 0, 1572895, 393216, 0, 1441827, 65536, 0, 1376294, 196608, 0, 1310759, 589824, 0, 1507369, 131072, 0)
+
+[node name="BrightGrassTileMap" parent="." instance=ExtResource("3_in8wm")]
+layer_0/tile_data = PackedInt32Array(65538, 65536, 0, 65537, 0, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 131073, 0, 1, 196609, 0, 1, 262145, 0, 1, 327681, 0, 1, 393217, 0, 1, 458753, 0, 1, 524289, 0, 1, 589825, 0, 2, 786434, 0, 1, 786435, 65536, 1, 720898, 0, 0, 720899, 65536, 0, 589826, 65536, 2, 589827, 65536, 2, 589828, 65536, 2, 589829, 65536, 2, 131097, 65536, 1, 196633, 65536, 1, 262169, 65536, 1, 65561, 65536, 0, 65557, 65536, 0, 65558, 65536, 0, 65559, 65536, 0, 65560, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 65547, 65536, 0, 65548, 65536, 0, 65549, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 65552, 65536, 0, 65553, 65536, 0, 65554, 65536, 0, 65555, 65536, 0, 65556, 65536, 0, 720901, 65536, 0, 786437, 65536, 6, 720903, 131072, 0, 786439, 131072, 1, 720900, 65536, 0, 786436, 65536, 1, 720902, 65536, 0, 786438, 65536, 1, 589830, 65536, 2, 589831, 65536, 2, 917506, 0, 2, 917507, 65536, 2, 917508, 65536, 2, 917509, 65536, 2, 917510, 65536, 2, 917511, 131072, 2, 851970, 0, 1, 851975, 131072, 1, 851971, 196608, 6, 851972, 65536, 1, 851973, 65536, 1, 851974, 65536, 1, 196610, 65536, 1, 327683, 65536, 1, 327685, 65536, 1, 393221, 65536, 1, 196614, 65536, 1, 524294, 65536, 1, 131079, 65536, 1, 393223, 65536, 1, 524295, 65536, 1, 262153, 65536, 1, 131082, 65536, 1, 262154, 196608, 5, 262164, 65536, 1, 262165, 65536, 1, 262167, 131072, 5, 131074, 65536, 1, 327682, 65536, 1, 458755, 65536, 1, 131076, 65536, 1, 393220, 0, 5, 131080, 65536, 1, 131084, 65536, 1, 196625, 65536, 1, 196627, 65536, 1, 131094, 65536, 1, 262166, 65536, 1, 131096, 65536, 1, 262146, 65536, 1, 393218, 327680, 6, 458754, 65536, 1, 524290, 131072, 6, 131075, 65536, 1, 196611, 65536, 6, 262147, 65536, 1, 393219, 65536, 1, 524291, 65536, 1, 196612, 65536, 1, 262148, 65536, 1, 327684, 65536, 1, 458756, 65536, 1, 524292, 65536, 1, 131077, 65536, 1, 196613, 65536, 1, 262149, 65536, 1, 458757, 65536, 6, 524293, 65536, 1, 131078, 65536, 1, 262150, 65536, 1, 327686, 65536, 1, 393222, 65536, 1, 458758, 65536, 1, 196615, 65536, 1, 262151, 65536, 1, 327687, 65536, 1, 458759, 65536, 1, 196616, 65536, 1, 262152, 65536, 1, 131081, 65536, 1, 196617, 65536, 1, 196618, 65536, 1, 131083, 65536, 1, 196619, 65536, 1, 262155, 65536, 1, 196620, 327680, 6, 262156, 65536, 1, 131085, 65536, 1, 196621, 65536, 1, 262157, 131072, 6, 131086, 327680, 5, 196622, 65536, 1, 262158, 65536, 1, 131087, 65536, 1, 196623, 65536, 1, 262159, 65536, 1, 131088, 65536, 1, 196624, 65536, 1, 262160, 65536, 1, 131089, 0, 6, 262161, 65536, 1, 131090, 65536, 1, 196626, 65536, 1, 262162, 65536, 1, 131091, 65536, 1, 262163, 65536, 1, 131092, 262144, 6, 196628, 65536, 1, 131093, 65536, 1, 196629, 65536, 1, 196630, 65536, 1, 131095, 65536, 1, 196631, 65536, 6, 196632, 65536, 1, 262168, 65536, 1, 655381, 65536, 1, 720917, 65536, 1, 786453, 65536, 1, 851989, 65536, 1, 917525, 65536, 1, 983061, 65536, 1, 1048597, 65536, 1, 1114133, 65536, 1, 1179669, 65536, 1, 1245205, 65536, 1, 1310741, 65536, 2, 655382, 65536, 1, 720918, 65536, 1, 786454, 196608, 5, 851990, 65536, 1, 917526, 65536, 1, 983062, 65536, 1, 1048598, 65536, 1, 1114134, 65536, 1, 1179670, 65536, 1, 1245206, 65536, 1, 1310742, 65536, 2, 655383, 65536, 1, 720919, 65536, 1, 786455, 131072, 5, 851991, 65536, 1, 917527, 65536, 1, 983063, 65536, 1, 1048599, 65536, 1, 1114135, 65536, 1, 1179671, 65536, 1, 1245207, 65536, 1, 1310743, 65536, 2, 655384, 65536, 1, 720920, 65536, 1, 786456, 65536, 1, 851992, 65536, 1, 917528, 65536, 1, 983064, 65536, 1, 1048600, 65536, 1, 1114136, 262144, 5, 1179672, 65536, 1, 1245208, 65536, 1, 1310744, 65536, 2, 655385, 65536, 1, 720921, 65536, 1, 786457, 65536, 1, 851993, 327680, 6, 917529, 65536, 1, 983065, 65536, 1, 1048601, 65536, 1, 1114137, 65536, 1, 1179673, 65536, 1, 1245209, 262144, 6, 1310745, 65536, 2, 655386, 65536, 1, 720922, 65536, 1, 786458, 65536, 1, 851994, 65536, 1, 917530, 65536, 1, 983066, 262144, 6, 1048602, 131072, 5, 1114138, 65536, 1, 1179674, 65536, 1, 1245210, 65536, 1, 1310746, 65536, 2, 655387, 131072, 6, 720923, 65536, 1, 786459, 65536, 1, 851995, 65536, 1, 917531, 65536, 1, 983067, 65536, 1, 1048603, 327680, 5, 1114139, 65536, 1, 1179675, 65536, 1, 1245211, 327680, 1, 655388, 65536, 1, 720924, 262144, 6, 786460, 65536, 1, 851996, 65536, 1, 917532, 65536, 1, 983068, 65536, 1, 1048604, 65536, 1, 1114140, 65536, 1, 1179676, 65536, 1, 1245212, 65536, 2, 655389, 65536, 1, 720925, 65536, 1, 786461, 65536, 1, 851997, 65536, 1, 917533, 65536, 1, 983069, 65536, 1, 1048605, 65536, 1, 1114141, 65536, 1, 1179677, 65536, 1, 1245213, 65536, 2, 655390, 65536, 1, 720926, 65536, 1, 786462, 65536, 1, 851998, 65536, 1, 917534, 327680, 5, 983070, 65536, 1, 1048606, 65536, 1, 1114142, 65536, 1, 1179678, 327680, 1, 655391, 65536, 1, 720927, 262144, 5, 786463, 65536, 1, 851999, 65536, 1, 917535, 65536, 6, 983071, 65536, 1, 1048607, 65536, 1, 1114143, 65536, 1, 1179679, 65536, 2, 655392, 131072, 6, 720928, 262144, 5, 786464, 65536, 1, 852000, 327680, 5, 917536, 65536, 1, 983072, 196608, 5, 1048608, 65536, 1, 1114144, 131072, 6, 1179680, 65536, 2, 655393, 65536, 1, 720929, 65536, 1, 786465, 327680, 6, 852001, 65536, 6, 917537, 327680, 6, 983073, 65536, 1, 1048609, 327680, 5, 1114145, 65536, 1, 1179681, 65536, 2, 655394, 65536, 1, 720930, 65536, 1, 786466, 65536, 1, 852002, 65536, 1, 917538, 65536, 1, 983074, 65536, 1, 1048610, 65536, 1, 1114146, 327680, 1, 655395, 65536, 1, 720931, 65536, 1, 786467, 65536, 1, 852003, 65536, 1, 917539, 65536, 1, 983075, 65536, 1, 1048611, 65536, 1, 1114147, 65536, 2, 655396, 327680, 2, 720932, 65536, 1, 786468, 65536, 1, 852004, 65536, 1, 917540, 65536, 1, 983076, 65536, 1, 1048612, 327680, 1, 1310747, 131072, 2, 1245214, 131072, 2, 1179682, 131072, 2, 1114148, 131072, 2, 655397, 131072, 0, 720933, 131072, 1, 786469, 131072, 1, 852005, 131072, 1, 917541, 131072, 1, 983077, 131072, 1, 1048613, 131072, 2, 327688, 65536, 5, 393224, 262144, 5, 458760, 65536, 1, 524296, 65536, 1, 589832, 393216, 1, 655368, 0, 2, 327689, 65536, 1, 393225, 196608, 6, 458761, 327680, 6, 524297, 65536, 1, 589833, 65536, 1, 655369, 393216, 1, 720905, 0, 1, 786441, 0, 1, 851977, 0, 1, 917513, 0, 1, 1245194, 65536, 1, 1245195, 65536, 5, 1245196, 65536, 1, 1245197, 65536, 1, 1245198, 65536, 1, 1245199, 65536, 1, 1245200, 65536, 1, 1245201, 65536, 1, 1245202, 65536, 1, 1245203, 65536, 1, 1245204, 65536, 1, 1310729, 0, 2, 1310730, 65536, 2, 1310731, 65536, 2, 1310732, 65536, 2, 1310733, 65536, 2, 1310734, 65536, 2, 1310735, 65536, 2, 1310736, 65536, 2, 1310737, 65536, 2, 1310738, 65536, 2, 1310739, 65536, 2, 1310740, 65536, 2, 983049, 0, 1, 1048585, 0, 1, 1114121, 0, 1, 1179657, 0, 1, 1245193, 0, 1, 327690, 65536, 1, 393226, 65536, 1, 458762, 65536, 1, 524298, 65536, 1, 589834, 65536, 1, 655370, 65536, 1, 720906, 65536, 1, 786442, 65536, 1, 851978, 65536, 1, 917514, 65536, 1, 983050, 65536, 1, 1048586, 65536, 1, 1114122, 65536, 1, 1179658, 65536, 1, 327691, 65536, 1, 393227, 65536, 1, 458763, 65536, 1, 524299, 65536, 1, 589835, 65536, 1, 655371, 65536, 1, 720907, 65536, 1, 786443, 65536, 1, 851979, 65536, 1, 917515, 65536, 1, 983051, 65536, 1, 1048587, 65536, 1, 1114123, 65536, 1, 1179659, 65536, 1, 327692, 65536, 1, 393228, 65536, 1, 458764, 65536, 1, 524300, 65536, 1, 589836, 65536, 1, 655372, 65536, 1, 720908, 65536, 1, 786444, 65536, 1, 851980, 65536, 5, 917516, 0, 6, 983052, 65536, 1, 1048588, 65536, 1, 1114124, 65536, 1, 1179660, 65536, 1, 327693, 196608, 6, 393229, 65536, 6, 458765, 65536, 1, 524301, 65536, 1, 589837, 65536, 5, 655373, 65536, 1, 720909, 196608, 5, 786445, 65536, 1, 851981, 131072, 6, 917517, 196608, 6, 983053, 65536, 1, 1048589, 65536, 1, 1114125, 65536, 1, 1179661, 65536, 1, 327694, 65536, 1, 393230, 65536, 1, 458766, 65536, 1, 524302, 65536, 1, 589838, 65536, 1, 851982, 65536, 1, 917518, 65536, 1, 983054, 65536, 1, 1048590, 65536, 1, 1114126, 65536, 1, 1179662, 65536, 1, 327695, 65536, 1, 393231, 65536, 1, 458767, 65536, 1, 524303, 131072, 5, 589839, 262144, 5, 851983, 65536, 1, 917519, 65536, 6, 983055, 65536, 1, 1048591, 65536, 1, 1114127, 65536, 1, 1179663, 65536, 1, 327696, 65536, 1, 393232, 65536, 1, 458768, 65536, 1, 524304, 65536, 1, 589840, 65536, 1, 917520, 65536, 1, 983056, 65536, 1, 1048592, 65536, 1, 1114128, 65536, 1, 1179664, 65536, 1, 327697, 65536, 1, 393233, 65536, 1, 458769, 65536, 1, 524305, 262144, 6, 589841, 65536, 1, 655377, 65536, 5, 720913, 65536, 1, 917521, 65536, 1, 983057, 65536, 1, 1048593, 65536, 1, 1114129, 65536, 1, 1179665, 65536, 1, 327698, 65536, 1, 393234, 65536, 1, 458770, 65536, 1, 524306, 65536, 1, 589842, 65536, 1, 655378, 65536, 1, 720914, 65536, 1, 786450, 65536, 1, 851986, 65536, 1, 917522, 65536, 1, 983058, 65536, 1, 1048594, 65536, 1, 1114130, 65536, 1, 1179666, 65536, 1, 327699, 65536, 1, 393235, 262144, 5, 458771, 65536, 1, 524307, 262144, 6, 589843, 65536, 1, 655379, 65536, 1, 720915, 65536, 1, 786451, 65536, 1, 851987, 327680, 6, 917523, 65536, 1, 983059, 65536, 1, 1048595, 65536, 1, 1114131, 65536, 1, 1179667, 65536, 1, 327700, 65536, 1, 393236, 131072, 6, 458772, 65536, 1, 524308, 65536, 1, 589844, 65536, 5, 655380, 65536, 1, 720916, 65536, 1, 786452, 196608, 6, 851988, 65536, 1, 917524, 65536, 1, 983060, 65536, 1, 1048596, 65536, 1, 1114132, 65536, 1, 1179668, 65536, 1, 327701, 131072, 5, 393237, 65536, 1, 458773, 65536, 1, 524309, 196608, 5, 589845, 65536, 1, 327702, 65536, 1, 393238, 65536, 1, 458774, 65536, 1, 524310, 65536, 1, 589846, 65536, 1, 327703, 65536, 1, 393239, 65536, 1, 458775, 65536, 1, 524311, 131072, 6, 589847, 65536, 1, 327704, 65536, 1, 393240, 65536, 1, 458776, 65536, 1, 524312, 327680, 6, 589848, 65536, 1, 327705, 65536, 1, 393241, 262144, 6, 458777, 65536, 1, 524313, 65536, 1, 589849, 65536, 1, 131098, 65536, 1, 196634, 65536, 1, 262170, 65536, 1, 327706, 196608, 6, 393242, 65536, 1, 458778, 65536, 1, 524314, 65536, 1, 589850, 65536, 1, 131099, 65536, 1, 196635, 65536, 1, 262171, 65536, 1, 327707, 65536, 1, 393243, 65536, 1, 458779, 65536, 1, 524315, 65536, 1, 589851, 65536, 1, 131100, 65536, 1, 196636, 65536, 6, 262172, 65536, 1, 327708, 65536, 1, 393244, 65536, 1, 458780, 65536, 1, 524316, 65536, 1, 589852, 65536, 1, 131101, 65536, 1, 196637, 65536, 1, 262173, 65536, 1, 327709, 65536, 1, 393245, 65536, 1, 458781, 65536, 1, 524317, 65536, 1, 589853, 65536, 1, 131102, 65536, 1, 196638, 65536, 1, 262174, 131072, 6, 327710, 65536, 1, 393246, 327680, 6, 458782, 65536, 1, 524318, 65536, 1, 589854, 65536, 1, 131103, 65536, 1, 196639, 65536, 1, 262175, 65536, 1, 327711, 65536, 1, 393247, 65536, 1, 458783, 262144, 5, 524319, 65536, 1, 589855, 65536, 1, 131104, 65536, 1, 196640, 65536, 1, 262176, 65536, 1, 327712, 65536, 1, 393248, 65536, 1, 458784, 196608, 6, 524320, 65536, 1, 589856, 65536, 6, 131105, 65536, 1, 196641, 65536, 1, 262177, 65536, 1, 327713, 65536, 1, 393249, 65536, 1, 458785, 65536, 1, 524321, 65536, 1, 589857, 65536, 1, 131106, 65536, 1, 196642, 65536, 1, 262178, 65536, 1, 327714, 65536, 1, 393250, 65536, 1, 458786, 65536, 1, 524322, 65536, 1, 589858, 65536, 1, 131107, 65536, 1, 196643, 65536, 1, 262179, 65536, 1, 327715, 65536, 1, 393251, 65536, 1, 458787, 65536, 1, 524323, 65536, 1, 589859, 65536, 1, 131108, 131072, 1, 196644, 131072, 1, 262180, 131072, 1, 327716, 131072, 1, 393252, 131072, 1, 458788, 131072, 1, 524324, 131072, 1, 589860, 131072, 1, 65572, 131072, 0, 65562, 65536, 0, 65563, 65536, 0, 65564, 65536, 0, 65565, 65536, 0, 65566, 65536, 0, 65567, 65536, 0, 65568, 65536, 0, 65569, 65536, 0, 65570, 65536, 0, 65571, 65536, 0, 655374, 65536, 1, 720910, 65536, 1, 786446, 65536, 1, 655375, 65536, 1, 720911, 65536, 1, 786447, 131072, 5, 655376, 131072, 5, 720912, 65536, 6, 786448, 65536, 1, 851984, 65536, 1, 786449, 65536, 1, 851985, 65536, 1)
+layer_1/tile_data = PackedInt32Array(65537, 1, 0, 65538, 65537, 0, 65542, 65537, 0, 131078, 65537, 1, 65543, 65537, 0, 131079, 65537, 1, 196615, 327681, 1, 262151, 131073, 2, 262147, 65537, 2, 262148, 131075, 0, 262149, 196611, 0, 262150, 65537, 2, 196611, 65537, 1, 65539, 65537, 0, 65540, 65537, 0, 65541, 65537, 0, 131075, 65537, 1, 131076, 65537, 1, 131077, 65537, 1, 196614, 65537, 1, 196613, 65537, 1, 196612, 65537, 1, 327684, 131075, 1, 327685, 196611, 1, 196609, 1, 1, 196610, 65537, 1, 262145, 1, 2, 262146, 65537, 2, 131074, 65537, 1, 131073, 1, 1, 65544, 131073, 0, 131080, 131073, 1, 196616, 131073, 2, 458774, 2, 0, 524310, 2, 1, 589846, 2, 2, 458775, 65538, 0, 524311, 65538, 1, 589847, 65538, 2, 458776, 131074, 0, 524312, 131074, 1, 589848, 131074, 2, 786460, 2, 0, 851996, 2, 1, 917532, 2, 2, 786461, 65538, 0, 851997, 65538, 1, 917533, 65538, 2, 786462, 131074, 0, 851998, 131074, 1, 917534, 131074, 2, 327707, 2, 0, 393243, 2, 1, 458779, 2, 2, 327708, 65538, 0, 393244, 65538, 1, 458780, 65538, 2, 327709, 65538, 0, 393245, 65538, 1, 458781, 65538, 2, 327710, 131074, 0, 393246, 131074, 1, 458782, 131074, 2, 1245203, 196610, 3, 589826, 65537, 3, 589827, 131073, 3, 720898, 1, 3, 720899, 65537, 3, 720900, 131073, 3, 1114122, 196610, 3, 589825, 1, 3)
+
+[node name="TilledTileMap" parent="." instance=ExtResource("4_n1pfy")]
+layer_0/tile_data = PackedInt32Array(720910, 524288, 5, 786446, 0, 1, 851982, 0, 2, 851983, 327680, 6, 720911, 1, 5, 786447, 131073, 6, 720914, 131072, 1, 786450, 589824, 5, 851986, 131072, 2, 655378, 131072, 0, 655375, 327680, 5, 655374, 0, 0, 655376, 393216, 5, 655377, 458752, 5, 720912, 1, 5, 786448, 65537, 6, 851984, 393216, 6, 720913, 1, 5, 786449, 1, 5, 851985, 327680, 6, 655380, 1, 0, 720916, 65536, 0, 720915, 0, 0, 786451, 0, 1, 786452, 65536, 1, 524294, 65536, 1, 589830, 393216, 6, 589831, 131072, 2, 524295, 131072, 1, 589829, 327680, 6, 589828, 393216, 6, 524292, 65536, 5, 524293, 65536, 1, 524291, 0, 1, 589827, 0, 2, 65544, 131072, 0, 65543, 65536, 0, 131080, 131072, 1, 196616, 131072, 2, 131079, 131072, 5, 196615, 327680, 1, 196614, 131072, 5, 131078, 131072, 5, 262151, 131072, 2, 262150, 65536, 2, 65542, 65536, 0, 65541, 0, 0, 131077, 0, 1, 196613, 0, 1, 262149, 0, 2)
+
+[node name="TestFarm" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="TestFarm"]
+position = Vector2(248, 184)
+texture = ExtResource("5_4wpa6")
+
+[node name="Radish" parent="TestFarm" instance=ExtResource("6_mvqfo")]
+position = Vector2(248, 180)
+
+[node name="Radish2" parent="TestFarm" instance=ExtResource("6_mvqfo")]
+position = Vector2(248, 196)
+
+[node name="Radish3" parent="TestFarm" instance=ExtResource("6_mvqfo")]
+position = Vector2(264, 180)
+
+[node name="Radish4" parent="TestFarm" instance=ExtResource("6_mvqfo")]
+position = Vector2(264, 196)
+
+[node name="Radish5" parent="TestFarm" instance=ExtResource("6_mvqfo")]
+position = Vector2(280, 180)
+
+[node name="Radish6" parent="TestFarm" instance=ExtResource("6_mvqfo")]
+position = Vector2(280, 196)
+
+[node name="CatWorker" parent="." instance=ExtResource("7_phhhc")]
+position = Vector2(281, 89)
+
+[node name="GroundObjectsTileMap" parent="." instance=ExtResource("8_mjx5k")]
+layer_0/tile_data = PackedInt32Array(524298, 524288, 1, 589834, 524288, 2, 524299, 589824, 1, 589835, 589824, 2, 131105, 524288, 1, 196641, 524288, 2, 131106, 589824, 1, 196642, 589824, 2, 131073, 393216, 1, 196609, 393216, 2, 131074, 458752, 1, 196610, 458752, 2)

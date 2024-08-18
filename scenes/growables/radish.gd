@@ -1,0 +1,43 @@
+extends Node2D
+
+@export
+var growthDurationInSeconds := 15.0
+var growthStages := 3 # 3 growing frames, 1 harvest frame
+var currentGrowthDurationInSeconds := 0.0
+var currentGrowthStage := 1
+var timePerGrowthStage := growthDurationInSeconds / growthStages
+var completedGrowing := false
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+    pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+
+    if !completedGrowing and hasWater():
+        # print("Growing: ", currentGrowthDurationInSeconds)
+        currentGrowthDurationInSeconds += delta
+        if hasEnteredNextGrowthStage():
+            print("Entered next growth stage")
+            currentGrowthStage += 1
+            ($AnimatedSprite2D as AnimatedSprite2D).frame = currentGrowthStage - 1
+        if checkHasCompletedGrowing():
+            print("Completed growing")
+            completedGrowing = true
+            ($AnimatedSprite2D as AnimatedSprite2D).frame = growthStages
+            # Set to available for harvest
+
+func hasEnteredNextGrowthStage() -> bool:
+    var upperDurationLimit := timePerGrowthStage * currentGrowthStage
+    if currentGrowthDurationInSeconds >= upperDurationLimit:
+        return true
+    return false
+
+func checkHasCompletedGrowing() -> bool:
+    if currentGrowthDurationInSeconds >= growthDurationInSeconds:
+        return true
+    return false
+
+func hasWater() -> bool:
+    return true

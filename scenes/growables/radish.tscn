@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://dvxmb51r25x5t"]
+
+[ext_resource type="Script" path="res://scenes/growables/radish.gd" id="1_4n20n"]
+[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="1_frdyk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gp6s"]
+atlas = ExtResource("1_frdyk")
+region = Rect2(0, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tg1r1"]
+atlas = ExtResource("1_frdyk")
+region = Rect2(16, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n57pq"]
+atlas = ExtResource("1_frdyk")
+region = Rect2(32, 160, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcb62"]
+atlas = ExtResource("1_frdyk")
+region = Rect2(48, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vjh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gp6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tg1r1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n57pq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcb62")
+}],
+"loop": false,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Radish" type="Node2D"]
+script = ExtResource("1_4n20n")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1vjh5")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://djl276m57ehcb"]
+
+[ext_resource type="Texture2D" uid="uid://cr0e5papmnr5o" path="res://assets/crops/seeds/wheat_seeds.png" id="1_axymj"]
+[ext_resource type="Script" path="res://scenes/ui/action_menu/wheat_seeds.gd" id="2_7w10n"]
+
+[node name="WheatSeeds" type="Sprite2D"]
+texture = ExtResource("1_axymj")
+script = ExtResource("2_7w10n")

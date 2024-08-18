@@ -1,0 +1,219 @@
+[gd_scene load_steps=14 format=3 uid="uid://56cc4xcwsy8p"]
+
+[ext_resource type="Script" path="res://scenes/ui/action_menu.gd" id="1_7la4y"]
+[ext_resource type="Texture2D" uid="uid://d2jyvul8auyhf" path="res://assets/crops/items/wheat.png" id="2_vcnlq"]
+[ext_resource type="Texture2D" uid="uid://cg4tde0hdixfv" path="res://assets/crops/items/beet.png" id="3_7v1r8"]
+[ext_resource type="Texture2D" uid="uid://fnu0kcdrtox0" path="res://assets/crops/items/lettuce.png" id="4_8yg1x"]
+[ext_resource type="Texture2D" uid="uid://cn4xhcag4041o" path="res://assets/crops/items/carrot.png" id="5_rmfyn"]
+[ext_resource type="Texture2D" uid="uid://5eb2vpir235n" path="res://assets/crops/items/tomato.png" id="6_dqonf"]
+[ext_resource type="Texture2D" uid="uid://b14nt8r6vvai6" path="res://assets/crops/items/cabbage.png" id="7_auxem"]
+[ext_resource type="Texture2D" uid="uid://bxmbdfxmyb7kx" path="res://assets/crops/items/cauliflower.png" id="8_bsofq"]
+[ext_resource type="Texture2D" uid="uid://bdgt87hrg5tmx" path="res://assets/crops/items/corn.png" id="9_scsxn"]
+[ext_resource type="Texture2D" uid="uid://biqaim5hnaq11" path="res://assets/crops/items/eggplant.png" id="10_cg8dy"]
+[ext_resource type="Texture2D" uid="uid://dbe4tqyb2asc3" path="res://assets/crops/items/parsnip.png" id="11_4wpoq"]
+[ext_resource type="Texture2D" uid="uid://c2vhcv206rb6b" path="res://assets/crops/items/cucumber.png" id="12_nirlg"]
+[ext_resource type="Texture2D" uid="uid://bpuivg5bntev5" path="res://assets/crops/items/pumpkin.png" id="13_e1fg5"]
+
+[node name="ActionMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("1_7la4y")
+
+[node name="ActionMenuOpen" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = -52.0
+offset_right = 36.0
+offset_bottom = 134.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ActionMenuOpen/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="CloseActionMenuButton" type="Button" parent="ActionMenuOpen/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Close"
+
+[node name="GridContainer" type="GridContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="Wheat" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Wheat"]
+layout_mode = 2
+
+[node name="WheatButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Wheat/MarginContainer"]
+layout_mode = 2
+tooltip_text = "wheat"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("2_vcnlq")
+
+[node name="Beet" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Beet"]
+layout_mode = 2
+
+[node name="BeetButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Beet/MarginContainer"]
+layout_mode = 2
+tooltip_text = "beet"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_7v1r8")
+
+[node name="Lettuce" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Lettuce"]
+layout_mode = 2
+
+[node name="LettuceButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Lettuce/MarginContainer"]
+layout_mode = 2
+tooltip_text = "lettuce"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_8yg1x")
+
+[node name="Carrot" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Carrot"]
+layout_mode = 2
+
+[node name="CarrotButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Carrot/MarginContainer"]
+layout_mode = 2
+tooltip_text = "carrot"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_rmfyn")
+
+[node name="Tomato" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Tomato"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Tomato/MarginContainer"]
+layout_mode = 2
+tooltip_text = "tomato"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_dqonf")
+
+[node name="Cabbage" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cabbage"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cabbage/MarginContainer"]
+layout_mode = 2
+tooltip_text = "cabbage"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_auxem")
+
+[node name="Cauliflower" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cauliflower"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cauliflower/MarginContainer"]
+layout_mode = 2
+tooltip_text = "cauliflower"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_bsofq")
+
+[node name="Corn" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Corn"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Corn/MarginContainer"]
+layout_mode = 2
+tooltip_text = "corn"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_scsxn")
+
+[node name="Eggplant" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Eggplant"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Eggplant/MarginContainer"]
+layout_mode = 2
+tooltip_text = "eggplant"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_cg8dy")
+
+[node name="Parsnip" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Parsnip"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Parsnip/MarginContainer"]
+layout_mode = 2
+tooltip_text = "parsnip"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("11_4wpoq")
+
+[node name="Cucumber" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cucumber"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cucumber/MarginContainer"]
+layout_mode = 2
+tooltip_text = "cucumber"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("12_nirlg")
+
+[node name="Pumpkin" type="PanelContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Pumpkin"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Pumpkin/MarginContainer"]
+layout_mode = 2
+tooltip_text = "pumpkin"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("13_e1fg5")
+
+[node name="ActionMenuClosed" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 26.0
+offset_right = 42.0
+offset_bottom = 22.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ActionMenuClosed"]
+layout_mode = 2
+
+[node name="OpenActionMenuButton" type="Button" parent="ActionMenuClosed/MarginContainer"]
+layout_mode = 2
+text = "<"
+
+[connection signal="pressed" from="ActionMenuOpen/MarginContainer/VBoxContainer/HBoxContainer/CloseActionMenuButton" to="." method="_on_close_action_menu_button_pressed"]
+[connection signal="pressed" from="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Wheat/MarginContainer/WheatButton" to="." method="_on_wheat_button_pressed"]
+[connection signal="pressed" from="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Beet/MarginContainer/BeetButton" to="." method="_on_beet_button_pressed"]
+[connection signal="pressed" from="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Lettuce/MarginContainer/LettuceButton" to="." method="_on_lettuce_button_pressed"]
+[connection signal="pressed" from="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Carrot/MarginContainer/CarrotButton" to="." method="_on_carrot_button_pressed"]
+[connection signal="pressed" from="ActionMenuClosed/MarginContainer/OpenActionMenuButton" to="." method="_on_open_action_menu_button_pressed"]
