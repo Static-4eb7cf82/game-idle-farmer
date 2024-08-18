@@ -54,7 +54,9 @@ func get_seed_packet_node() -> Sprite2D:
         return selected_seed_packet_instance
     else:
         selected_seed_packet_instance = selected_seed_packet_scene.instantiate() as Sprite2D
-        add_child(selected_seed_packet_instance)
+        # Add the seed packet so that it's parent is a CanvasLayer with no transform.
+        # Let it be a child of the UI CanvasLayer.
+        get_parent().add_child(selected_seed_packet_instance)
         return selected_seed_packet_instance
 
 var wheat_seed_packet_texture := preload("res://assets/crops/seeds/wheat_seeds.png")
