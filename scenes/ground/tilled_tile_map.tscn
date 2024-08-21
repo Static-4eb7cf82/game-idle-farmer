@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cds8uwxnv0jyh"]
+[gd_scene load_steps=7 format=3 uid="uid://cds8uwxnv0jyh"]
 
 [ext_resource type="Texture2D" uid="uid://dg6ehj70ipkx5" path="res://assets/ground/Tilled_Dirt.png" id="1_7sv1v"]
 [ext_resource type="Texture2D" uid="uid://b0w6oa2clod7" path="res://assets/ground/Tilled_Dirt_Wide.png" id="2_cklq2"]
+[ext_resource type="Script" path="res://scenes/ground/tilled_tile_map.gd" id="3_28cro"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihaq0"]
 texture = ExtResource("1_7sv1v")
@@ -17,6 +18,7 @@ texture = ExtResource("1_7sv1v")
 9:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+1:1/0/custom_data_0 = true
 2:1/0 = 0
 3:1/0 = 0
 4:1/0 = 0
@@ -57,8 +59,11 @@ texture = ExtResource("1_7sv1v")
 7:4/0 = 0
 8:4/0 = 0
 0:5/0 = 0
+0:5/0/custom_data_0 = true
 1:5/0 = 0
+1:5/0/custom_data_0 = true
 2:5/0 = 0
+2:5/0/custom_data_0 = true
 3:5/0 = 0
 4:5/0 = 0
 5:5/0 = 0
@@ -67,8 +72,11 @@ texture = ExtResource("1_7sv1v")
 8:5/0 = 0
 9:5/0 = 0
 0:6/0 = 0
+0:6/0/custom_data_0 = true
 1:6/0 = 0
+1:6/0/custom_data_0 = true
 2:6/0 = 0
+2:6/0/custom_data_0 = true
 3:6/0 = 0
 4:6/0 = 0
 5:6/0 = 0
@@ -146,9 +154,12 @@ texture = ExtResource("2_cklq2")
 9:6/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_0uq4x"]
+custom_data_layer_0/name = "is_plottable"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_ihaq0")
 sources/1 = SubResource("TileSetAtlasSource_qgydj")
 
 [node name="TilledTileMap" type="TileMap"]
 tile_set = SubResource("TileSet_0uq4x")
 format = 2
+script = ExtResource("3_28cro")

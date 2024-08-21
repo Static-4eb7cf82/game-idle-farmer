@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "GDScript: Launch Project",
+            "name": "Main Scene",
             "type": "godot",
             "request": "launch",
             "project": "C:/Program Files/Godot/Projects/Game7",
@@ -9,7 +9,18 @@
             "debug_paths": false,
             "debug_navigation": false,
             "additional_options": "",
-            "scene": "current"
+            "scene": "main"
+        },
+        {
+            "name": "Current Scene",
+            "type": "godot",
+            "request": "launch",
+            "project": "C:/Program Files/Godot/Projects/Game7",
+            "debug_collisions": false,
+            "debug_paths": false,
+            "debug_navigation": false,
+            "additional_options": "",
+            "scene": "main"
         }
     ]
 }

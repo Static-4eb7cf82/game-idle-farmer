@@ -45,6 +45,7 @@ func _input(event: InputEvent) -> void:
 
 func destroy_selected_seed_packet() -> void:
     if selected_seed_packet_instance:
+        Player.selected_seed_type = Global.crop_type.NONE
         selected_seed_packet_instance.queue_free()
         selected_seed_packet_instance = null
 
@@ -80,13 +81,17 @@ func ensure_seed_packet_at_mouse_position(type: seed_type) -> void:
     selected_seed_packet.show()
 
 func _on_wheat_button_pressed() -> void:
+    Player.selected_seed_type = Global.crop_type.WHEAT
     ensure_seed_packet_at_mouse_position(seed_type.WHEAT)
 
 func _on_beet_button_pressed() -> void:
+    Player.selected_seed_type = Global.crop_type.BEET
     ensure_seed_packet_at_mouse_position(seed_type.BEET)
 
 func _on_lettuce_button_pressed() -> void:
+    Player.selected_seed_type = Global.crop_type.LETTUCE
     ensure_seed_packet_at_mouse_position(seed_type.LETTUCE)
 
 func _on_carrot_button_pressed() -> void:
+    Player.selected_seed_type = Global.crop_type.CARROT
     ensure_seed_packet_at_mouse_position(seed_type.CARROT)
