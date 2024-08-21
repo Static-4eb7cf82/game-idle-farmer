@@ -22,7 +22,7 @@ func _process(_delta: float) -> void:
 
         var clicked_tilemap_coords := self.local_to_map(self.get_local_mouse_position())
         var clicked_grid_cell := region.get_grid_cell(clicked_tilemap_coords)
-        if clicked_grid_cell and clicked_grid_cell.get_is_plottable():
+        if clicked_grid_cell and clicked_grid_cell.is_plottable:
             # instantiate the crop type that the player has selected at these coords
             # Plant it and set input as handled
             plant_crop(Player.selected_seed_type, self.map_to_local(clicked_tilemap_coords))
