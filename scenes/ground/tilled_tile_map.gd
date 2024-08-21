@@ -28,10 +28,10 @@ func _process(_delta: float) -> void:
             plant_crop(Player.selected_seed_type, self.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
 
-var wheat_crop_scene := preload("res://scenes/growables/radish.tscn")
-var beet_crop_scene := preload("res://scenes/growables/radish.tscn")
-var lettuce_crop_scene := preload("res://scenes/growables/radish.tscn")
-var carrot_crop_scene := preload("res://scenes/growables/radish.tscn")
+var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
+var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
+var lettuce_crop_scene := preload("res://scenes/growables/lettuce.tscn")
+var carrot_crop_scene := preload("res://scenes/growables/carrot.tscn")
 func plant_crop(crop_type: Global.crop_type, pos: Vector2) -> void:
     var crop_packed_scene: PackedScene
     match crop_type:

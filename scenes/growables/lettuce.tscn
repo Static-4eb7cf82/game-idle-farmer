@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://beatj5slgwjnu"]
+
+[ext_resource type="Script" path="res://scenes/growables/radish.gd" id="1_3b2hn"]
+[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="2_5b6wf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tb3dv"]
+atlas = ExtResource("2_5b6wf")
+region = Rect2(0, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4hjx"]
+atlas = ExtResource("2_5b6wf")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7u2ag"]
+atlas = ExtResource("2_5b6wf")
+region = Rect2(32, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clg77"]
+atlas = ExtResource("2_5b6wf")
+region = Rect2(48, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dmme"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tb3dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m4hjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7u2ag")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clg77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Lettuce" type="Node2D"]
+script = ExtResource("1_3b2hn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7dmme")
