@@ -9,29 +9,24 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
-
-func _unhandled_input(event: InputEvent) -> void:
-
+func _process(_delta: float) -> void:
+    
     # first check if player global has seeds selected before doing further calculations
     if Player.selected_seed_type == Global.crop_type.NONE:
         return
     # on click on tilled tilemap
     # if cell exists, and is_plottable, plant seed
     # when the crop is harvested, remember to set the cell back to is_plottable = true
-    if event is InputEventMouseButton:
-        var mouse_event := event as InputEventMouseButton
-        if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
 
-            var clicked_tilemap_coords := self.local_to_map(self.get_local_mouse_position())
-            var clicked_grid_cell := region.get_grid_cell(clicked_tilemap_coords)
-            if clicked_grid_cell and clicked_grid_cell.get_is_plottable():
-                # instantiate the crop type that the player has selected at these coords
-                # Plant it and set input as handled
-                plant_crop(Player.selected_seed_type, self.map_to_local(clicked_tilemap_coords))
-                clicked_grid_cell.is_plottable = false
-                get_viewport().set_input_as_handled()
+    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+
+        var clicked_tilemap_coords := self.local_to_map(self.get_local_mouse_position())
+        var clicked_grid_cell := region.get_grid_cell(clicked_tilemap_coords)
+        if clicked_grid_cell and clicked_grid_cell.get_is_plottable():
+            # instantiate the crop type that the player has selected at these coords
+            # Plant it and set input as handled
+            plant_crop(Player.selected_seed_type, self.map_to_local(clicked_tilemap_coords))
+            clicked_grid_cell.is_plottable = false
 
 var wheat_crop_scene := preload("res://scenes/growables/radish.tscn")
 var beet_crop_scene := preload("res://scenes/growables/radish.tscn")

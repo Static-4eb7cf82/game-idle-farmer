@@ -41,6 +41,7 @@ func set_grid_cell(pos: Vector2i, object: GridState) -> void:
 
 
 func get_grid_cell(pos: Vector2i) -> GridState:
+    # todo: fix player clicking outside of the grid
     return grid[pos.y][pos.x]
 
 
