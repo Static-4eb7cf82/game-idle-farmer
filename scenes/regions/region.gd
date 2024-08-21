@@ -18,15 +18,6 @@ class GridCellState:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-    pass
-
-
-func init() -> void:
     var dimensions := ground_tile_map.get_used_rect().size
     for y in dimensions.y:
         grid.append([])
@@ -34,6 +25,11 @@ func init() -> void:
             grid[y].append(null)
     
     debug_seed_grid()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+    pass
 
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:

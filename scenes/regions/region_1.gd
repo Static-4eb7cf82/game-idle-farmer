@@ -4,9 +4,9 @@ extends Region
 func _ready() -> void:
     region_name = "Region 1"
     ground_tile_map = $BrightGrassTileMap
-    init()
+    super()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-    pass
+func _process(delta: float) -> void:
+    super(delta)
