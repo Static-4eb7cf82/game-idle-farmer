@@ -36,11 +36,27 @@ func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
     grid[pos.y][pos.x] = cell_state
 
 
-func get_grid_cell(pos: Vector2i) -> GridCellState:
+func get_grid_coords_at_mouse() -> Vector2i:
+    var coords := get_grid_coords_from_pos(ground_tile_map.get_global_mouse_position())
+    print("Grid coords at mouse: ", coords)
+    return coords
+
+
+func get_grid_cell_at_mouse() -> GridCellState:
+    return get_grid_cell_from_coords(get_grid_coords_at_mouse())
+
+
+func get_grid_coords_from_pos(pos: Vector2) -> Vector2i:
+    var coords := ground_tile_map.local_to_map(pos)
+    return coords
+
+
+func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:
     if pos.y < grid.size() and pos.x < grid[0].size():
         return grid[pos.y][pos.x]
     else:
         return null
+
 
 var cat_worker_packed_scene := preload("res://scenes/character.tscn")
 func add_cat_worker() -> void:

@@ -22,6 +22,10 @@ func perform_water() -> void:
     # water at grid cell at mouse location
     print("Watering the crop")
     
+    print("get_grid_coords_at_mouse: ", region.get_grid_coords_at_mouse())
+    print("get_grid_coords_from_pos(position): ", region.get_grid_coords_from_pos(position))
+
+    # region.get_grid_cell_at_mouse()
 
 
 func _physics_process(_delta: float) -> void:
