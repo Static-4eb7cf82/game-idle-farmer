@@ -3,6 +3,7 @@ extends CharacterBody2D
 var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
 var character_direction := direction.DOWN
+var performing_action_animation := false
 
 enum direction {
     UP,
@@ -42,6 +43,29 @@ func perform_water() -> void:
     print("water coords: ", water_cell_coords)
     # print("Water cell: ", water_cell)
     region.ground_tile_map.set_cell(2, water_cell_coords, 7, Vector2i(0, 0))
+    performing_action_animation = true
+    match character_direction:
+        direction.UP:
+            $AnimatedSprite2D.play("back_water")
+            $WaterFromCanAnimation.flip_h = true
+            $WaterFromCanAnimation.position = Vector2(2, -4)
+            $WaterFromCanAnimation.play("front_water")
+        direction.DOWN:
+            $AnimatedSprite2D.play("front_water")
+            $WaterFromCanAnimation.flip_h = false
+            $WaterFromCanAnimation.position = Vector2(0, 0)
+            $WaterFromCanAnimation.play("front_water")
+        direction.LEFT:
+            $AnimatedSprite2D.play("left_water")
+            $WaterFromCanAnimation.flip_h = false
+            $WaterFromCanAnimation.play("left_water")
+            $WaterFromCanAnimation.position = Vector2(-14, 0)
+        direction.RIGHT:
+            $AnimatedSprite2D.play("right_water")
+            $WaterFromCanAnimation.flip_h = false
+            $WaterFromCanAnimation.play("right_water")
+            $WaterFromCanAnimation.position = Vector2(14, 0)
+    
 
 
 func _physics_process(_delta: float) -> void:
@@ -72,6 +96,8 @@ func _physics_process(_delta: float) -> void:
     move_and_slide()
 
 func handle_animation() -> void:
+    if performing_action_animation:
+        return
     if velocity.x != 0 or velocity.y != 0:
         if character_direction == direction.UP:
             $AnimatedSprite2D.play("back_walk")
@@ -90,3 +116,7 @@ func handle_animation() -> void:
             $AnimatedSprite2D.play("left_idle")
         else:
             $AnimatedSprite2D.play("right_idle")
+
+func _on_water_from_can_animation_animation_finished() -> void:
+    performing_action_animation = false
+    handle_animation()

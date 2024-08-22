@@ -1,4 +1,4 @@
-[gd_scene load_steps=131 format=3 uid="uid://lpexokwjiav8"]
+[gd_scene load_steps=130 format=3 uid="uid://lpexokwjiav8"]
 
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_ehkfd"]
 [ext_resource type="Texture2D" uid="uid://bdb56uc3qe7vb" path="res://assets/character/Premium Charakter Spritesheet.png" id="1_qpbo0"]
@@ -262,10 +262,6 @@ region = Rect2(288, 336, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xdje3"]
 atlas = ExtResource("1_qpbo0")
 region = Rect2(336, 336, 48, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jllm7"]
-atlas = ExtResource("1_qpbo0")
-region = Rect2(96, 912, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ax23j"]
 atlas = ExtResource("1_qpbo0")
@@ -631,9 +627,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jllm7")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_ax23j")
 }, {
 "duration": 1.0,
@@ -965,11 +958,15 @@ shape = SubResource("RectangleShape2D_xl0ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3fveb")
-animation = &"front_water"
+animation = &"back_water"
 autoplay = "front_idle"
+frame = 4
+frame_progress = 0.309735
 
 [node name="WaterFromCanAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mi3hm")
 animation = &"front_water"
 frame = 8
 frame_progress = 1.0
+
+[connection signal="animation_finished" from="WaterFromCanAnimation" to="." method="_on_water_from_can_animation_animation_finished"]
