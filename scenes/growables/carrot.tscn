@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dwy80w4pbanfo"]
 
-[ext_resource type="Script" path="res://scenes/growables/radish.gd" id="1_8ax87"]
+[ext_resource type="Script" path="res://scenes/growables/crop.gd" id="1_fx8l7"]
 [ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="2_am8c8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1ml5"]
@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="Carrot" type="Node2D"]
-script = ExtResource("1_8ax87")
+script = ExtResource("1_fx8l7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mxyxh")

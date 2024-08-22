@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvxmb51r25x5t"]
 
-[ext_resource type="Script" path="res://scenes/growables/radish.gd" id="1_4n20n"]
 [ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="1_frdyk"]
+[ext_resource type="Script" path="res://scenes/growables/crop.gd" id="1_ts1iu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8gp6s"]
 atlas = ExtResource("1_frdyk")
@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="Radish" type="Node2D"]
-script = ExtResource("1_4n20n")
+script = ExtResource("1_ts1iu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1vjh5")
