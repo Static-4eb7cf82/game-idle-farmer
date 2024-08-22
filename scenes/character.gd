@@ -18,7 +18,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
             if event.keycode == KEY_1:
                 perform_water()
 
-var water_sprite := preload("res://assets/ground/watered_tile.png")
 func perform_water() -> void:
     # water at the grid cell in front of the cat
     # i.e. water the grid cell at cat position + 1 grid cell in cat's direction
@@ -39,10 +38,10 @@ func perform_water() -> void:
             direction_offset = Vector2i(1, 0)
 
     var water_cell := region.get_grid_cell_from_coords(cat_grid_coords + direction_offset)
-    print("water coords: ", cat_grid_coords + direction_offset)
+    var water_cell_coords := cat_grid_coords + direction_offset
+    print("water coords: ", water_cell_coords)
     print("Water cell: ", water_cell)
-    # region.get_grid_cell_at_mouse()
-    
+    region.ground_tile_map.set_cell(2, water_cell_coords, 7, Vector2i(0, 0))
 
 
 func _physics_process(_delta: float) -> void:
