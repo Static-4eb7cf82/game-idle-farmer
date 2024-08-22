@@ -24,11 +24,11 @@ func _process(delta: float) -> void:
         # print("Growing: ", currentGrowthDurationInSeconds)
         currentGrowthDurationInSeconds += delta
         if hasEnteredNextGrowthStage():
-            print("Entered next growth stage")
+            # print("Entered next growth stage")
             currentGrowthStage += 1
             ($AnimatedSprite2D as AnimatedSprite2D).frame = currentGrowthStage - 1
         if checkHasCompletedGrowing():
-            print("Completed growing")
+            # print("Completed growing")
             completedGrowing = true
             ($AnimatedSprite2D as AnimatedSprite2D).frame = growthStages
             # Set to available for harvest
