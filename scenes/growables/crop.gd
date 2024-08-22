@@ -4,16 +4,18 @@ class_name Crop
 
 @export
 var growthDurationInSeconds := 15.0
+@export
 var growthStages := 3 # 3 growing frames, 1 harvest frame
 var currentGrowthDurationInSeconds := 0.0
 var currentGrowthStage := 1
-var timePerGrowthStage := growthDurationInSeconds / growthStages
+var timePerGrowthStage : float
 var completedGrowing := false
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    pass # Replace with function body.
+    # Place in on ready to take in exported variable changes
+    timePerGrowthStage = growthDurationInSeconds / growthStages
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
