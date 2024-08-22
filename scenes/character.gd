@@ -21,10 +21,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func perform_water() -> void:
     # water at the grid cell in front of the cat
     # i.e. water the grid cell at cat position + 1 grid cell in cat's direction
-    print("Watering the crop")
+    # print("Watering the crop")
     
-    print("get_grid_coords_at_mouse: ", region.get_grid_coords_at_mouse())
-    print("get_grid_coords_from_pos(position): ", region.get_grid_coords_from_pos(position))
+    # print("get_grid_coords_at_mouse: ", region.get_grid_coords_at_mouse())
+    # print("get_grid_coords_from_pos(position): ", region.get_grid_coords_from_pos(position))
     var cat_grid_coords := region.get_grid_coords_from_pos(position)
     var direction_offset : Vector2i
     match character_direction:
@@ -40,7 +40,7 @@ func perform_water() -> void:
     var water_cell := region.get_grid_cell_from_coords(cat_grid_coords + direction_offset)
     var water_cell_coords := cat_grid_coords + direction_offset
     print("water coords: ", water_cell_coords)
-    print("Water cell: ", water_cell)
+    # print("Water cell: ", water_cell)
     region.ground_tile_map.set_cell(2, water_cell_coords, 7, Vector2i(0, 0))
 
 
