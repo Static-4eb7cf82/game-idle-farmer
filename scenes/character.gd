@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
 var character_direction := direction.DOWN
 
@@ -10,6 +10,19 @@ enum direction {
     LEFT,
     RIGHT
 }
+
+
+func _unhandled_key_input(event: InputEvent) -> void:
+    if event is InputEventKey:
+        if event.pressed:
+            if event.keycode == KEY_1:
+                perform_water()
+
+func perform_water() -> void:
+    # water at grid cell at mouse location
+    print("Watering the crop")
+    
+
 
 func _physics_process(_delta: float) -> void:
 

@@ -42,6 +42,13 @@ func get_grid_cell(pos: Vector2i) -> GridCellState:
     else:
         return null
 
+var cat_worker_packed_scene := preload("res://scenes/character.tscn")
+func add_cat_worker() -> void:
+    var cat_worker_instance := cat_worker_packed_scene.instantiate()
+    cat_worker_instance.region = self
+    cat_worker_instance.position = Vector2(100, 100)
+    add_child(cat_worker_instance)
+    cat_worker_instance.add_to_group("%s_cat_workers" % region_name)
 
 func debug_seed_grid() -> void:
     set_grid_cell(Vector2i(15, 11), GridCellState.new(true))

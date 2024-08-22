@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://isj6fe114qca"]
+[gd_scene load_steps=8 format=3 uid="uid://isj6fe114qca"]
 
 [ext_resource type="Script" path="res://scenes/regions/region_1.gd" id="1_b71uf"]
 [ext_resource type="PackedScene" uid="uid://bqrfd3uubg43" path="res://scenes/ground/water_tile_map.tscn" id="2_0nsll"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cds8uwxnv0jyh" path="res://scenes/ground/tilled_tile_map.tscn" id="4_n1pfy"]
 [ext_resource type="Texture2D" uid="uid://cx043manifvys" path="res://assets/ground/watered_tile.png" id="5_4wpa6"]
 [ext_resource type="PackedScene" uid="uid://dvxmb51r25x5t" path="res://scenes/growables/radish.tscn" id="6_mvqfo"]
-[ext_resource type="PackedScene" uid="uid://lpexokwjiav8" path="res://scenes/character.tscn" id="7_phhhc"]
 [ext_resource type="PackedScene" uid="uid://c8jlk70a3dkkf" path="res://scenes/ground/ground_objects_tile_map.tscn" id="8_mjx5k"]
 
 [node name="Region1" type="Node2D"]
@@ -31,9 +30,6 @@ texture = ExtResource("5_4wpa6")
 
 [node name="Radish" parent="TestFarm" instance=ExtResource("6_mvqfo")]
 position = Vector2(248, 180)
-
-[node name="CatWorker" parent="." instance=ExtResource("7_phhhc")]
-position = Vector2(281, 89)
 
 [node name="GroundObjectsTileMap" parent="." instance=ExtResource("8_mjx5k")]
 layer_0/tile_data = PackedInt32Array(524298, 524288, 1, 589834, 524288, 2, 524299, 589824, 1, 589835, 589824, 2, 131105, 524288, 1, 196641, 524288, 2, 131106, 589824, 1, 196642, 589824, 2, 131073, 393216, 1, 196609, 393216, 2, 131074, 458752, 1, 196610, 458752, 2)
