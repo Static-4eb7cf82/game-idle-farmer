@@ -10,12 +10,16 @@ var currentGrowthDurationInSeconds := 0.0
 var currentGrowthStage := 1
 var timePerGrowthStage : float
 var completedGrowing := false
+var region: Region
+var region_coords: Vector2i
+var crop_type: Global.CROP_TYPE
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     # Place in on ready to take in exported variable changes
     timePerGrowthStage = growthDurationInSeconds / growthStages
+    region_coords = region.get_grid_coords_from_pos(position)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +32,7 @@ func _process(delta: float) -> void:
             currentGrowthStage += 1
             ($AnimatedSprite2D as AnimatedSprite2D).frame = currentGrowthStage - 1
         if checkHasCompletedGrowing():
-            # print("Completed growing")
+            print("%s at %s completed growing" % [Global.CROP_TYPE.keys()[crop_type], region.get_grid_coords_from_pos(position)])
             completedGrowing = true
             ($AnimatedSprite2D as AnimatedSprite2D).frame = growthStages
             # Set to available for harvest
@@ -45,4 +49,8 @@ func checkHasCompletedGrowing() -> bool:
     return false
 
 func hasWater() -> bool:
-    return true
+    var grid_cell := region.get_grid_cell_from_coords(region_coords)
+    if grid_cell and grid_cell.has_water:
+        print("Has water")
+        return true
+    return false

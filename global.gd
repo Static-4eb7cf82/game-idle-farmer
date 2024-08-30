@@ -12,7 +12,7 @@ func _process(_delta: float) -> void:
 
 # todo: Move to a static constants class
 # rename this class to GlobalState
-enum crop_type {
+enum CROP_TYPE {
     NONE,
     WHEAT,
     BEET,

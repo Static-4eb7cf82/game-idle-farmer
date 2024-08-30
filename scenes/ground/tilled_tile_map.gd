@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     
     # first check if player global has seeds selected before doing further calculations
-    if Player.selected_seed_type == Global.crop_type.NONE:
+    if Player.selected_seed_type == Global.CROP_TYPE.NONE:
         return
     # on click on tilled tilemap
     # if cell exists, and is_plottable, plant seed
@@ -32,19 +32,21 @@ var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
 var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
 var lettuce_crop_scene := preload("res://scenes/growables/lettuce.tscn")
 var carrot_crop_scene := preload("res://scenes/growables/carrot.tscn")
-func plant_crop(crop_type: Global.crop_type, pos: Vector2) -> void:
+func plant_crop(crop_type: Global.CROP_TYPE, pos: Vector2) -> void:
     var crop_packed_scene: PackedScene
     match crop_type:
-        Global.crop_type.WHEAT:
+        Global.CROP_TYPE.WHEAT:
             crop_packed_scene = wheat_crop_scene
-        Global.crop_type.BEET:
+        Global.CROP_TYPE.BEET:
             crop_packed_scene = beet_crop_scene
-        Global.crop_type.LETTUCE:
+        Global.CROP_TYPE.LETTUCE:
             crop_packed_scene = lettuce_crop_scene
-        Global.crop_type.CARROT:
+        Global.CROP_TYPE.CARROT:
             crop_packed_scene = carrot_crop_scene
 
     if crop_packed_scene:
-        var instance := crop_packed_scene.instantiate() as Node2D
+        var instance := crop_packed_scene.instantiate() as Crop
         instance.position = pos
+        instance.region = region
+        instance.crop_type = crop_type
         add_child(instance)

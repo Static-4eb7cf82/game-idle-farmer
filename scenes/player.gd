@@ -15,7 +15,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     pass
 
-var selected_seed_type: Global.crop_type = Global.crop_type.NONE
+var selected_seed_type: Global.CROP_TYPE = Global.CROP_TYPE.NONE
 func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventMouseButton:
         var mouse_event := event as InputEventMouseButton

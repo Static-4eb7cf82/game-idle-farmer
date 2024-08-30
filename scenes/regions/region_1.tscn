@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://isj6fe114qca"]
+[gd_scene load_steps=6 format=3 uid="uid://isj6fe114qca"]
 
 [ext_resource type="Script" path="res://scenes/regions/region_1.gd" id="1_b71uf"]
 [ext_resource type="PackedScene" uid="uid://bqrfd3uubg43" path="res://scenes/ground/water_tile_map.tscn" id="2_0nsll"]
 [ext_resource type="PackedScene" uid="uid://bkryf4aii122f" path="res://scenes/ground/bright_grass_tile_map.tscn" id="3_in8wm"]
 [ext_resource type="PackedScene" uid="uid://cds8uwxnv0jyh" path="res://scenes/ground/tilled_tile_map.tscn" id="4_n1pfy"]
-[ext_resource type="Texture2D" uid="uid://cx043manifvys" path="res://assets/ground/watered_tile.png" id="5_4wpa6"]
-[ext_resource type="PackedScene" uid="uid://dvxmb51r25x5t" path="res://scenes/growables/radish.tscn" id="6_mvqfo"]
 [ext_resource type="PackedScene" uid="uid://c8jlk70a3dkkf" path="res://scenes/ground/ground_objects_tile_map.tscn" id="8_mjx5k"]
 
 [node name="Region1" type="Node2D"]
@@ -23,15 +21,6 @@ layer_2/tile_data = PackedInt32Array()
 
 [node name="TilledTileMap" parent="." instance=ExtResource("4_n1pfy")]
 layer_0/tile_data = PackedInt32Array(720910, 524288, 5, 786446, 0, 1, 851982, 0, 2, 851983, 327680, 6, 720911, 65536, 1, 786447, 65536, 1, 720914, 131072, 1, 786450, 589824, 5, 851986, 131072, 2, 655378, 131072, 0, 655375, 327680, 5, 655374, 0, 0, 655376, 393216, 5, 655377, 458752, 5, 720912, 65536, 1, 851984, 393216, 6, 720913, 65536, 1, 786449, 65536, 1, 851985, 327680, 6, 524294, 65536, 1, 589830, 393216, 6, 589831, 131072, 2, 524295, 131072, 1, 589829, 327680, 6, 589828, 393216, 6, 524292, 65536, 5, 524293, 65536, 1, 524291, 0, 1, 589827, 0, 2, 65544, 131072, 0, 65543, 65536, 0, 131080, 131072, 1, 196616, 131072, 2, 131079, 131072, 5, 196615, 327680, 1, 196614, 131072, 5, 131078, 131072, 5, 262151, 131072, 2, 262150, 65536, 2, 65542, 65536, 0, 65541, 0, 0, 131077, 0, 1, 196613, 0, 1, 262149, 0, 2, 786448, 65536, 1, 720918, 65536, 1, 720920, 65536, 1, 851992, 65536, 1, 851990, 65536, 1)
-
-[node name="TestFarm" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="TestFarm"]
-position = Vector2(248, 184)
-texture = ExtResource("5_4wpa6")
-
-[node name="Radish" parent="TestFarm" instance=ExtResource("6_mvqfo")]
-position = Vector2(248, 180)
 
 [node name="GroundObjectsTileMap" parent="." instance=ExtResource("8_mjx5k")]
 layer_0/tile_data = PackedInt32Array(524298, 524288, 1, 589834, 524288, 2, 524299, 589824, 1, 589835, 589824, 2, 131105, 524288, 1, 196641, 524288, 2, 131106, 589824, 1, 196642, 589824, 2, 131073, 393216, 1, 196609, 393216, 2, 131074, 458752, 1, 196610, 458752, 2)
