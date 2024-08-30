@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qa5n5oel6etp"]
+
+[ext_resource type="Script" path="res://scenes/ground/watered_soil.gd" id="1_tak0f"]
+
+[node name="WateredSoil" type="Node2D"]
+script = ExtResource("1_tak0f")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

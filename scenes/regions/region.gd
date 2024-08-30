@@ -57,6 +57,19 @@ func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:
     else:
         return null
 
+var watered_soil_packed_scene := preload("res://scenes/ground/watered_soil.tscn")
+func place_water_at_coords(coords: Vector2i) -> void:
+    var watered_soil_instance := watered_soil_packed_scene.instantiate() as Node2D
+    watered_soil_instance.coords = coords
+    watered_soil_instance.region = self
+    add_child(watered_soil_instance)
+
+    ground_tile_map.set_cell(2, coords, 7, Vector2i(0, 0))
+
+
+func expire_water_at_coords(coords: Vector2i) -> void:
+    ground_tile_map.erase_cell(2, coords)
+
 
 var cat_worker_packed_scene := preload("res://scenes/character.tscn")
 func add_cat_worker() -> void:

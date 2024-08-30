@@ -42,7 +42,7 @@ func perform_water() -> void:
     var water_cell_coords := cat_grid_coords + direction_offset
     print("water coords: ", water_cell_coords)
     # print("Water cell: ", water_cell)
-    region.ground_tile_map.set_cell(2, water_cell_coords, 7, Vector2i(0, 0))
+    region.place_water_at_coords(water_cell_coords)
     performing_action_animation = true
     match character_direction:
         direction.UP:
