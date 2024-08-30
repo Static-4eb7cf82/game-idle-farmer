@@ -51,6 +51,6 @@ func checkHasCompletedGrowing() -> bool:
 func hasWater() -> bool:
     var grid_cell := region.get_grid_cell_from_coords(region_coords)
     if grid_cell and grid_cell.has_water:
-        print("Has water")
+        # print("Has water")
         return true
     return false
