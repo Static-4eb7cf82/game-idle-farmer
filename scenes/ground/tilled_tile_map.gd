@@ -5,7 +5,6 @@ var region: Region
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     region = get_parent() as Region
-    pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -27,6 +26,7 @@ func _process(_delta: float) -> void:
             # Plant it and set input as handled
             plant_crop(Player.selected_seed_type, self.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
+
 
 var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
 var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
@@ -50,3 +50,4 @@ func plant_crop(crop_type: Global.CROP_TYPE, pos: Vector2) -> void:
         instance.region = region
         instance.crop_type = crop_type
         add_child(instance)
+        instance.add_to_group(region.crops_group_name)

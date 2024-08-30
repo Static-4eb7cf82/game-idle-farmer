@@ -6,6 +6,8 @@ var region_name: String
 var ground_tile_map: TileMap
 var tilled_soil_tile_map: TileMap
 var grid: Array
+var crops_group_name: String
+var cats_group_name: String
 
 class GridCellState:
     
@@ -28,6 +30,9 @@ func _ready() -> void:
             grid[y].append(null)
     
     debug_seed_grid()
+
+    crops_group_name = "%s_crops" % region_name
+    cats_group_name = "%s_cat_workers" % region_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,6 +65,7 @@ func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:
     else:
         return null
 
+
 var watered_soil_packed_scene := preload("res://scenes/ground/watered_soil.tscn")
 var watered_soil_layer := 1
 func place_water_at_coords(coords: Vector2i) -> void:
@@ -85,13 +91,23 @@ func expire_water_at_coords(coords: Vector2i) -> void:
     get_grid_cell_from_coords(coords).has_water = false
 
 
+func get_crop_at_coords(coords: Vector2i) -> Crop:
+    var region_crops := get_tree().get_nodes_in_group(crops_group_name)
+    for crop in region_crops:
+        # todo: cast to Crop type
+        if crop.region_coords == coords:
+            return crop
+    return null
+
+
 var cat_worker_packed_scene := preload("res://scenes/character.tscn")
 func add_cat_worker() -> void:
     var cat_worker_instance := cat_worker_packed_scene.instantiate()
     cat_worker_instance.region = self
     cat_worker_instance.position = Vector2(100, 100)
     add_child(cat_worker_instance)
-    cat_worker_instance.add_to_group("%s_cat_workers" % region_name)
+    cat_worker_instance.add_to_group(cats_group_name)
+
 
 func debug_seed_grid() -> void:
     set_grid_cell(Vector2i(15, 11), GridCellState.new(true, false))
