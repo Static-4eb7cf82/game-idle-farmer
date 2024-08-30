@@ -38,10 +38,8 @@ func perform_water() -> void:
         direction.RIGHT:
             direction_offset = Vector2i(1, 0)
 
-    var water_cell := region.get_grid_cell_from_coords(cat_grid_coords + direction_offset)
     var water_cell_coords := cat_grid_coords + direction_offset
-    print("water coords: ", water_cell_coords)
-    # print("Water cell: ", water_cell)
+    print("water at coords: ", water_cell_coords)
     region.place_water_at_coords(water_cell_coords)
     performing_action_animation = true
     match character_direction:

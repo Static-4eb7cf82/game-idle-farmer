@@ -4,6 +4,7 @@ extends Region
 func _ready() -> void:
     region_name = "Region_1"
     ground_tile_map = $BrightGrassTileMap
+    tilled_soil_tile_map = $TilledTileMap
     super()
 
     # Add the first cat worker

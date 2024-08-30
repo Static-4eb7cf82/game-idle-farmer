@@ -4,6 +4,7 @@ class_name Region
 
 var region_name: String
 var ground_tile_map: TileMap
+var tilled_soil_tile_map: TileMap
 var grid: Array
 
 class GridCellState:
@@ -60,13 +61,14 @@ func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:
         return null
 
 var watered_soil_packed_scene := preload("res://scenes/ground/watered_soil.tscn")
+var watered_soil_layer := 1
 func place_water_at_coords(coords: Vector2i) -> void:
     var watered_soil_instance := watered_soil_packed_scene.instantiate() as Node2D
     watered_soil_instance.coords = coords
     watered_soil_instance.region = self
     add_child(watered_soil_instance)
 
-    ground_tile_map.set_cell(2, coords, 7, Vector2i(0, 0))
+    tilled_soil_tile_map.set_cell(watered_soil_layer, coords, 2, Vector2i(0, 0))
 
     var grid_cell := get_grid_cell_from_coords(coords)
     if grid_cell:
@@ -79,7 +81,7 @@ func place_water_at_coords(coords: Vector2i) -> void:
 
 
 func expire_water_at_coords(coords: Vector2i) -> void:
-    ground_tile_map.erase_cell(2, coords)
+    tilled_soil_tile_map.erase_cell(watered_soil_layer, coords)
     get_grid_cell_from_coords(coords).has_water = false
 
 
