@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cmrm6wiwuxbr1"]
+[gd_scene load_steps=2 format=3 uid="uid://cmrm6wiwuxbr1"]
+
+[ext_resource type="Script" path="res://scenes/generic_splash_particle.gd" id="1_r17rq"]
 
 [node name="GenericSplashParticle" type="CPUParticles2D"]
 emitting = false
@@ -10,3 +12,6 @@ spread = 28.0
 gravity = Vector2(0, 200)
 initial_velocity_min = 44.45
 initial_velocity_max = 100.0
+script = ExtResource("1_r17rq")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
