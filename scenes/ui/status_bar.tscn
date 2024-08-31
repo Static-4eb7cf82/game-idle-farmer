@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://kpxfyxi8vwct"]
+[gd_scene load_steps=2 format=3 uid="uid://kpxfyxi8vwct"]
+
+[ext_resource type="Script" path="res://scenes/ui/status_bar/CoinsLabel.gd" id="1_awmcw"]
 
 [node name="StatusBar" type="Control"]
 layout_mode = 3
@@ -32,3 +34,4 @@ theme_override_constants/margin_bottom = 0
 layout_mode = 2
 theme_override_colors/font_color = Color(0.912579, 0.885282, 0.795563, 1)
 text = "coins 100"
+script = ExtResource("1_awmcw")

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Global="*res://global.gd"
 Player="*res://scenes/player.tscn"
+GlobalSignals="*res://global_signals.gd"
 
 [debug]
 
