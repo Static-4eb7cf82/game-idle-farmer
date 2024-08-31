@@ -1,21 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://snl03f2tcd3a"]
+[gd_scene load_steps=8 format=3 uid="uid://bq83cwhh7y213"]
 
-[ext_resource type="Script" path="res://scenes/growables/beet.gd" id="1_cxugp"]
+[ext_resource type="Script" path="res://scenes/growables/beet.gd" id="1_kdqvy"]
 [ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="2_ejge5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4snwu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc514"]
 atlas = ExtResource("2_ejge5")
 region = Rect2(0, 192, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xch8y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_scvj4"]
 atlas = ExtResource("2_ejge5")
 region = Rect2(16, 192, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u0ei8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1akgg"]
 atlas = ExtResource("2_ejge5")
 region = Rect2(32, 192, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qmrki"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ya3jf"]
 atlas = ExtResource("2_ejge5")
 region = Rect2(48, 192, 16, 16)
 
@@ -23,16 +23,16 @@ region = Rect2(48, 192, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4snwu")
+"texture": SubResource("AtlasTexture_cc514")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xch8y")
+"texture": SubResource("AtlasTexture_scvj4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u0ei8")
+"texture": SubResource("AtlasTexture_1akgg")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qmrki")
+"texture": SubResource("AtlasTexture_ya3jf")
 }],
 "loop": true,
 "name": &"default",
@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [node name="Beet" type="Node2D"]
-script = ExtResource("1_cxugp")
+script = ExtResource("1_kdqvy")
 growthDurationInSeconds = 10.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
