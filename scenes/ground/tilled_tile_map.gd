@@ -11,7 +11,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     
     # first check if player global has seeds selected before doing further calculations
-    if Player.selected_seed_type == Global.CROP_TYPE.NONE:
+    if not Player.selected_seed_packet:
         return
     # on click on tilled tilemap
     # if cell exists, and is_plottable, plant seed
@@ -24,7 +24,10 @@ func _process(_delta: float) -> void:
         if clicked_grid_cell and clicked_grid_cell.is_plottable:
             # instantiate the crop type that the player has selected at these coords
             # Plant it and set input as handled
-            plant_crop(Player.selected_seed_type, self.map_to_local(clicked_tilemap_coords))
+            if Player.coins < Player.selected_seed_packet.price:
+                print("Not enough coins to plant this crop")
+                return
+            plant_crop(Player.selected_seed_packet, self.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
 
 
@@ -32,9 +35,9 @@ var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
 var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
 var lettuce_crop_scene := preload("res://scenes/growables/lettuce.tscn")
 var carrot_crop_scene := preload("res://scenes/growables/carrot.tscn")
-func plant_crop(crop_type: Global.CROP_TYPE, pos: Vector2) -> void:
+func plant_crop(selected_seed_packet: SelectedSeedPacket, pos: Vector2) -> void:
     var crop_packed_scene: PackedScene
-    match crop_type:
+    match selected_seed_packet.crop_type:
         Global.CROP_TYPE.WHEAT:
             crop_packed_scene = wheat_crop_scene
         Global.CROP_TYPE.BEET:
@@ -48,6 +51,9 @@ func plant_crop(crop_type: Global.CROP_TYPE, pos: Vector2) -> void:
         var instance := crop_packed_scene.instantiate() as Crop
         instance.position = pos
         instance.region = region
-        instance.crop_type = crop_type
+        instance.crop_type = selected_seed_packet.crop_type
         add_child(instance)
         instance.add_to_group(region.crops_group_name)
+
+        Player.coins -= selected_seed_packet.price
+        print("Player coins after planting: ", Player.coins)

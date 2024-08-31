@@ -45,12 +45,12 @@ func _input(event: InputEvent) -> void:
 
 func destroy_selected_seed_packet() -> void:
     if selected_seed_packet_instance:
-        Player.selected_seed_type = Global.CROP_TYPE.NONE
+        Player.selected_seed_packet = null
         selected_seed_packet_instance.queue_free()
         selected_seed_packet_instance = null
 
 var selected_seed_packet_scene := preload("res://scenes/selected_seed_packet.tscn")
-func get_seed_packet_node() -> Sprite2D:
+func get_seed_packet_node() -> SelectedSeedPacket:
     if selected_seed_packet_instance:
         return selected_seed_packet_instance
     else:
@@ -69,29 +69,34 @@ func ensure_seed_packet_at_mouse_position(type: seed_type) -> void:
 
     match type:
         seed_type.WHEAT:
+            selected_seed_packet.crop_type = Global.CROP_TYPE.WHEAT
             selected_seed_packet.texture = wheat_seed_packet_texture
+            selected_seed_packet.price = 10
         seed_type.BEET:
+            selected_seed_packet.crop_type = Global.CROP_TYPE.BEET
             selected_seed_packet.texture = beet_seed_packet_texture
+            selected_seed_packet.price = 20
         seed_type.LETTUCE:
+            selected_seed_packet.crop_type = Global.CROP_TYPE.LETTUCE
             selected_seed_packet.texture = lettuce_seed_packet_texture
+            selected_seed_packet.price = 30
         seed_type.CARROT:
+            selected_seed_packet.crop_type = Global.CROP_TYPE.CARROT
             selected_seed_packet.texture = carrot_seed_packet_texture
+            selected_seed_packet.price = 40
 
+    Player.selected_seed_packet = selected_seed_packet  
     selected_seed_packet.position = get_viewport().get_mouse_position()
     selected_seed_packet.show()
 
 func _on_wheat_button_pressed() -> void:
-    Player.selected_seed_type = Global.CROP_TYPE.WHEAT
     ensure_seed_packet_at_mouse_position(seed_type.WHEAT)
 
 func _on_beet_button_pressed() -> void:
-    Player.selected_seed_type = Global.CROP_TYPE.BEET
     ensure_seed_packet_at_mouse_position(seed_type.BEET)
 
 func _on_lettuce_button_pressed() -> void:
-    Player.selected_seed_type = Global.CROP_TYPE.LETTUCE
     ensure_seed_packet_at_mouse_position(seed_type.LETTUCE)
 
 func _on_carrot_button_pressed() -> void:
-    Player.selected_seed_type = Global.CROP_TYPE.CARROT
     ensure_seed_packet_at_mouse_position(seed_type.CARROT)

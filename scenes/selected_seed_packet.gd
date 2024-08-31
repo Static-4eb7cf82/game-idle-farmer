@@ -1,5 +1,9 @@
 extends Sprite2D
 
+class_name SelectedSeedPacket
+
+var price: int
+var crop_type: Global.CROP_TYPE
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
