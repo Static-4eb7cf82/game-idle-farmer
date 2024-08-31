@@ -68,6 +68,34 @@ func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:
         return null
 
 
+var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
+var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
+var lettuce_crop_scene := preload("res://scenes/growables/lettuce.tscn")
+var carrot_crop_scene := preload("res://scenes/growables/carrot.tscn")
+func plant_crop(selected_seed_packet: SelectedSeedPacket, pos: Vector2) -> void:
+    var crop_packed_scene: PackedScene
+    match selected_seed_packet.crop_type:
+        Global.CROP_TYPE.WHEAT:
+            crop_packed_scene = wheat_crop_scene
+        Global.CROP_TYPE.BEET:
+            crop_packed_scene = beet_crop_scene
+        Global.CROP_TYPE.LETTUCE:
+            crop_packed_scene = lettuce_crop_scene
+        Global.CROP_TYPE.CARROT:
+            crop_packed_scene = carrot_crop_scene
+
+    if crop_packed_scene:
+        var instance := crop_packed_scene.instantiate() as Crop
+        instance.position = pos
+        instance.region = self
+        instance.crop_type = selected_seed_packet.crop_type
+        add_child(instance)
+        instance.add_to_group(crops_group_name)
+
+        Player.coins -= selected_seed_packet.price
+        print("Player coins after planting: ", Player.coins)
+
+
 var watered_soil_packed_scene := preload("res://scenes/ground/watered_soil.tscn")
 var watered_soil_layer := 1
 func place_water_at_coords(coords: Vector2i) -> void:
