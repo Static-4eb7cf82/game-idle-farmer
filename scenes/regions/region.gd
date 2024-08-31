@@ -39,7 +39,19 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-    pass
+
+    # This exists in _process to allow holding down the mouse to plant seeds
+    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_seed_packet:
+        var clicked_tilemap_coords := ground_tile_map.local_to_map(self.get_local_mouse_position())
+        var clicked_grid_cell := get_grid_cell_from_coords(clicked_tilemap_coords)
+        if clicked_grid_cell and clicked_grid_cell.is_plottable:
+            # instantiate the crop type that the player has selected at these coords
+            # Plant it and set input as handled
+            if Player.coins < Player.selected_seed_packet.price:
+                print("Not enough coins to plant this crop")
+                return
+            plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
+            clicked_grid_cell.is_plottable = false
 
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
