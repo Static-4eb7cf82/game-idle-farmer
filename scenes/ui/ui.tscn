@@ -1,7 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://d10psh4plkqtf"]
+[gd_scene load_steps=3 format=3 uid="uid://d10psh4plkqtf"]
 
 [ext_resource type="PackedScene" uid="uid://56cc4xcwsy8p" path="res://scenes/ui/action_menu.tscn" id="1_hdxjs"]
+[ext_resource type="PackedScene" uid="uid://kpxfyxi8vwct" path="res://scenes/ui/status_bar.tscn" id="2_hnel0"]
 
 [node name="UI" type="CanvasLayer"]
 
 [node name="ActionMenu" parent="." instance=ExtResource("1_hdxjs")]
+
+[node name="StatusBar" parent="." instance=ExtResource("2_hnel0")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
