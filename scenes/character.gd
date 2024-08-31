@@ -60,6 +60,8 @@ func perform_harvest_crop() -> void:
 
 
 var harvested_wheat_packed_scene := preload("res://scenes/harvestables/harvested_wheat.tscn")
+var harvested_beet_packed_scene := preload("res://scenes/harvestables/harvested_beet.tscn")
+var harvested_lettuce_packed_scene := preload("res://scenes/harvestables/harvested_lettuce.tscn")
 func harvest_crop_at_coords(coords: Vector2i) -> void:
     # get a reference to the crop at the coords
     # iterate through region crops, and find the one at given coords
@@ -81,11 +83,9 @@ func harvest_crop_at_coords(coords: Vector2i) -> void:
         Global.CROP_TYPE.WHEAT:
             harvested_item_packed_scene = harvested_wheat_packed_scene
         Global.CROP_TYPE.BEET:
-            harvested_item_packed_scene = harvested_wheat_packed_scene
+            harvested_item_packed_scene = harvested_beet_packed_scene
         Global.CROP_TYPE.LETTUCE:
-            harvested_item_packed_scene = harvested_wheat_packed_scene
-        Global.CROP_TYPE.CARROT:
-            harvested_item_packed_scene = harvested_wheat_packed_scene
+            harvested_item_packed_scene = harvested_lettuce_packed_scene
 
     if harvested_item_packed_scene:
         print("Harvested %s at coords: %s" % [crop.crop_type, coords])

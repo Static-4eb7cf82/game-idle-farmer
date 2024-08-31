@@ -63,7 +63,6 @@ func get_seed_packet_node() -> SelectedSeedPacket:
 var wheat_seed_packet_texture := preload("res://assets/crops/seeds/wheat_seeds.png")
 var beet_seed_packet_texture := preload("res://assets/crops/seeds/beet_seeds.png")
 var lettuce_seed_packet_texture := preload("res://assets/crops/seeds/lettuce_seeds.png")
-var carrot_seed_packet_texture := preload("res://assets/crops/seeds/carrot_seeds.png")
 func ensure_seed_packet_at_mouse_position(type: seed_type) -> void:
     var selected_seed_packet := get_seed_packet_node()
 
@@ -80,10 +79,6 @@ func ensure_seed_packet_at_mouse_position(type: seed_type) -> void:
             selected_seed_packet.crop_type = Global.CROP_TYPE.LETTUCE
             selected_seed_packet.texture = lettuce_seed_packet_texture
             selected_seed_packet.price = 30
-        seed_type.CARROT:
-            selected_seed_packet.crop_type = Global.CROP_TYPE.CARROT
-            selected_seed_packet.texture = carrot_seed_packet_texture
-            selected_seed_packet.price = 40
 
     Player.selected_seed_packet = selected_seed_packet  
     selected_seed_packet.position = get_viewport().get_mouse_position()

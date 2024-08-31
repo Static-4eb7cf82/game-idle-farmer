@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4r1vjdf551d6"]
+
+[ext_resource type="Texture2D" uid="uid://fnu0kcdrtox0" path="res://assets/crops/items/lettuce.png" id="1_yhkpg"]
+[ext_resource type="Script" path="res://scenes/harvestables/harvested_lettuce.gd" id="2_1k8je"]
+
+[node name="HarvestedLettuce" type="Sprite2D"]
+texture = ExtResource("1_yhkpg")
+script = ExtResource("2_1k8je")
+coin_reward = 60
