@@ -1,9 +1,11 @@
 extends Node2D
 
 class_name Region
-
+@export
 var region_name: String
+@export
 var ground_tile_map: TileMap
+@export
 var tilled_soil_tile_map: TileMap
 var grid: Array
 var crops_group_name: String
