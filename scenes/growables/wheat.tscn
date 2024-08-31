@@ -1,38 +1,38 @@
-[gd_scene load_steps=8 format=3 uid="uid://b4ttyjh4ac1cb"]
+[gd_scene load_steps=8 format=3 uid="uid://bypo4bb1mivo3"]
 
-[ext_resource type="Script" path="res://scenes/growables/crop.gd" id="1_4mrlf"]
-[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="2_i87gd"]
+[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="1_ll2kt"]
+[ext_resource type="Script" path="res://scenes/growables/crop.gd" id="1_q37nu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fr5a0"]
-atlas = ExtResource("2_i87gd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kne0i"]
+atlas = ExtResource("1_ll2kt")
 region = Rect2(0, 128, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5q5nm"]
-atlas = ExtResource("2_i87gd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6kak"]
+atlas = ExtResource("1_ll2kt")
 region = Rect2(16, 128, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pmpwh"]
-atlas = ExtResource("2_i87gd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_657ob"]
+atlas = ExtResource("1_ll2kt")
 region = Rect2(32, 128, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mal4f"]
-atlas = ExtResource("2_i87gd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6d2ve"]
+atlas = ExtResource("1_ll2kt")
 region = Rect2(48, 128, 16, 16)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ymoue"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1xln"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fr5a0")
+"texture": SubResource("AtlasTexture_kne0i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5q5nm")
+"texture": SubResource("AtlasTexture_y6kak")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pmpwh")
+"texture": SubResource("AtlasTexture_657ob")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mal4f")
+"texture": SubResource("AtlasTexture_6d2ve")
 }],
 "loop": true,
 "name": &"default",
@@ -40,8 +40,8 @@ animations = [{
 }]
 
 [node name="Wheat" type="Node2D"]
-script = ExtResource("1_4mrlf")
+script = ExtResource("1_q37nu")
 growthDurationInSeconds = 5.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_ymoue")
+sprite_frames = SubResource("SpriteFrames_p1xln")
