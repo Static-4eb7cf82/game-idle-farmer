@@ -8,6 +8,7 @@ var tilled_soil_tile_map: TileMap
 var grid: Array
 var crops_group_name: String
 var cats_group_name: String
+var storage_group_name: String
 
 class GridCellState:
     
@@ -33,6 +34,7 @@ func _ready() -> void:
 
     crops_group_name = "%s_crops" % region_name
     cats_group_name = "%s_cat_workers" % region_name
+    storage_group_name = "%s_storage" % region_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -100,13 +102,31 @@ func get_crop_at_coords(coords: Vector2i) -> Crop:
     return null
 
 
+func get_storage_at_coords(coords: Vector2i) -> Crop:
+    var region_crops := get_tree().get_nodes_in_group(storage_group_name)
+    for crop in region_crops:
+        # todo: cast to Crop type
+        if crop.region_coords == coords:
+            return crop
+    return null
+
+
 var cat_worker_packed_scene := preload("res://scenes/character.tscn")
 func add_cat_worker() -> void:
     var cat_worker_instance := cat_worker_packed_scene.instantiate()
     cat_worker_instance.region = self
-    cat_worker_instance.position = Vector2(100, 100)
+    cat_worker_instance.position = Vector2(200, 200)
     add_child(cat_worker_instance)
     cat_worker_instance.add_to_group(cats_group_name)
+
+
+var storage_container_packed_scene := preload("res://scenes/objects/storage_container.tscn")
+func add_storage_container(coords: Vector2i) -> void:
+    var storage_container_instance := storage_container_packed_scene.instantiate()
+    storage_container_instance.region = self
+    storage_container_instance.position = ground_tile_map.map_to_local(coords)
+    add_child(storage_container_instance)
+    storage_container_instance.add_to_group(storage_group_name)
 
 
 func debug_seed_grid() -> void:

@@ -4,6 +4,7 @@ var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
 var character_direction := direction.DOWN
 var performing_action_animation := false
+var carrying_harvestable : HarvestableItem
 
 enum direction {
     UP,
@@ -20,30 +21,14 @@ func _unhandled_key_input(event: InputEvent) -> void:
                 perform_water()
             if event.keycode == KEY_2:
                 perform_harvest_crop()
+            if event.keycode == KEY_3:
+                perform_place_item_in_storage()
 
 
 func perform_water() -> void:
-    # water at the grid cell in front of the cat
-    # i.e. water the grid cell at cat position + 1 grid cell in cat's direction
-    # print("Watering the crop")
-    
-    # print("get_grid_coords_at_mouse: ", region.get_grid_coords_at_mouse())
-    # print("get_grid_coords_from_pos(position): ", region.get_grid_coords_from_pos(position))
-    var cat_grid_coords := region.get_grid_coords_from_pos(position)
-    var direction_offset : Vector2i
-    match character_direction:
-        direction.UP:
-            direction_offset = Vector2i(0, -1)
-        direction.DOWN:
-            direction_offset = Vector2i(0, 1)
-        direction.LEFT:
-            direction_offset = Vector2i(-1, 0)
-        direction.RIGHT:
-            direction_offset = Vector2i(1, 0)
-
-    var water_cell_coords := cat_grid_coords + direction_offset
-    print("water at coords: ", water_cell_coords)
-    region.place_water_at_coords(water_cell_coords)
+    var perform_action_at_cell_coords := get_coords_in_front_of_cat()
+    print("water at coords: ", perform_action_at_cell_coords)
+    region.place_water_at_coords(perform_action_at_cell_coords)
     performing_action_animation = true
     match character_direction:
         direction.UP:
@@ -67,22 +52,9 @@ func perform_water() -> void:
             $WaterFromCanAnimation.play("right_water")
             $WaterFromCanAnimation.position = Vector2(14, 0)
 
-func perform_harvest_crop() -> void:
-    # harvest at the grid cell in front of the cat
-    # i.e. harvest the grid cell at cat position + 1 grid cell in cat's direction
-    var cat_grid_coords := region.get_grid_coords_from_pos(position)
-    var direction_offset : Vector2i
-    match character_direction:
-        direction.UP:
-            direction_offset = Vector2i(0, -1)
-        direction.DOWN:
-            direction_offset = Vector2i(0, 1)
-        direction.LEFT:
-            direction_offset = Vector2i(-1, 0)
-        direction.RIGHT:
-            direction_offset = Vector2i(1, 0)
 
-    var perform_action_at_cell_coords := cat_grid_coords + direction_offset
+func perform_harvest_crop() -> void:
+    var perform_action_at_cell_coords := get_coords_in_front_of_cat()
     print("harvest at coords: ", perform_action_at_cell_coords)
     harvest_crop_at_coords(perform_action_at_cell_coords)
 
@@ -95,32 +67,49 @@ func harvest_crop_at_coords(coords: Vector2i) -> void:
     # queue_free() the crop
     # set the grid cell at coords to be plottable again
     # then go_to_nearest_storage()
-    # Todo: only harvest the crop if it has completed growing
     var crop := region.get_crop_at_coords(coords)
     if not crop:
         print("No crop to harvest at coords: ", coords)
         return
 
+    if not crop.completedGrowing:
+        print("Crop not ready to harvest at coords: ", coords)
+        return
+
     var harvested_item_packed_scene: PackedScene
     match crop.crop_type:
         Global.CROP_TYPE.WHEAT:
-            print("Harvested wheat at coords: ", coords)
+            harvested_item_packed_scene = harvested_wheat_packed_scene
+        Global.CROP_TYPE.BEET:
+            harvested_item_packed_scene = harvested_wheat_packed_scene
+        Global.CROP_TYPE.LETTUCE:
+            harvested_item_packed_scene = harvested_wheat_packed_scene
+        Global.CROP_TYPE.CARROT:
             harvested_item_packed_scene = harvested_wheat_packed_scene
 
-        Global.CROP_TYPE.BEET:
-            print("Harvested beet at coords: ", coords)
-        Global.CROP_TYPE.LETTUCE:
-            print("Harvested lettuce at coords: ", coords)
-        Global.CROP_TYPE.CARROT:
-            print("Harvested carrot at coords: ", coords)
-
     if harvested_item_packed_scene:
+        print("Harvested %s at coords: %s" % [crop.crop_type, coords])
         var instance := harvested_item_packed_scene.instantiate() as HarvestableItem
         instance.position = Vector2(0, -20)
         add_child(instance)
+        carrying_harvestable = instance
 
         crop.queue_free()
         region.get_grid_cell_from_coords(coords).is_plottable = true
+
+
+func perform_place_item_in_storage() -> void:
+    var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as Node2D
+    # open storage
+    # call carrying_harvestable.recieve_reward()
+    # queue_free() carrying_harvestable
+    # set carrying_harvestable to null
+    if storage:
+        storage.open()
+        carrying_harvestable.recieve_reward()
+        carrying_harvestable.queue_free()
+        carrying_harvestable = null
+    pass
 
 
 func _physics_process(_delta: float) -> void:
@@ -150,6 +139,7 @@ func _physics_process(_delta: float) -> void:
     handle_animation()
     move_and_slide()
 
+
 func handle_animation() -> void:
     if performing_action_animation:
         return
@@ -172,6 +162,26 @@ func handle_animation() -> void:
         else:
             $AnimatedSprite2D.play("right_idle")
 
+
 func _on_water_from_can_animation_animation_finished() -> void:
     performing_action_animation = false
     handle_animation()
+
+
+func get_coords_in_front_of_cat() -> Vector2i:
+    # Get the coords in front of the cat
+    # i.e. grid cell at cat position + 1 grid cell in cat's direction
+    var cat_grid_coords := region.get_grid_coords_from_pos(position)
+    var direction_offset : Vector2i
+    match character_direction:
+        direction.UP:
+            direction_offset = Vector2i(0, -1)
+        direction.DOWN:
+            direction_offset = Vector2i(0, 1)
+        direction.LEFT:
+            direction_offset = Vector2i(-1, 0)
+        direction.RIGHT:
+            direction_offset = Vector2i(1, 0)
+
+    var coords_in_front_of_cat := cat_grid_coords + direction_offset
+    return coords_in_front_of_cat
