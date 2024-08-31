@@ -8,8 +8,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-    pass
+    text = get_label_text(Player.coins)
 
 
 func on_player_coins_changed(new_coins: int) -> void:
-    text = "coins " + str(new_coins)
+    text = get_label_text(new_coins)
+
+
+func get_label_text(coins: int) -> String:
+    return "coins " + str(coins)
