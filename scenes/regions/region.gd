@@ -102,7 +102,7 @@ func get_crop_at_coords(coords: Vector2i) -> Crop:
     return null
 
 
-func get_storage_at_coords(coords: Vector2i) -> Crop:
+func get_storage_at_coords(coords: Vector2i) -> StorageContainer:
     var region_crops := get_tree().get_nodes_in_group(storage_group_name)
     for crop in region_crops:
         # todo: cast to Crop type

@@ -99,18 +99,23 @@ func harvest_crop_at_coords(coords: Vector2i) -> void:
 
 
 func perform_place_item_in_storage() -> void:
-    var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as Node2D
+    var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as StorageContainer
     # open storage
     # call carrying_harvestable.recieve_reward()
     # queue_free() carrying_harvestable
     # set carrying_harvestable to null
     if storage:
+        storage.storage_container_opened.connect(on_storage_container_opened)
         storage.open()
-        carrying_harvestable.recieve_reward()
-        carrying_harvestable.queue_free()
-        carrying_harvestable = null
-    pass
 
+func on_storage_container_opened() -> void:
+    print("Storage container opened")
+    carrying_harvestable.recieve_reward()
+    carrying_harvestable.queue_free()
+    carrying_harvestable = null
+    var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as StorageContainer
+    if storage:
+        storage.close()
 
 func _physics_process(_delta: float) -> void:
 
