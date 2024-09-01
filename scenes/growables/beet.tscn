@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bq83cwhh7y213"]
 
 [ext_resource type="Script" path="res://scenes/growables/beet.gd" id="1_kdqvy"]
-[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/crops/Farming Plants.png" id="2_ejge5"]
+[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/items/Farming Plants.png" id="2_ejge5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cc514"]
 atlas = ExtResource("2_ejge5")

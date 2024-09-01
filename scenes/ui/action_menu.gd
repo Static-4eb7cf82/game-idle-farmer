@@ -60,9 +60,9 @@ func get_seed_packet_node() -> SelectedSeedPacket:
         get_parent().add_child(selected_seed_packet_instance)
         return selected_seed_packet_instance
 
-var wheat_seed_packet_texture := preload("res://assets/crops/seeds/wheat_seeds.png")
-var beet_seed_packet_texture := preload("res://assets/crops/seeds/beet_seeds.png")
-var lettuce_seed_packet_texture := preload("res://assets/crops/seeds/lettuce_seeds.png")
+var wheat_seed_packet_texture := preload("res://assets/items/seeds/wheat_seeds.png")
+var beet_seed_packet_texture := preload("res://assets/items/seeds/beet_seeds.png")
+var lettuce_seed_packet_texture := preload("res://assets/items/seeds/lettuce_seeds.png")
 func ensure_seed_packet_at_mouse_position(type: seed_type) -> void:
     var selected_seed_packet := get_seed_packet_node()
 
