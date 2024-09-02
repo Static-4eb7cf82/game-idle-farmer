@@ -23,6 +23,12 @@ enum DIRECTION {
     RIGHT
 }
 
+var new_character_direction := DIRECTION_DOWN
+const DIRECTION_DOWN = "down"
+const DIRECTION_UP = "up"
+const DIRECTION_LEFT = "left"
+const DIRECTION_RIGHT = "right"
+
 
 func _unhandled_key_input(event: InputEvent) -> void:
     if event is InputEventKey:
@@ -112,7 +118,7 @@ func handle_target_movement() -> void:
 
 # todo: change to check job queue, if there is an available till job, then receive it
 # the job poll method should be the one checking if cat is currently performing a job, and if not, then call receive_till_job
-func receive_till_job(target_pos) -> void:
+func receive_till_job(target_pos: Vector2) -> void:
     # Perform job check
     if performing_job:
         print("Already performing a job")
@@ -130,20 +136,37 @@ func till_soil_at_target_position(target_pos: Vector2) -> void:
     print("moving to position")
     move_to_desired_target_position(target_pos)
     await reached_target_position
+
+    # turn towards target position
+    print("turning towards target position")
+    turn_towards_target_position(target_pos)
     
     # perform animation for job duration
     print("performing till soil animation")
     performing_action_animation = true
-    # $AnimatedSprite2D.play(str(character_direction) + "_till_soil")
-    $AnimatedSprite2D.play("front_water")
+    $AnimatedSprite2D.play("till_" + new_character_direction)
     var job_duration := 5
     await get_tree().create_timer(job_duration).timeout
     performing_action_animation = false
+    $AnimatedSprite2D.play("front_idle")
 
     # spawn tilled soil
     print("placing tilled soil")
     region.place_tilled_soil_at_coords(region.get_grid_coords_from_pos(target_pos))
 
+
+func turn_towards_target_position(target_pos: Vector2) -> void:
+    var position_diff := (target_pos - position).abs()
+    if position_diff.x > position_diff.y:
+        if target_pos.x > position.x:
+            new_character_direction = DIRECTION_RIGHT
+        else:
+            new_character_direction = DIRECTION_LEFT
+    else:
+        if target_pos.y > position.y:
+            new_character_direction = DIRECTION_DOWN
+        else:
+            new_character_direction = DIRECTION_UP
 
 func handle_animation() -> void:
     if performing_action_animation:
@@ -153,13 +176,17 @@ func handle_animation() -> void:
         var distance := (target_position - position).abs()
         if distance.x > distance.y:
             if velocity.x > 0:
+                new_character_direction = DIRECTION_RIGHT
                 $AnimatedSprite2D.play("right_walk")
             else:
+                new_character_direction = DIRECTION_LEFT
                 $AnimatedSprite2D.play("left_walk")
         else:
             if velocity.y > 0:
+                new_character_direction = DIRECTION_DOWN
                 $AnimatedSprite2D.play("front_walk")
             else:
+                new_character_direction = DIRECTION_UP
                 $AnimatedSprite2D.play("back_walk")
         return
 
