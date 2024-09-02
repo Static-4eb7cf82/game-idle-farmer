@@ -1,8 +1,9 @@
-[gd_scene load_steps=162 format=3 uid="uid://lpexokwjiav8"]
+[gd_scene load_steps=163 format=3 uid="uid://lpexokwjiav8"]
 
 [ext_resource type="Script" path="res://scenes/character.gd" id="1_ehkfd"]
 [ext_resource type="Texture2D" uid="uid://bdb56uc3qe7vb" path="res://assets/character/Premium Charakter Spritesheet.png" id="1_qpbo0"]
 [ext_resource type="Texture2D" uid="uid://dceve3vh7iobb" path="res://assets/character/water from wateringcan frames.png" id="3_6b6x0"]
+[ext_resource type="Script" path="res://scenes/WaterFromCanAnimation.gd" id="4_whbpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl0ay"]
 size = Vector2(8, 7)
@@ -1207,6 +1208,9 @@ autoplay = "idle_down"
 
 [node name="WaterFromCanAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mi3hm")
-animation = &"water_right"
+animation = &"water_left"
+script = ExtResource("4_whbpj")
 
 [connection signal="animation_finished" from="WaterFromCanAnimation" to="." method="_on_water_from_can_animation_animation_finished"]
+[connection signal="animation_finished" from="WaterFromCanAnimation" to="WaterFromCanAnimation" method="_on_animation_finished"]
+[connection signal="frame_changed" from="WaterFromCanAnimation" to="WaterFromCanAnimation" method="_on_frame_changed"]
