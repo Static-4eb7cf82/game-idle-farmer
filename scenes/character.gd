@@ -13,6 +13,9 @@ var move_to_target := false
 var target_position: Vector2 = Vector2.ZERO
 signal reached_target_position()
 
+# Jobs
+var performing_job := false
+
 enum DIRECTION {
     UP,
     DOWN,
@@ -105,6 +108,41 @@ func handle_target_movement() -> void:
             velocity = Vector2.ZERO
             reached_target_position.emit()
             print("Reached target position")
+
+
+# todo: change to check job queue, if there is an available till job, then receive it
+# the job poll method should be the one checking if cat is currently performing a job, and if not, then call receive_till_job
+func receive_till_job(target_pos) -> void:
+    # Perform job check
+    if performing_job:
+        print("Already performing a job")
+        return
+    performing_job = true
+
+    await till_soil_at_target_position(target_pos)
+
+    performing_job = false
+
+
+func till_soil_at_target_position(target_pos: Vector2) -> void:
+
+    # move to target position
+    print("moving to position")
+    move_to_desired_target_position(target_pos)
+    await reached_target_position
+    
+    # perform animation for job duration
+    print("performing till soil animation")
+    performing_action_animation = true
+    # $AnimatedSprite2D.play(str(character_direction) + "_till_soil")
+    $AnimatedSprite2D.play("front_water")
+    var job_duration := 5
+    await get_tree().create_timer(job_duration).timeout
+    performing_action_animation = false
+
+    # spawn tilled soil
+    print("placing tilled soil")
+    region.place_tilled_soil_at_coords(region.get_grid_coords_from_pos(target_pos))
 
 
 func handle_animation() -> void:

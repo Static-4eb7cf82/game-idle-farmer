@@ -958,10 +958,8 @@ shape = SubResource("RectangleShape2D_xl0ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3fveb")
-animation = &"back_water"
+animation = &"front_water"
 autoplay = "front_idle"
-frame = 4
-frame_progress = 0.309735
 
 [node name="WaterFromCanAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mi3hm")

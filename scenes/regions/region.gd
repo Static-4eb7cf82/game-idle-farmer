@@ -55,8 +55,11 @@ func _process(_delta: float) -> void:
             plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
     if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.till_soil_selected:
+        # because process is called in a loop, set a flag to prevent multiple calls
+        # todo: this feels like a hack. And should be changed when moved to event queue based system
+        # even trying to do this in _unhandled_input will result in sometimes 2 calls to till soil
         var cat_worker := get_tree().get_nodes_in_group(cats_group_name)[0] as CatWorker
-        cat_worker.move_to_desired_target_position(get_global_mouse_position())
+        cat_worker.receive_till_job(get_global_mouse_position())
 
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
@@ -133,6 +136,10 @@ func place_water_at_coords(coords: Vector2i) -> void:
         # Perhaps one way is to declare a property on the actual tile map for tiles that can have state. Then when the region is initialized, it loops through the tilemap cells and creates grid state for tiles that can have state
         # And then only tiles that are interactable to begin with are the only ones with state
 
+var tilled_soil_layer := 0
+func place_tilled_soil_at_coords(coords: Vector2i) -> void:
+    tilled_soil_tile_map.set_cell(tilled_soil_layer, coords, 0, Vector2i(1, 1))
+    set_grid_cell(coords, GridCellState.new(true, false))
 
 func expire_water_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.erase_cell(watered_soil_layer, coords)
