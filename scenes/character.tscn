@@ -1198,17 +1198,19 @@ animations = [{
 script = ExtResource("1_ehkfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4.5)
+position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_xl0ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3fveb")
 animation = &"water_right"
 autoplay = "idle_down"
+offset = Vector2(0, -6)
 
 [node name="WaterFromCanAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mi3hm")
-animation = &"water_left"
+animation = &"water_right"
+offset = Vector2(0, -6)
 script = ExtResource("4_whbpj")
 
 [connection signal="animation_finished" from="WaterFromCanAnimation" to="." method="_on_water_from_can_animation_animation_finished"]
