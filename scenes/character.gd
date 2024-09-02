@@ -1,10 +1,16 @@
 extends CharacterBody2D
 
+class_name CatWorker
+
 var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
 var character_direction := direction.DOWN
 var performing_action_animation := false
 var carrying_harvestable : HarvestableItem
+
+var move_to_target := false
+var target_position: Vector2 = Vector2.ZERO
+signal reached_target_position()
 
 enum direction {
     UP,
@@ -23,6 +29,87 @@ func _unhandled_key_input(event: InputEvent) -> void:
                 perform_harvest_crop()
             if event.keycode == KEY_3:
                 perform_place_item_in_storage()
+
+
+func _physics_process(_delta: float) -> void:
+    handle_player_provided_movement()
+    handle_target_movement()
+    move_and_slide()
+    handle_animation()
+
+
+func handle_player_provided_movement() -> void:
+    # Get the input direction and handle the movement/deceleration.
+    var y_direction := Input.get_axis("up", "down")
+    if y_direction:
+        velocity.y = y_direction * SPEED
+        velocity.x = 0
+        if velocity.y > 0:
+            character_direction = direction.DOWN
+        else:
+            character_direction = direction.UP
+    else:
+        velocity.y = 0
+
+        var x_direction := Input.get_axis("left", "right")
+        if x_direction:
+            velocity.x = x_direction * SPEED
+            if velocity.x > 0:
+                character_direction = direction.RIGHT
+            else:
+                character_direction = direction.LEFT
+        else:
+            velocity.x = 0
+
+
+func handle_target_movement() -> void:
+    if move_to_target:
+        var direction := (target_position - position).normalized()
+        velocity = direction * SPEED
+        if position.distance_to(target_position) < 16:
+            move_to_target = false
+            velocity = Vector2.ZERO
+            reached_target_position.emit()
+            print("Reached target position")
+
+
+func handle_animation() -> void:
+    if performing_action_animation:
+        return
+
+    if move_to_target:
+        var distance := (target_position - position).abs()
+        if distance.x > distance.y:
+            if velocity.x > 0:
+                $AnimatedSprite2D.play("right_walk")
+            else:
+                $AnimatedSprite2D.play("left_walk")
+        else:
+            if velocity.y > 0:
+                $AnimatedSprite2D.play("front_walk")
+            else:
+                $AnimatedSprite2D.play("back_walk")
+        return
+
+    if velocity.x != 0 or velocity.y != 0:
+        if character_direction == direction.UP:
+            $AnimatedSprite2D.play("back_walk")
+        elif character_direction == direction.DOWN:
+            $AnimatedSprite2D.play("front_walk")
+        elif character_direction == direction.LEFT:
+            $AnimatedSprite2D.play("left_walk")
+        else:
+            $AnimatedSprite2D.play("right_walk")
+    else:
+        if character_direction == direction.UP:
+            $AnimatedSprite2D.play("back_idle")
+        elif character_direction == direction.DOWN:
+            $AnimatedSprite2D.play("front_idle")
+        elif character_direction == direction.LEFT:
+            $AnimatedSprite2D.play("left_idle")
+        else:
+            $AnimatedSprite2D.play("right_idle")
+
 
 
 func perform_water() -> void:
@@ -116,56 +203,6 @@ func on_storage_container_opened() -> void:
     var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as StorageContainer
     if storage:
         storage.close()
-
-func _physics_process(_delta: float) -> void:
-
-    # Get the input direction and handle the movement/deceleration.
-    var y_direction := Input.get_axis("up", "down")
-    if y_direction:
-        velocity.y = y_direction * SPEED
-        velocity.x = 0
-        if velocity.y > 0:
-            character_direction = direction.DOWN
-        else:
-            character_direction = direction.UP
-    else:
-        velocity.y = 0
-
-        var x_direction := Input.get_axis("left", "right")
-        if x_direction:
-            velocity.x = x_direction * SPEED
-            if velocity.x > 0:
-                character_direction = direction.RIGHT
-            else:
-                character_direction = direction.LEFT
-        else:
-            velocity.x = 0
-
-    handle_animation()
-    move_and_slide()
-
-
-func handle_animation() -> void:
-    if performing_action_animation:
-        return
-    if velocity.x != 0 or velocity.y != 0:
-        if character_direction == direction.UP:
-            $AnimatedSprite2D.play("back_walk")
-        elif character_direction == direction.DOWN:
-            $AnimatedSprite2D.play("front_walk")
-        elif character_direction == direction.LEFT:
-            $AnimatedSprite2D.play("left_walk")
-        else:
-            $AnimatedSprite2D.play("right_walk")
-    else:
-        if character_direction == direction.UP:
-            $AnimatedSprite2D.play("back_idle")
-        elif character_direction == direction.DOWN:
-            $AnimatedSprite2D.play("front_idle")
-        elif character_direction == direction.LEFT:
-            $AnimatedSprite2D.play("left_idle")
-        else:
-            $AnimatedSprite2D.play("right_idle")
 
 
 func _on_water_from_can_animation_animation_finished() -> void:

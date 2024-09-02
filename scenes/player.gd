@@ -14,6 +14,7 @@ var click_particles : CPUParticles2D
 func _ready() -> void:
     coins = 100
 
+var till_soil_selected := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

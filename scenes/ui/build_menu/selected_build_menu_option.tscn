@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://i8bsx2sr70tx"]
+
+[ext_resource type="Script" path="res://scenes/ui/build_menu/selected_build_menu_option.gd" id="1_asqg1"]
+
+[node name="SelectedBuildMenuOption" type="Sprite2D"]
+script = ExtResource("1_asqg1")
+position_offset = null

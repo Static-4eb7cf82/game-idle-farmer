@@ -2,7 +2,7 @@ extends Control
 
 
 var is_open := false
-var selected_seed_packet_instance: Sprite2D = null
+var selected_seed_packet_instance: SelectedSeedPacket = null
 
 enum seed_type {
     WHEAT,
@@ -54,7 +54,7 @@ func get_seed_packet_node() -> SelectedSeedPacket:
     if selected_seed_packet_instance:
         return selected_seed_packet_instance
     else:
-        selected_seed_packet_instance = selected_seed_packet_scene.instantiate() as Sprite2D
+        selected_seed_packet_instance = selected_seed_packet_scene.instantiate() as SelectedSeedPacket
         # Add the seed packet so that it's parent is a CanvasLayer with no transform.
         # Let it be a child of the UI CanvasLayer.
         get_parent().add_child(selected_seed_packet_instance)

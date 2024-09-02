@@ -54,6 +54,11 @@ func _process(_delta: float) -> void:
                 return
             plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
+    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.till_soil_selected:
+        var cat_worker := get_tree().get_nodes_in_group(cats_group_name)[0] as CatWorker
+        cat_worker.target_position = ground_tile_map.get_global_mouse_position()
+        cat_worker.move_to_target = true
+        print("target position: ", cat_worker.target_position)
 
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
