@@ -56,9 +56,7 @@ func _process(_delta: float) -> void:
             clicked_grid_cell.is_plottable = false
     if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.till_soil_selected:
         var cat_worker := get_tree().get_nodes_in_group(cats_group_name)[0] as CatWorker
-        cat_worker.target_position = ground_tile_map.get_global_mouse_position()
-        cat_worker.move_to_target = true
-        print("target position: ", cat_worker.target_position)
+        cat_worker.move_to_desired_target_position(get_global_mouse_position())
 
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
@@ -66,7 +64,7 @@ func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
 
 
 func get_grid_coords_at_mouse() -> Vector2i:
-    var coords := get_grid_coords_from_pos(ground_tile_map.get_global_mouse_position())
+    var coords := get_grid_coords_from_pos(get_global_mouse_position())
     print("Grid coords at mouse: ", coords)
     return coords
 
@@ -78,6 +76,10 @@ func get_grid_cell_at_mouse() -> GridCellState:
 func get_grid_coords_from_pos(pos: Vector2) -> Vector2i:
     var coords := ground_tile_map.local_to_map(pos)
     return coords
+
+
+func get_grid_pos_from_coords(coords: Vector2i) -> Vector2:
+    return ground_tile_map.map_to_local(coords)
 
 
 func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:

@@ -4,15 +4,16 @@ class_name CatWorker
 
 var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
-var character_direction := direction.DOWN
+var character_direction := DIRECTION.DOWN
 var performing_action_animation := false
 var carrying_harvestable : HarvestableItem
 
+# Target based movement
 var move_to_target := false
 var target_position: Vector2 = Vector2.ZERO
 signal reached_target_position()
 
-enum direction {
+enum DIRECTION {
     UP,
     DOWN,
     LEFT,
@@ -32,22 +33,24 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 
 func _physics_process(_delta: float) -> void:
-    handle_player_provided_movement()
-    handle_target_movement()
+    if move_to_target:
+        handle_target_movement()
+    else:
+        handle_player_provided_movement()
     move_and_slide()
     handle_animation()
 
 
 func handle_player_provided_movement() -> void:
-    # Get the input direction and handle the movement/deceleration.
+    # Get the input DIRECTION and handle the movement/deceleration.
     var y_direction := Input.get_axis("up", "down")
     if y_direction:
         velocity.y = y_direction * SPEED
         velocity.x = 0
         if velocity.y > 0:
-            character_direction = direction.DOWN
+            character_direction = DIRECTION.DOWN
         else:
-            character_direction = direction.UP
+            character_direction = DIRECTION.UP
     else:
         velocity.y = 0
 
@@ -55,18 +58,49 @@ func handle_player_provided_movement() -> void:
         if x_direction:
             velocity.x = x_direction * SPEED
             if velocity.x > 0:
-                character_direction = direction.RIGHT
+                character_direction = DIRECTION.RIGHT
             else:
-                character_direction = direction.LEFT
+                character_direction = DIRECTION.LEFT
         else:
             velocity.x = 0
+
+
+func move_to_desired_target_position(target_pos: Vector2) -> void:
+    print("Moving to desired target position: ", target_pos)
+    var actual_target_pos := get_actual_target_position(target_pos)
+    target_position = actual_target_pos
+    move_to_target = true
+    print("moving to actual target position: ", target_position)
+
+
+func get_actual_target_position(target_pos: Vector2) -> Vector2:
+    var target_grid_coords := region.get_grid_coords_from_pos(target_pos)
+    var adjacent_grid_coords := [
+        target_grid_coords + Vector2i(0, 1),
+        target_grid_coords + Vector2i(0, -1),
+        target_grid_coords + Vector2i(1, 0),
+        target_grid_coords + Vector2i(-1, 0)
+    ]
+    var adjacent_grid_positions := adjacent_grid_coords.map(region.get_grid_pos_from_coords)
+    
+    
+    # Set closest_pos to index 0
+    var closest_pos = adjacent_grid_positions[0]
+    var closest_distance := position.distance_to(closest_pos)
+    for pos: Vector2 in adjacent_grid_positions:
+        var cur_distance := position.distance_to(pos)
+        if cur_distance < closest_distance:
+            closest_pos = pos
+            closest_distance = cur_distance
+    
+    return closest_pos
 
 
 func handle_target_movement() -> void:
     if move_to_target:
         var direction := (target_position - position).normalized()
         velocity = direction * SPEED
-        if position.distance_to(target_position) < 16:
+        if position.distance_to(target_position) < 1: # physics buffer position offset
             move_to_target = false
             velocity = Vector2.ZERO
             reached_target_position.emit()
@@ -92,20 +126,20 @@ func handle_animation() -> void:
         return
 
     if velocity.x != 0 or velocity.y != 0:
-        if character_direction == direction.UP:
+        if character_direction == DIRECTION.UP:
             $AnimatedSprite2D.play("back_walk")
-        elif character_direction == direction.DOWN:
+        elif character_direction == DIRECTION.DOWN:
             $AnimatedSprite2D.play("front_walk")
-        elif character_direction == direction.LEFT:
+        elif character_direction == DIRECTION.LEFT:
             $AnimatedSprite2D.play("left_walk")
         else:
             $AnimatedSprite2D.play("right_walk")
     else:
-        if character_direction == direction.UP:
+        if character_direction == DIRECTION.UP:
             $AnimatedSprite2D.play("back_idle")
-        elif character_direction == direction.DOWN:
+        elif character_direction == DIRECTION.DOWN:
             $AnimatedSprite2D.play("front_idle")
-        elif character_direction == direction.LEFT:
+        elif character_direction == DIRECTION.LEFT:
             $AnimatedSprite2D.play("left_idle")
         else:
             $AnimatedSprite2D.play("right_idle")
@@ -118,22 +152,22 @@ func perform_water() -> void:
     region.place_water_at_coords(perform_action_at_cell_coords)
     performing_action_animation = true
     match character_direction:
-        direction.UP:
+        DIRECTION.UP:
             $AnimatedSprite2D.play("back_water")
             $WaterFromCanAnimation.flip_h = true
             $WaterFromCanAnimation.position = Vector2(2, -4)
             $WaterFromCanAnimation.play("front_water")
-        direction.DOWN:
+        DIRECTION.DOWN:
             $AnimatedSprite2D.play("front_water")
             $WaterFromCanAnimation.flip_h = false
             $WaterFromCanAnimation.position = Vector2(0, 0)
             $WaterFromCanAnimation.play("front_water")
-        direction.LEFT:
+        DIRECTION.LEFT:
             $AnimatedSprite2D.play("left_water")
             $WaterFromCanAnimation.flip_h = false
             $WaterFromCanAnimation.play("left_water")
             $WaterFromCanAnimation.position = Vector2(-14, 0)
-        direction.RIGHT:
+        DIRECTION.RIGHT:
             $AnimatedSprite2D.play("right_water")
             $WaterFromCanAnimation.flip_h = false
             $WaterFromCanAnimation.play("right_water")
@@ -212,17 +246,17 @@ func _on_water_from_can_animation_animation_finished() -> void:
 
 func get_coords_in_front_of_cat() -> Vector2i:
     # Get the coords in front of the cat
-    # i.e. grid cell at cat position + 1 grid cell in cat's direction
+    # i.e. grid cell at cat position + 1 grid cell in cat's DIRECTION
     var cat_grid_coords := region.get_grid_coords_from_pos(position)
     var direction_offset : Vector2i
     match character_direction:
-        direction.UP:
+        DIRECTION.UP:
             direction_offset = Vector2i(0, -1)
-        direction.DOWN:
+        DIRECTION.DOWN:
             direction_offset = Vector2i(0, 1)
-        direction.LEFT:
+        DIRECTION.LEFT:
             direction_offset = Vector2i(-1, 0)
-        direction.RIGHT:
+        DIRECTION.RIGHT:
             direction_offset = Vector2i(1, 0)
 
     var coords_in_front_of_cat := cat_grid_coords + direction_offset
