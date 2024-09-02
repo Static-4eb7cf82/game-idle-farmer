@@ -15,6 +15,18 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     pass
 
+
+func _input(event: InputEvent) -> void:
+    if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_RIGHT:
+        if event.is_pressed():
+            destroy_selected_build_option()
+
+func destroy_selected_build_option() -> void:
+    if selected_build_menu_option:
+        Player.till_soil_selected = false
+        selected_build_menu_option.queue_free()
+        selected_build_menu_option = null
+
 func open_action_menu() -> void:
     is_open = true
     $BuildMenuOpen.show()
