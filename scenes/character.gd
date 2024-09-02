@@ -69,13 +69,13 @@ func handle_player_provided_movement() -> void:
 
 func move_to_desired_target_position(target_pos: Vector2) -> void:
     print("Moving to desired target position: ", target_pos)
-    var actual_target_pos := get_actual_target_position(target_pos)
+    var actual_target_pos := get_closest_adjacent_target_position(target_pos)
     target_position = actual_target_pos
     move_to_target = true
     print("moving to actual target position: ", target_position)
 
 
-func get_actual_target_position(target_pos: Vector2) -> Vector2:
+func get_closest_adjacent_target_position(target_pos: Vector2) -> Vector2:
     var target_grid_coords := region.get_grid_coords_from_pos(target_pos)
     var adjacent_grid_coords := [
         target_grid_coords + Vector2i(0, 1),
@@ -83,11 +83,9 @@ func get_actual_target_position(target_pos: Vector2) -> Vector2:
         target_grid_coords + Vector2i(1, 0),
         target_grid_coords + Vector2i(-1, 0)
     ]
-    var adjacent_grid_positions := adjacent_grid_coords.map(region.get_grid_pos_from_coords)
+    var adjacent_grid_positions : Array[Vector2i] = adjacent_grid_coords.map(region.get_grid_pos_from_coords)
     
-    
-    # Set closest_pos to index 0
-    var closest_pos = adjacent_grid_positions[0]
+    var closest_pos := adjacent_grid_positions[0]
     var closest_distance := position.distance_to(closest_pos)
     for pos: Vector2 in adjacent_grid_positions:
         var cur_distance := position.distance_to(pos)
