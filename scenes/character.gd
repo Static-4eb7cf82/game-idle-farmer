@@ -4,7 +4,6 @@ class_name CatWorker
 
 var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
-var character_direction := DIRECTION.DOWN
 var performing_action_animation := false
 var carrying_harvestable : HarvestableItem
 
@@ -16,14 +15,8 @@ signal reached_target_position()
 # Jobs
 var performing_job := false
 
-enum DIRECTION {
-    UP,
-    DOWN,
-    LEFT,
-    RIGHT
-}
 
-var new_character_direction := DIRECTION_DOWN
+var character_direction := DIRECTION_DOWN
 const DIRECTION_DOWN = "down"
 const DIRECTION_UP = "up"
 const DIRECTION_LEFT = "left"
@@ -57,9 +50,9 @@ func handle_player_provided_movement() -> void:
         velocity.y = y_direction * SPEED
         velocity.x = 0
         if velocity.y > 0:
-            character_direction = DIRECTION.DOWN
+            character_direction = DIRECTION_DOWN
         else:
-            character_direction = DIRECTION.UP
+            character_direction = DIRECTION_UP
     else:
         velocity.y = 0
 
@@ -67,9 +60,9 @@ func handle_player_provided_movement() -> void:
         if x_direction:
             velocity.x = x_direction * SPEED
             if velocity.x > 0:
-                character_direction = DIRECTION.RIGHT
+                character_direction = DIRECTION_RIGHT
             else:
-                character_direction = DIRECTION.LEFT
+                character_direction = DIRECTION_LEFT
         else:
             velocity.x = 0
 
@@ -144,7 +137,7 @@ func till_soil_at_target_position(target_pos: Vector2) -> void:
     # perform animation for job duration
     print("performing till soil animation")
     performing_action_animation = true
-    $AnimatedSprite2D.play("till_" + new_character_direction)
+    $AnimatedSprite2D.play("till_" + character_direction)
     var job_duration := 5
     await get_tree().create_timer(job_duration).timeout
     performing_action_animation = false
@@ -159,14 +152,14 @@ func turn_towards_target_position(target_pos: Vector2) -> void:
     var position_diff := (target_pos - position).abs()
     if position_diff.x > position_diff.y:
         if target_pos.x > position.x:
-            new_character_direction = DIRECTION_RIGHT
+            character_direction = DIRECTION_RIGHT
         else:
-            new_character_direction = DIRECTION_LEFT
+            character_direction = DIRECTION_LEFT
     else:
         if target_pos.y > position.y:
-            new_character_direction = DIRECTION_DOWN
+            character_direction = DIRECTION_DOWN
         else:
-            new_character_direction = DIRECTION_UP
+            character_direction = DIRECTION_UP
 
 func handle_animation() -> void:
     if performing_action_animation:
@@ -176,39 +169,22 @@ func handle_animation() -> void:
         var distance := (target_position - position).abs()
         if distance.x > distance.y:
             if velocity.x > 0:
-                new_character_direction = DIRECTION_RIGHT
-                $AnimatedSprite2D.play("right_walk")
+                character_direction = DIRECTION_RIGHT
             else:
-                new_character_direction = DIRECTION_LEFT
-                $AnimatedSprite2D.play("left_walk")
+                character_direction = DIRECTION_LEFT
         else:
             if velocity.y > 0:
-                new_character_direction = DIRECTION_DOWN
-                $AnimatedSprite2D.play("front_walk")
+                character_direction = DIRECTION_DOWN
             else:
-                new_character_direction = DIRECTION_UP
-                $AnimatedSprite2D.play("back_walk")
+                character_direction = DIRECTION_UP
+        
+        $AnimatedSprite2D.play("walk_" + character_direction)
         return
 
     if velocity.x != 0 or velocity.y != 0:
-        if character_direction == DIRECTION.UP:
-            $AnimatedSprite2D.play("back_walk")
-        elif character_direction == DIRECTION.DOWN:
-            $AnimatedSprite2D.play("front_walk")
-        elif character_direction == DIRECTION.LEFT:
-            $AnimatedSprite2D.play("left_walk")
-        else:
-            $AnimatedSprite2D.play("right_walk")
+        $AnimatedSprite2D.play("walk_" + character_direction)
     else:
-        if character_direction == DIRECTION.UP:
-            $AnimatedSprite2D.play("back_idle")
-        elif character_direction == DIRECTION.DOWN:
-            $AnimatedSprite2D.play("front_idle")
-        elif character_direction == DIRECTION.LEFT:
-            $AnimatedSprite2D.play("left_idle")
-        else:
-            $AnimatedSprite2D.play("right_idle")
-
+        $AnimatedSprite2D.play("idle_" + character_direction)
 
 
 func perform_water() -> void:
@@ -217,26 +193,24 @@ func perform_water() -> void:
     region.place_water_at_coords(perform_action_at_cell_coords)
     performing_action_animation = true
     match character_direction:
-        DIRECTION.UP:
-            $AnimatedSprite2D.play("back_water")
+        DIRECTION_UP:
             $WaterFromCanAnimation.flip_h = true
             $WaterFromCanAnimation.position = Vector2(2, -4)
-            $WaterFromCanAnimation.play("front_water")
-        DIRECTION.DOWN:
-            $AnimatedSprite2D.play("front_water")
+            $WaterFromCanAnimation.play("water_vertical")
+        DIRECTION_DOWN:
             $WaterFromCanAnimation.flip_h = false
             $WaterFromCanAnimation.position = Vector2(0, 0)
-            $WaterFromCanAnimation.play("front_water")
-        DIRECTION.LEFT:
-            $AnimatedSprite2D.play("left_water")
+            $WaterFromCanAnimation.play("water_vertical")
+        DIRECTION_LEFT:
             $WaterFromCanAnimation.flip_h = false
-            $WaterFromCanAnimation.play("left_water")
+            $WaterFromCanAnimation.play("water_" + character_direction)
             $WaterFromCanAnimation.position = Vector2(-14, 0)
-        DIRECTION.RIGHT:
-            $AnimatedSprite2D.play("right_water")
+        DIRECTION_RIGHT:
             $WaterFromCanAnimation.flip_h = false
-            $WaterFromCanAnimation.play("right_water")
+            $WaterFromCanAnimation.play("water_" + character_direction)
             $WaterFromCanAnimation.position = Vector2(14, 0)
+    
+    $AnimatedSprite2D.play("water_" + character_direction)
 
 
 func perform_harvest_crop() -> void:
@@ -315,13 +289,13 @@ func get_coords_in_front_of_cat() -> Vector2i:
     var cat_grid_coords := region.get_grid_coords_from_pos(position)
     var direction_offset : Vector2i
     match character_direction:
-        DIRECTION.UP:
+        DIRECTION_UP:
             direction_offset = Vector2i(0, -1)
-        DIRECTION.DOWN:
+        DIRECTION_DOWN:
             direction_offset = Vector2i(0, 1)
-        DIRECTION.LEFT:
+        DIRECTION_LEFT:
             direction_offset = Vector2i(-1, 0)
-        DIRECTION.RIGHT:
+        DIRECTION_RIGHT:
             direction_offset = Vector2i(1, 0)
 
     var coords_in_front_of_cat := cat_grid_coords + direction_offset
