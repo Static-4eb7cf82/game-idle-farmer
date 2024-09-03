@@ -83,6 +83,6 @@ layout_mode = 2
 text = "<"
 
 [connection signal="pressed" from="BuildMenuOpen/MarginContainer/VBoxContainer/HBoxContainer/CloseBuildMenuButton" to="." method="_on_close_build_menu_button_pressed"]
-[connection signal="pressed" from="BuildMenuOpen/MarginContainer/VBoxContainer/GridContainer/TillSoil/MarginContainer/TillSoilButton" to="." method="_on_till_soil_button_pressed"]
+[connection signal="button_up" from="BuildMenuOpen/MarginContainer/VBoxContainer/GridContainer/TillSoil/MarginContainer/TillSoilButton" to="." method="_on_till_soil_button_button_up"]
 [connection signal="pressed" from="BuildMenuOpen/MarginContainer/VBoxContainer/GridContainer/Workbench/MarginContainer/WorkbenchButton" to="." method="_on_beet_button_pressed"]
 [connection signal="pressed" from="BuildMenuClosed/MarginContainer/OpenBuildMenuButton" to="." method="_on_open_build_menu_button_pressed"]

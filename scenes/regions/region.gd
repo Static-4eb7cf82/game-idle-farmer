@@ -1,6 +1,8 @@
 extends Node2D
 
 class_name Region
+
+
 @export
 var region_name: String
 @export
@@ -11,6 +13,7 @@ var grid: Array
 var crops_group_name: String
 var cats_group_name: String
 var storage_group_name: String
+var job_queue : JobQueue = JobQueue.new()
 
 class GridCellState:
     
@@ -54,12 +57,16 @@ func _process(_delta: float) -> void:
                 return
             plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
-    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.till_soil_selected:
-        # because process is called in a loop, set a flag to prevent multiple calls
-        # todo: this feels like a hack. And should be changed when moved to event queue based system
-        # even trying to do this in _unhandled_input will result in sometimes 2 calls to till soil
-        var cat_worker := get_tree().get_nodes_in_group(cats_group_name)[0] as CatWorker
-        cat_worker.receive_till_job(get_global_mouse_position())
+    if Input.is_action_just_pressed("accept") and Player.till_soil_selected:
+        print("Adding TillJob to job queue")
+        job_queue.push(TillJob.new(get_global_mouse_position()))
+        get_viewport().set_input_as_handled();
+
+# func _unhandled_input(event: InputEvent) -> void:
+#     if Input.is_action_just_released("accept") and Player.till_soil_selected:
+#         print("Adding TillJob to job queue")
+#         job_queue.push(TillJob.new(get_global_mouse_position()))
+#         get_viewport().set_input_as_handled();
 
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:

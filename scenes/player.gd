@@ -8,7 +8,6 @@ var coins : int:
         coins = value
         GlobalSignals.emit_player_coins_changed(coins)
 
-
 var click_particles : CPUParticles2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

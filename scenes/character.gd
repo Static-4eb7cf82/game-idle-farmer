@@ -23,6 +23,10 @@ const DIRECTION_LEFT = "left"
 const DIRECTION_RIGHT = "right"
 
 
+func _process(_delta: float) -> void:
+    poll_and_receive_jobs()
+
+
 func _unhandled_key_input(event: InputEvent) -> void:
     if event is InputEventKey:
         if event.pressed:
@@ -68,11 +72,11 @@ func handle_player_provided_movement() -> void:
 
 
 func move_to_desired_target_position(target_pos: Vector2) -> void:
-    print("Moving to desired target position: ", target_pos)
+    # print("Moving to desired target position: ", target_pos)
     var actual_target_pos := get_closest_adjacent_target_position(target_pos)
     target_position = actual_target_pos
     move_to_target = true
-    print("moving to actual target position: ", target_position)
+    # print("moving to actual target position: ", target_position)
 
 
 func get_closest_adjacent_target_position(target_pos: Vector2) -> Vector2:
@@ -107,43 +111,51 @@ func handle_target_movement() -> void:
             print("Reached target position")
 
 
-# todo: change to check job queue, if there is an available till job, then receive it
-# the job poll method should be the one checking if cat is currently performing a job, and if not, then call receive_till_job
-func receive_till_job(target_pos: Vector2) -> void:
-    # Perform job check
+func poll_and_receive_jobs() -> void:
     if performing_job:
-        print("Already performing a job")
         return
-    performing_job = true
+    
+    if !region.job_queue.is_empty():
+        print("Receiving a job")
+        # var job_queue : JobQueue = region.job_queue
+        var job : Job = region.job_queue.pop() # Perform any job category for now
+        
+        performing_job = true
+        if job is TillJob:
+            await execute_till_job(job)
+        # Global.JOB_TYPE.WATER:
+        #     perform_water()
+        # Global.JOB_TYPE.HARVEST:
+        #     perform_harvest_crop()
+        # Global.JOB_TYPE.BUILD_WORKBENCH:
+        #     print("Build workbench job")
+        performing_job = false
+        print("Finished job")
 
-    await till_soil_at_target_position(target_pos)
 
-    performing_job = false
-
-
-func till_soil_at_target_position(target_pos: Vector2) -> void:
+func execute_till_job(till_job: TillJob) -> void:
 
     # move to target position
-    print("moving to position")
-    move_to_desired_target_position(target_pos)
+    # print("moving to position")
+    move_to_desired_target_position(till_job.pos)
     await reached_target_position
 
     # turn towards target position
-    print("turning towards target position")
-    turn_towards_target_position(target_pos)
+    # print("turning towards target position")
+    turn_towards_target_position(till_job.pos)
     
     # perform animation for job duration
-    print("performing till soil animation")
+    # print("performing till soil animation")
     performing_action_animation = true
     $AnimatedSprite2D.play("till_" + character_direction)
     var job_duration := 5
     await get_tree().create_timer(job_duration).timeout
     performing_action_animation = false
-    $AnimatedSprite2D.play("front_idle")
+    $AnimatedSprite2D.play("idle_" + character_direction)
 
     # spawn tilled soil
-    print("placing tilled soil")
-    region.place_tilled_soil_at_coords(region.get_grid_coords_from_pos(target_pos))
+    # print("placing tilled soil")
+    region.place_tilled_soil_at_coords(region.get_grid_coords_from_pos(till_job.pos))
 
 
 func turn_towards_target_position(target_pos: Vector2) -> void:

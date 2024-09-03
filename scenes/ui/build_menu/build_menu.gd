@@ -77,10 +77,7 @@ func get_selected_build_menu_option_node() -> SelectedBuildMenuOption:
 #     selected_seed_packet.show()
 
 
-func _on_till_soil_button_pressed() -> void:
+func _on_till_soil_button_button_up() -> void:
     var selected_build_menu_option_node := get_selected_build_menu_option_node()
     selected_build_menu_option_node.texture = load("res://assets/items/tools/hoe.png")
     Player.till_soil_selected = true
-    # Player.selected_seed_packet = selected_seed_packet  
-    # selected_seed_packet.position = get_viewport().get_mouse_position()
-    # selected_seed_packet.show()
