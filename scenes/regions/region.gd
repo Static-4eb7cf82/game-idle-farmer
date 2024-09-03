@@ -139,6 +139,7 @@ func place_water_at_coords(coords: Vector2i) -> void:
 var tilled_soil_layer := 0
 func place_tilled_soil_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.set_cell(tilled_soil_layer, coords, 0, Vector2i(1, 1))
+    tilled_soil_tile_map.set_cells_terrain_connect(tilled_soil_layer, [coords], 0, 0)
     set_grid_cell(coords, GridCellState.new(true, false))
 
 

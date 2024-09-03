@@ -248,7 +248,7 @@ func harvest_crop_at_coords(coords: Vector2i) -> void:
     if harvested_item_packed_scene:
         print("Harvested %s at coords: %s" % [crop.crop_type, coords])
         var instance := harvested_item_packed_scene.instantiate() as HarvestableItem
-        instance.position = Vector2(0, -20)
+        instance.position = Vector2(0, -24)
         add_child(instance)
         carrying_harvestable = instance
 
