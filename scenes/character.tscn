@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://scenes/WaterFromCanAnimation.gd" id="4_whbpj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xl0ay"]
-size = Vector2(8, 7)
+size = Vector2(8, 5.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7ndm"]
 atlas = ExtResource("1_qpbo0")
@@ -1195,10 +1195,11 @@ animations = [{
 }]
 
 [node name="CatWorker" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_ehkfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -1.25)
 shape = SubResource("RectangleShape2D_xl0ay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

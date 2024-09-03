@@ -174,10 +174,10 @@ func get_storage_at_coords(coords: Vector2i) -> StorageContainer:
 
 
 var cat_worker_packed_scene := preload("res://scenes/character.tscn")
-func add_cat_worker() -> void:
+func add_cat_worker(pos: Vector2) -> void:
     var cat_worker_instance := cat_worker_packed_scene.instantiate()
     cat_worker_instance.region = self
-    cat_worker_instance.position = Vector2(200, 200)
+    cat_worker_instance.position = pos
     add_child(cat_worker_instance)
     cat_worker_instance.add_to_group(cats_group_name)
 

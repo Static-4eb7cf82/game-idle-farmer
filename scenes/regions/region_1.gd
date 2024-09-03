@@ -5,7 +5,8 @@ func _ready() -> void:
     super()
 
     # Add the first cat worker
-    add_cat_worker()
+    add_cat_worker(Vector2(200, 200))
+    # add_cat_worker(Vector2(216, 200))
     add_storage_container(Vector2i(15, 8))
 
 
