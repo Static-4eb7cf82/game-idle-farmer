@@ -185,9 +185,9 @@ func add_storage_container(coords: Vector2i) -> void:
 
 
 func debug_seed_grid() -> void:
-    set_grid_cell(Vector2i(15, 11), GridCellState.new(true, false))
-    set_grid_cell(Vector2i(16, 11), GridCellState.new(true, false))
-    set_grid_cell(Vector2i(17, 11), GridCellState.new(true, false))
-    set_grid_cell(Vector2i(15, 12), GridCellState.new(true, false))
-    set_grid_cell(Vector2i(16, 12), GridCellState.new(true, false))
-    set_grid_cell(Vector2i(17, 12), GridCellState.new(true, false))
+    place_tilled_soil_at_coords(Vector2i(15, 11))
+    place_tilled_soil_at_coords(Vector2i(16, 11))
+    place_tilled_soil_at_coords(Vector2i(17, 11))
+    place_tilled_soil_at_coords(Vector2i(15, 12))
+    place_tilled_soil_at_coords(Vector2i(16, 12))
+    place_tilled_soil_at_coords(Vector2i(17, 12))
