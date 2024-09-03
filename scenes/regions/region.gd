@@ -141,6 +141,7 @@ func place_tilled_soil_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.set_cell(tilled_soil_layer, coords, 0, Vector2i(1, 1))
     set_grid_cell(coords, GridCellState.new(true, false))
 
+
 func expire_water_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.erase_cell(watered_soil_layer, coords)
     get_grid_cell_from_coords(coords).has_water = false
