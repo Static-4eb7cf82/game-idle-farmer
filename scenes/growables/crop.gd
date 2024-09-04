@@ -14,17 +14,25 @@ var region: Region
 var region_coords: Vector2i
 var crop_type: Global.CROP_TYPE
 
+var water: WateredSoil:
+    get:
+        return water
+    set(value):
+        water = value
+        water.water_has_expired.connect(_on_water_has_expired)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     # Place in on ready to take in exported variable changes
     timePerGrowthStage = growthDurationInSeconds / growthStages
     region_coords = region.get_grid_coords_from_pos(position)
+    _on_water_has_expired()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-    if !completedGrowing and hasWater():
+    if !completedGrowing and water != null:
         # print("Growing: ", currentGrowthDurationInSeconds)
         currentGrowthDurationInSeconds += delta
         if hasEnteredNextGrowthStage():
@@ -48,9 +56,14 @@ func checkHasCompletedGrowing() -> bool:
         return true
     return false
 
-func hasWater() -> bool:
-    var grid_cell := region.get_grid_cell_from_coords(region_coords)
-    if grid_cell and grid_cell.has_water:
-        # print("Has water")
-        return true
-    return false
+# func hasWater() -> bool:
+#     var grid_cell := region.get_grid_cell_from_coords(region_coords)
+#     if grid_cell and grid_cell.has_water:
+#         # print("Has water")
+#         return true
+#     return false
+
+func _on_water_has_expired() -> void:
+    if completedGrowing:
+        return
+    region.job_queue.push(WaterJob.new(position, self))

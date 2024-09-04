@@ -31,7 +31,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
     if event is InputEventKey:
         if event.pressed:
             if event.keycode == KEY_1:
-                perform_water()
+                perform_water_in_front_of_cat()
             if event.keycode == KEY_2:
                 perform_harvest_crop()
             if event.keycode == KEY_3:
@@ -71,7 +71,7 @@ func handle_player_provided_movement() -> void:
             velocity.x = 0
 
 
-func move_to_desired_target_position(target_pos: Vector2) -> void:
+func move_to_closest_adjacent_target_position(target_pos: Vector2) -> void:
     # print("Moving to desired target position: ", target_pos)
     var actual_target_pos := get_closest_adjacent_target_position(target_pos)
     target_position = actual_target_pos
@@ -123,26 +123,31 @@ func poll_and_receive_jobs() -> void:
         performing_job = true
         if job is TillJob:
             await execute_till_job(job)
+        elif job is WaterJob:
+            await execute_water_job(job)
         # Global.JOB_TYPE.WATER:
-        #     perform_water()
+        #     perform_water_in_front_of_cat()
         # Global.JOB_TYPE.HARVEST:
         #     perform_harvest_crop()
         # Global.JOB_TYPE.BUILD_WORKBENCH:
         #     print("Build workbench job")
         performing_job = false
         print("Finished job")
+    else:
+        # Do nothing
+        $AnimatedSprite2D.play("idle_" + character_direction)
 
 
 func execute_till_job(till_job: TillJob) -> void:
 
     # move to target position
     # print("moving to position")
-    move_to_desired_target_position(till_job.pos)
+    move_to_closest_adjacent_target_position(till_job.pos)
     await reached_target_position
 
     # turn towards target position
     # print("turning towards target position")
-    turn_towards_target_position(till_job.pos)
+    set_character_direction_towards_target_position(till_job.pos)
     
     # perform animation for job duration
     # print("performing till soil animation")
@@ -151,14 +156,30 @@ func execute_till_job(till_job: TillJob) -> void:
     var job_duration := 5
     await get_tree().create_timer(job_duration).timeout
     performing_action_animation = false
-    $AnimatedSprite2D.play("idle_" + character_direction)
 
     # spawn tilled soil
     # print("placing tilled soil")
     region.place_tilled_soil_at_coords(region.get_grid_coords_from_pos(till_job.pos))
 
 
-func turn_towards_target_position(target_pos: Vector2) -> void:
+func execute_water_job(water_job: WaterJob) -> void:
+
+    # move to target position
+    # print("moving to position")
+    move_to_closest_adjacent_target_position(water_job.pos)
+    await reached_target_position
+
+    # turn towards target position
+    # print("turning towards target position")
+    set_character_direction_towards_target_position(water_job.pos)
+    
+    # perform animation for job duration
+    # print("performing water animation")
+    var watered_soil = await perform_water_in_front_of_cat()
+    water_job._subject.water = watered_soil
+
+
+func set_character_direction_towards_target_position(target_pos: Vector2) -> void:
     var position_diff := (target_pos - position).abs()
     if position_diff.x > position_diff.y:
         if target_pos.x > position.x:
@@ -197,10 +218,9 @@ func handle_animation() -> void:
         $AnimatedSprite2D.play("idle_" + character_direction)
 
 
-func perform_water() -> void:
+func perform_water_in_front_of_cat() -> WateredSoil:
     var perform_action_at_cell_coords := get_coords_in_front_of_cat()
     print("water at coords: ", perform_action_at_cell_coords)
-    region.place_water_at_coords(perform_action_at_cell_coords)
     performing_action_animation = true
     match character_direction:
         DIRECTION_UP:
@@ -221,6 +241,11 @@ func perform_water() -> void:
             $WaterFromCanAnimation.position = Vector2(14, 0)
     
     $AnimatedSprite2D.play("water_" + character_direction)
+
+    await $WaterFromCanAnimation.animation_finished
+    performing_action_animation = false
+    var watered_soil = region.place_water_at_coords(perform_action_at_cell_coords)
+    return watered_soil
 
 
 func perform_harvest_crop() -> void:

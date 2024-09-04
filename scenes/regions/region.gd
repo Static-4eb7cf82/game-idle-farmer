@@ -126,8 +126,9 @@ func plant_crop(selected_seed_packet: SelectedSeedPacket, pos: Vector2) -> void:
 
 var watered_soil_packed_scene := preload("res://scenes/ground/watered_soil.tscn")
 var watered_soil_layer := 1
-func place_water_at_coords(coords: Vector2i) -> void:
-    var watered_soil_instance := watered_soil_packed_scene.instantiate() as Node2D
+# todo: consider refactoring this too to not own the responsibility of setting water
+func place_water_at_coords(coords: Vector2i) -> WateredSoil:
+    var watered_soil_instance := watered_soil_packed_scene.instantiate() as WateredSoil
     watered_soil_instance.coords = coords
     watered_soil_instance.region = self
     add_child(watered_soil_instance)
@@ -142,6 +143,8 @@ func place_water_at_coords(coords: Vector2i) -> void:
         # todo: not sure about this. Maybe all grid cells are initialized with grid cell state so there's no null check. But the additional memory of doing this? I think I just need a better way of handling grid state
         # Perhaps one way is to declare a property on the actual tile map for tiles that can have state. Then when the region is initialized, it loops through the tilemap cells and creates grid state for tiles that can have state
         # And then only tiles that are interactable to begin with are the only ones with state
+    
+    return watered_soil_instance
 
 var tilled_soil_layer := 0
 func place_tilled_soil_at_coords(coords: Vector2i) -> void:
@@ -149,7 +152,7 @@ func place_tilled_soil_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.set_cells_terrain_connect(tilled_soil_layer, [coords], 0, 0)
     set_grid_cell(coords, GridCellState.new(true, false))
 
-
+# todo: Remove the watered soil tile from the tile map, and just make it its own sprite2d that spawns with the water scene
 func expire_water_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.erase_cell(watered_soil_layer, coords)
     get_grid_cell_from_coords(coords).has_water = false
