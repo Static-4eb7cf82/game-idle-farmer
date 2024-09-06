@@ -6,8 +6,9 @@ func _ready() -> void:
 
     # Add the first cat worker
     add_cat_worker(Vector2(200, 200))
-    # add_cat_worker(Vector2(216, 200))
-    add_storage_container(Vector2i(15, 8))
+    add_cat_worker(Vector2(216, 200))
+    add_storage_container(Vector2i(15, 4))
+    add_storage_container(Vector2i(10, 4))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
