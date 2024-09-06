@@ -5,7 +5,6 @@ class_name CatWorker
 var region: Region
 const SPEED = 50.0 # 25 is more appropriate for automated movement
 var performing_action_animation := false
-var carrying_harvestable : HarvestableItem
 
 # Target based movement
 var move_to_target := false
