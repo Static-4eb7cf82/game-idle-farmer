@@ -6,6 +6,8 @@ class_name Crop
 var growthDurationInSeconds := 15.0
 @export
 var growthStages := 3 # 3 growing frames, 1 harvest frame
+@export
+var coin_reward: int
 var currentGrowthDurationInSeconds := 0.0
 var currentGrowthStage := 1
 var timePerGrowthStage : float
@@ -44,6 +46,8 @@ func _process(delta: float) -> void:
             completedGrowing = true
             ($AnimatedSprite2D as AnimatedSprite2D).frame = growthStages
             # Set to available for harvest
+            print("Creating harvest job for %s at %s" % [Global.CROP_TYPE.keys()[crop_type], region.get_grid_coords_from_pos(position)])
+            region.job_queue.push(HarvestJob.new(position, self))
 
 func hasEnteredNextGrowthStage() -> bool:
     var upperDurationLimit := timePerGrowthStage * currentGrowthStage
@@ -56,14 +60,23 @@ func checkHasCompletedGrowing() -> bool:
         return true
     return false
 
-# func hasWater() -> bool:
-#     var grid_cell := region.get_grid_cell_from_coords(region_coords)
-#     if grid_cell and grid_cell.has_water:
-#         # print("Has water")
-#         return true
-#     return false
 
 func _on_water_has_expired() -> void:
     if completedGrowing:
         return
     region.job_queue.push(WaterJob.new(position, self))
+
+
+func harvest(harvested_by: Node2D) -> void:
+    region.get_grid_cell_from_pos(position).is_plottable = true
+
+    ($AnimatedSprite2D as Node2D).hide()
+    region.remove_child(self)
+    harvested_by.add_child(self)
+    position = Vector2(0, -24)
+    ($HarvestedSprite2D as Node2D).show()
+
+
+func recieve_reward() -> void:
+    print("Recieved reward of %s coins" % coin_reward)
+    Player.coins += coin_reward

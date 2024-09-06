@@ -99,6 +99,10 @@ func get_grid_cell_from_coords(pos: Vector2i) -> GridCellState:
         return null
 
 
+func get_grid_cell_from_pos(pos: Vector2) -> GridCellState:
+    return get_grid_cell_from_coords(get_grid_coords_from_pos(pos))
+
+
 var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
 var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
 var lettuce_crop_scene := preload("res://scenes/growables/lettuce.tscn")
@@ -174,6 +178,18 @@ func get_storage_at_coords(coords: Vector2i) -> StorageContainer:
         if crop.region_coords == coords:
             return crop
     return null
+
+
+func get_closest_storage_to_pos(pos: Vector2) -> StorageContainer:
+    var storage_containers := get_tree().get_nodes_in_group(storage_group_name)
+
+    var closest_storage := storage_containers[0]
+    for storage_container in storage_containers:
+        var cur_distance := pos.distance_to(storage_container.position)
+        if cur_distance < pos.distance_to(closest_storage.position):
+            closest_storage = storage_container
+
+    return closest_storage
 
 
 var cat_worker_packed_scene := preload("res://scenes/character.tscn")

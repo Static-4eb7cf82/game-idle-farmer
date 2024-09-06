@@ -32,10 +32,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
         if event.pressed:
             if event.keycode == KEY_1:
                 perform_water_in_front_of_cat()
-            if event.keycode == KEY_2:
-                perform_harvest_crop()
-            if event.keycode == KEY_3:
-                perform_place_item_in_storage()
 
 
 func _physics_process(_delta: float) -> void:
@@ -90,12 +86,10 @@ func get_closest_adjacent_target_position(target_pos: Vector2) -> Vector2:
     var adjacent_grid_positions := adjacent_grid_coords.map(region.get_grid_pos_from_coords)
     
     var closest_pos = adjacent_grid_positions[0]
-    var closest_distance := position.distance_to(closest_pos)
     for pos: Vector2 in adjacent_grid_positions:
         var cur_distance := position.distance_to(pos)
-        if cur_distance < closest_distance:
+        if cur_distance < position.distance_to(closest_pos):
             closest_pos = pos
-            closest_distance = cur_distance
     
     return closest_pos
 
@@ -125,6 +119,8 @@ func poll_and_receive_jobs() -> void:
             await execute_till_job(job)
         elif job is WaterJob:
             await execute_water_job(job)
+        elif job is HarvestJob:
+            await execute_harvest_job(job)
         # Global.JOB_TYPE.WATER:
         #     perform_water_in_front_of_cat()
         # Global.JOB_TYPE.HARVEST:
@@ -177,6 +173,38 @@ func execute_water_job(water_job: WaterJob) -> void:
     # print("performing water animation")
     var watered_soil = await perform_water_in_front_of_cat()
     water_job._subject.water = watered_soil
+
+func execute_harvest_job(harvest_job: HarvestJob) -> void:
+
+    # move to target position
+    # print("moving to position")
+    move_to_closest_adjacent_target_position(harvest_job.pos)
+    await reached_target_position
+
+    # turn towards target position
+    # print("turning towards target position")
+    set_character_direction_towards_target_position(harvest_job.pos)
+
+    # perform harvest
+    # this will call harvest on the crop
+    # the crop will know what it needs to do to be harvested, i.e. turn off growing processing etc + hide animation sprite and show the harvested sprite
+    # cat worker will await this
+    harvest_job._subject.harvest(self)
+
+    # ask the region for the closest storage container
+    var closest_storage := region.get_closest_storage_to_pos(position)
+
+    # move to target position
+    # print("moving to position")
+    move_to_closest_adjacent_target_position(closest_storage.position)
+    await reached_target_position
+
+    # turn towards target position
+    # print("turning towards target position")
+    set_character_direction_towards_target_position(closest_storage.position)
+
+    # perform place in container and recieve reward
+    place_item_in_storage(harvest_job._subject, closest_storage)
 
 
 func set_character_direction_towards_target_position(target_pos: Vector2) -> void:
@@ -248,69 +276,18 @@ func perform_water_in_front_of_cat() -> WateredSoil:
     return watered_soil
 
 
-func perform_harvest_crop() -> void:
-    var perform_action_at_cell_coords := get_coords_in_front_of_cat()
-    print("harvest at coords: ", perform_action_at_cell_coords)
-    harvest_crop_at_coords(perform_action_at_cell_coords)
-
-
-var harvested_wheat_packed_scene := preload("res://scenes/harvestables/harvested_wheat.tscn")
-var harvested_beet_packed_scene := preload("res://scenes/harvestables/harvested_beet.tscn")
-var harvested_lettuce_packed_scene := preload("res://scenes/harvestables/harvested_lettuce.tscn")
-func harvest_crop_at_coords(coords: Vector2i) -> void:
-    # get a reference to the crop at the coords
-    # iterate through region crops, and find the one at given coords
-    # based on the crop type, instantiate new "harvested" crop sprite and place above cat
-    # queue_free() the crop
-    # set the grid cell at coords to be plottable again
-    # then go_to_nearest_storage()
-    var crop := region.get_crop_at_coords(coords)
-    if not crop:
-        print("No crop to harvest at coords: ", coords)
-        return
-
-    if not crop.completedGrowing:
-        print("Crop not ready to harvest at coords: ", coords)
-        return
-
-    var harvested_item_packed_scene: PackedScene
-    match crop.crop_type:
-        Global.CROP_TYPE.WHEAT:
-            harvested_item_packed_scene = harvested_wheat_packed_scene
-        Global.CROP_TYPE.BEET:
-            harvested_item_packed_scene = harvested_beet_packed_scene
-        Global.CROP_TYPE.LETTUCE:
-            harvested_item_packed_scene = harvested_lettuce_packed_scene
-
-    if harvested_item_packed_scene:
-        print("Harvested %s at coords: %s" % [crop.crop_type, coords])
-        var instance := harvested_item_packed_scene.instantiate() as HarvestableItem
-        instance.position = Vector2(0, -24)
-        add_child(instance)
-        carrying_harvestable = instance
-
-        crop.queue_free()
-        region.get_grid_cell_from_coords(coords).is_plottable = true
-
-
-func perform_place_item_in_storage() -> void:
-    var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as StorageContainer
+func place_item_in_storage(item: Crop, storage_container: StorageContainer) -> void:
     # open storage
-    # call carrying_harvestable.recieve_reward()
-    # queue_free() carrying_harvestable
-    # set carrying_harvestable to null
-    if storage:
-        storage.storage_container_opened.connect(on_storage_container_opened)
-        storage.open()
+    # call item.recieve_reward()
+    # queue_free() item
+    storage_container.open()
+    await storage_container.storage_container_opened
 
-func on_storage_container_opened() -> void:
-    print("Storage container opened")
-    carrying_harvestable.recieve_reward()
-    carrying_harvestable.queue_free()
-    carrying_harvestable = null
-    var storage := region.get_storage_at_coords(get_coords_in_front_of_cat()) as StorageContainer
-    if storage:
-        storage.close()
+    # print("Storage container opened")
+    item.recieve_reward()
+    item.queue_free()
+
+    storage_container.close()
 
 
 func _on_water_from_can_animation_animation_finished() -> void:
