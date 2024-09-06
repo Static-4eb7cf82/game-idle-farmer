@@ -3,7 +3,7 @@ extends CharacterBody2D
 class_name CatWorker
 
 var region: Region
-const SPEED = 50.0 # 25 is more appropriate for automated movement
+var speed: float = Global.settings.cat_worker_speed
 var performing_action_animation := false
 
 # Target based movement
@@ -46,7 +46,7 @@ func handle_player_provided_movement() -> void:
     # Get the input DIRECTION and handle the movement/deceleration.
     var y_direction := Input.get_axis("up", "down")
     if y_direction:
-        velocity.y = y_direction * SPEED
+        velocity.y = y_direction * speed
         velocity.x = 0
         if velocity.y > 0:
             character_direction = DIRECTION_DOWN
@@ -57,7 +57,7 @@ func handle_player_provided_movement() -> void:
 
         var x_direction := Input.get_axis("left", "right")
         if x_direction:
-            velocity.x = x_direction * SPEED
+            velocity.x = x_direction * speed
             if velocity.x > 0:
                 character_direction = DIRECTION_RIGHT
             else:
@@ -96,7 +96,7 @@ func get_closest_adjacent_target_position(target_pos: Vector2) -> Vector2:
 func handle_target_movement() -> void:
     if move_to_target:
         var direction := (target_position - position).normalized()
-        velocity = direction * SPEED
+        velocity = direction * speed
         if position.distance_to(target_position) < 1: # physics buffer position offset
             move_to_target = false
             velocity = Vector2.ZERO
