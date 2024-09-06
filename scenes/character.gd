@@ -279,8 +279,7 @@ func place_item_in_storage(item: Crop, storage_container: StorageContainer) -> v
     # open storage
     # call item.recieve_reward()
     # queue_free() item
-    storage_container.open()
-    await storage_container.storage_container_opened
+    await storage_container.open()
 
     # print("Storage container opened")
     item.recieve_reward()

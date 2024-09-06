@@ -14,16 +14,11 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
     pass
 
-signal storage_container_opened
 func open() -> void:
     var animation := $AnimatedSprite2D as AnimatedSprite2D
     animation.play("open")
-    animation.animation_finished.connect(_on_open_animation_finished)
+    await animation.animation_finished
 
-func _on_open_animation_finished() -> void:
-    var animation := $AnimatedSprite2D as AnimatedSprite2D
-    animation.animation_finished.disconnect(_on_open_animation_finished)
-    storage_container_opened.emit()
 
 func close() -> void:
     var animation := $AnimatedSprite2D as AnimatedSprite2D
