@@ -204,7 +204,7 @@ func execute_harvest_job(harvest_job: HarvestJob) -> void:
     set_character_direction_towards_target_position(closest_storage.position)
 
     # perform place in container and recieve reward
-    place_item_in_storage(harvest_job._subject, closest_storage)
+    await place_item_in_storage(harvest_job._subject, closest_storage)
 
 
 func set_character_direction_towards_target_position(target_pos: Vector2) -> void:
