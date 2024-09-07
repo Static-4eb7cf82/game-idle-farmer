@@ -96,6 +96,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="CarrotButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Carrot/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "carrot"
 mouse_default_cursor_shape = 2
@@ -108,6 +109,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Tomato/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "tomato"
 mouse_default_cursor_shape = 2
@@ -120,6 +122,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cabbage/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "cabbage"
 mouse_default_cursor_shape = 2
@@ -132,6 +135,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cauliflower/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "cauliflower"
 mouse_default_cursor_shape = 2
@@ -144,6 +148,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Corn/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "corn"
 mouse_default_cursor_shape = 2
@@ -156,6 +161,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Eggplant/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "eggplant"
 mouse_default_cursor_shape = 2
@@ -168,6 +174,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Parsnip/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "parsnip"
 mouse_default_cursor_shape = 2
@@ -180,6 +187,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Cucumber/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "cucumber"
 mouse_default_cursor_shape = 2
@@ -192,6 +200,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="TextureButton" type="TextureButton" parent="ActionMenuOpen/MarginContainer/VBoxContainer/GridContainer/Pumpkin/MarginContainer"]
+self_modulate = Color(0.215182, 0.215182, 0.215182, 1)
 layout_mode = 2
 tooltip_text = "pumpkin"
 mouse_default_cursor_shape = 2
