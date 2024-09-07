@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bq83cwhh7y213"]
+[gd_scene load_steps=10 format=3 uid="uid://bq83cwhh7y213"]
 
 [ext_resource type="Script" path="res://scenes/growables/beet.gd" id="1_kdqvy"]
 [ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/items/Farming Plants.png" id="2_ejge5"]
@@ -40,16 +40,25 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efaei"]
+size = Vector2(11, 5)
+
 [node name="Beet" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_kdqvy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(0, 3)
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_p1xln")
-offset = Vector2(0, -3)
+offset = Vector2(0, -4)
 
 [node name="HarvestedSprite2D" type="Sprite2D" parent="."]
 visible = false
 texture = ExtResource("3_6re4a")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_efaei")

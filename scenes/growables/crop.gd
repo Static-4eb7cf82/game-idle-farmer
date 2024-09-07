@@ -30,6 +30,7 @@ func _ready() -> void:
     timePerGrowthStage = growthDurationInSeconds / growthStages
     region_coords = region.get_grid_coords_from_pos(position)
     _on_water_has_expired()
+    ($Area2D as Area2D).body_entered.connect(_on_area_2d_body_entered)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,3 +81,20 @@ func harvest(harvested_by: Node2D) -> void:
 func recieve_reward() -> void:
     print("Recieved reward of %s coins" % coin_reward)
     Player.coins += coin_reward
+
+
+func _on_area_2d_body_entered(_body:Node2D) -> void:
+    walk_on_top_of()
+
+
+func walk_on_top_of() -> void:
+    if currentGrowthStage > 1:
+        # pick random direction, left or right
+        # rotate the crop in that direction and back
+        var chance := randi_range(0, 1)
+        var tween := get_tree().create_tween()
+        if chance == 0:
+            tween.tween_property($AnimatedSprite2D, "rotation", -0.2, 0.2)
+        else:
+            tween.tween_property($AnimatedSprite2D, "rotation", 0.2, 0.2)
+        tween.tween_property($AnimatedSprite2D, "rotation", 0, 0.2)
