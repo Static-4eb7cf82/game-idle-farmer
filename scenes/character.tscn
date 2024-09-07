@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dceve3vh7iobb" path="res://assets/character/water from wateringcan frames.png" id="3_6b6x0"]
 [ext_resource type="Script" path="res://scenes/WaterFromCanAnimation.gd" id="4_whbpj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl0ay"]
-size = Vector2(8, 5.5)
+[sub_resource type="CircleShape2D" id="CircleShape2D_0yf26"]
+radius = 3.0104
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r7ndm"]
 atlas = ExtResource("1_qpbo0")
@@ -1200,12 +1200,13 @@ script = ExtResource("1_ehkfd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1.25)
-shape = SubResource("RectangleShape2D_xl0ay")
+shape = SubResource("CircleShape2D_0yf26")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3fveb")
-animation = &"water_right"
+animation = &"walk_down"
 autoplay = "idle_down"
+frame_progress = 0.786121
 offset = Vector2(0, -6)
 
 [node name="WaterFromCanAnimation" type="AnimatedSprite2D" parent="."]

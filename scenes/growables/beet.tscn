@@ -41,11 +41,15 @@ animations = [{
 }]
 
 [node name="Beet" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_kdqvy")
 coin_reward = 40
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_p1xln")
+offset = Vector2(0, -3)
 
 [node name="HarvestedSprite2D" type="Sprite2D" parent="."]
 visible = false
