@@ -6,9 +6,9 @@ func _ready() -> void:
 
     # Add the first cat worker
     add_cat_worker(Vector2(200, 200))
-    add_cat_worker(Vector2(216, 200))
+    # add_cat_worker(Vector2(216, 200))
     add_storage_container(Vector2i(15, 4))
-    add_storage_container(Vector2i(10, 4))
+    # add_storage_container(Vector2i(10, 4))
     self.till_cost = Global.settings.region_1_till_cost
 
 

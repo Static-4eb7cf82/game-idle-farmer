@@ -11,16 +11,22 @@ class DebugSettings extends Settings:
         coin_reward_beet = 40
         growth_duration_in_seconds_lettuce = 15.0
         coin_reward_lettuce = 60
+        player_starting_coins = 100
 
 class Settings:
     var cat_worker_speed: float = 25.0
-    var growth_duration_in_seconds_wheat: float = 45.0
-    var coin_reward_wheat: int = 20
+    var coin_cost_wheat: int = 1
+    var coin_cost_beet: int = 3
+    var coin_cost_lettuce: int = 6
+    var coin_reward_wheat: int = 7
+    var coin_reward_beet: int = 12
+    var coin_reward_lettuce: int = 18
+    var growth_duration_in_seconds_wheat: float = 50.0
     var growth_duration_in_seconds_beet: float = 75.0
-    var coin_reward_beet: int = 40
-    var growth_duration_in_seconds_lettuce: float = 120.0
-    var coin_reward_lettuce: int = 60
-    var region_1_till_cost: int = 80
+    var growth_duration_in_seconds_lettuce: float = 125.0
+    var region_1_till_cost: int = 35
+    var watered_soil_duration: int = 25
+    var player_starting_coins: int = 5
 
 
 

@@ -70,15 +70,15 @@ func ensure_seed_packet_at_mouse_position(type: seed_type) -> void:
         seed_type.WHEAT:
             selected_seed_packet.crop_type = Global.CROP_TYPE.WHEAT
             selected_seed_packet.texture = wheat_seed_packet_texture
-            selected_seed_packet.price = 10
+            selected_seed_packet.price = Global.settings.coin_cost_wheat
         seed_type.BEET:
             selected_seed_packet.crop_type = Global.CROP_TYPE.BEET
             selected_seed_packet.texture = beet_seed_packet_texture
-            selected_seed_packet.price = 20
+            selected_seed_packet.price = Global.settings.coin_cost_beet
         seed_type.LETTUCE:
             selected_seed_packet.crop_type = Global.CROP_TYPE.LETTUCE
             selected_seed_packet.texture = lettuce_seed_packet_texture
-            selected_seed_packet.price = 30
+            selected_seed_packet.price = Global.settings.coin_cost_lettuce
 
     Player.selected_seed_packet = selected_seed_packet  
     selected_seed_packet.position = get_viewport().get_mouse_position()

@@ -11,7 +11,7 @@ var coins : int:
 var click_particles : CPUParticles2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-    coins = 100
+    coins = Global.settings.player_starting_coins
 
 var till_soil_selected := false
 
