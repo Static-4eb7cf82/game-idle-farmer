@@ -43,14 +43,11 @@ animations = [{
 [node name="Lettuce" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_qwrn1")
-coin_reward = 60
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(0, 3)
 sprite_frames = SubResource("SpriteFrames_p1xln")
-frame = 2
-frame_progress = 0.915018
 offset = Vector2(0, -3)
 
 [node name="HarvestedSprite2D" type="Sprite2D" parent="."]

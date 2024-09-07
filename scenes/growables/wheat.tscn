@@ -43,7 +43,6 @@ animations = [{
 [node name="Wheat" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_470yn")
-coin_reward = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 y_sort_enabled = true

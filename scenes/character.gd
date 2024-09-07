@@ -66,12 +66,9 @@ func handle_player_provided_movement() -> void:
             velocity.x = 0
 
 
-func move_to_closest_adjacent_target_position(target_pos: Vector2) -> void:
-    # print("Moving to desired target position: ", target_pos)
-    var actual_target_pos := get_closest_adjacent_target_position(target_pos)
-    target_position = actual_target_pos
+func move_to_position(target_pos: Vector2) -> void:
+    target_position = target_pos
     move_to_target = true
-    # print("moving to actual target position: ", target_position)
 
 
 func get_closest_adjacent_target_position(target_pos: Vector2) -> Vector2:
@@ -137,7 +134,7 @@ func execute_till_job(till_job: TillJob) -> void:
 
     # move to target position
     # print("moving to position")
-    move_to_closest_adjacent_target_position(till_job.pos)
+    move_to_position(get_closest_adjacent_target_position(till_job.pos))
     await reached_target_position
 
     # turn towards target position
@@ -161,7 +158,7 @@ func execute_water_job(water_job: WaterJob) -> void:
 
     # move to target position
     # print("moving to position")
-    move_to_closest_adjacent_target_position(water_job.pos)
+    move_to_position(get_closest_adjacent_target_position(water_job.pos))
     await reached_target_position
 
     # turn towards target position
@@ -175,9 +172,9 @@ func execute_water_job(water_job: WaterJob) -> void:
 
 func execute_harvest_job(harvest_job: HarvestJob) -> void:
 
-    # move to target position
+    # move to target position. Move to the literal crop position, not adjacent to it, so it looks like youre actually picking it up
     # print("moving to position")
-    move_to_closest_adjacent_target_position(harvest_job.pos)
+    move_to_position(harvest_job.pos)
     await reached_target_position
 
     # turn towards target position
@@ -195,7 +192,7 @@ func execute_harvest_job(harvest_job: HarvestJob) -> void:
 
     # move to target position
     # print("moving to position")
-    move_to_closest_adjacent_target_position(closest_storage.position)
+    move_to_position(get_closest_adjacent_target_position(closest_storage.position))
     await reached_target_position
 
     # turn towards target position
