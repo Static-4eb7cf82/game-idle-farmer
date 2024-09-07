@@ -14,6 +14,7 @@ var crops_group_name: String
 var cats_group_name: String
 var storage_group_name: String
 var job_queue : JobQueue = JobQueue.new()
+var till_cost: int
 
 class GridCellState:
     
@@ -60,8 +61,9 @@ func _process(_delta: float) -> void:
             plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
     if Input.is_action_just_pressed("accept") and Player.till_soil_selected:
-        if is_tillable_at_coords(get_grid_coords_at_mouse()):
+        if is_tillable_at_coords(get_grid_coords_at_mouse()) and Player.coins >= till_cost:
             print("Adding TillJob to job queue")
+            Player.coins -= till_cost
             job_queue.push(TillJob.new(get_global_mouse_position()))
             get_viewport().set_input_as_handled();
 

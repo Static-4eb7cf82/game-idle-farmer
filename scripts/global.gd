@@ -20,6 +20,7 @@ class Settings:
     var coin_reward_beet: int = 40
     var growth_duration_in_seconds_lettuce: float = 120.0
     var coin_reward_lettuce: int = 60
+    var region_1_till_cost: int = 80
 
 
 
