@@ -1,0 +1,101 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy1xqvcbp8dta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sodgg"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.280584, 0.69824, 0.399861, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w4vu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.929715, 0.929715, 0.929715, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eaus3"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c1r6h"]
+bg_color = Color(0.854439, 0.840149, 0.795016, 1)
+border_width_bottom = 2
+border_color = Color(0.333333, 0.333333, 0.333333, 1)
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjaxt"]
+bg_color = Color(0.854439, 0.840149, 0.795016, 1)
+border_width_top = 2
+border_color = Color(0.333333, 0.333333, 0.333333, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+expand_margin_top = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axatx"]
+bg_color = Color(0.854439, 0.840149, 0.795016, 1)
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[node name="SideMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 288.0
+offset_bottom = 40.0
+theme_override_colors/font_hovered_color = Color(0.333333, 0.333333, 0.333333, 1)
+theme_override_colors/font_unselected_color = Color(0.333333, 0.333333, 0.333333, 1)
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_sodgg")
+theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_4w4vu")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_eaus3")
+theme_override_styles/panel = SubResource("StyleBoxFlat_c1r6h")
+theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_wjaxt")
+tab_focus_mode = 0
+
+[node name="PLANT" type="PanelContainer" parent="TabContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/PLANT/MarginContainer"]
+layout_mode = 2
+text = "plant"
+
+[node name="BUILD" type="PanelContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/BUILD/MarginContainer"]
+layout_mode = 2
+text = "build"
+
+[node name="PRIORITIES" type="PanelContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PRIORITIES"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="TabContainer/PRIORITIES/MarginContainer"]
+layout_mode = 2
+text = "priorities"
