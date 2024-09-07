@@ -17,14 +17,16 @@ var job_queue : JobQueue = JobQueue.new()
 
 class GridCellState:
     
-    func _init(plottable: bool, water: bool) -> void:
+    func _init(plottable: bool, water: bool, tillable: bool) -> void:
         self.is_plottable = plottable
         self.has_water = water
+        self.is_tillable = tillable
 
     # is_plottable doubles as being a tile possible to hold a crop as well as being occupied by a crop
     # corner tilled tiles will always be false, but inner tiles will be true by default
     var is_plottable: bool
     var has_water: bool
+    var is_tillable: bool
 
 
 # Called when the node enters the scene tree for the first time.
@@ -58,9 +60,10 @@ func _process(_delta: float) -> void:
             plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
     if Input.is_action_just_pressed("accept") and Player.till_soil_selected:
-        print("Adding TillJob to job queue")
-        job_queue.push(TillJob.new(get_global_mouse_position()))
-        get_viewport().set_input_as_handled();
+        if is_tillable_at_coords(get_grid_coords_at_mouse()):
+            print("Adding TillJob to job queue")
+            job_queue.push(TillJob.new(get_global_mouse_position()))
+            get_viewport().set_input_as_handled();
 
 # func _unhandled_input(event: InputEvent) -> void:
 #     if Input.is_action_just_released("accept") and Player.till_soil_selected:
@@ -139,22 +142,49 @@ func place_water_at_coords(coords: Vector2i) -> WateredSoil:
 
     tilled_soil_tile_map.set_cell(watered_soil_layer, coords, 2, Vector2i(0, 0))
 
+    var ground_cell := ground_tile_map.get_cell_tile_data(0, coords) # bug, ground could be on different layers
+    var tillable := false
+    if ground_cell:
+        tillable = ground_cell.get_custom_data("is_tillable")
+
     var grid_cell := get_grid_cell_from_coords(coords)
     if grid_cell:
         grid_cell.has_water = true
     else:
-        set_grid_cell(coords, GridCellState.new(false, true))
+        set_grid_cell(coords, GridCellState.new(false, true, tillable))
         # todo: not sure about this. Maybe all grid cells are initialized with grid cell state so there's no null check. But the additional memory of doing this? I think I just need a better way of handling grid state
         # Perhaps one way is to declare a property on the actual tile map for tiles that can have state. Then when the region is initialized, it loops through the tilemap cells and creates grid state for tiles that can have state
         # And then only tiles that are interactable to begin with are the only ones with state
     
     return watered_soil_instance
 
+
+# Determine if the given location should be tillable
+func is_tillable_at_coords(coords: Vector2i) -> bool:
+    
+    # first refer to already placed tilled tile map tiles
+    var tilled_cell = tilled_soil_tile_map.get_cell_tile_data(0, coords)
+    if tilled_cell:
+        return tilled_cell.get_custom_data("is_tillable")
+    
+    # then refer to the ground tile map tiles
+    var ground_cell: TileData
+    ground_cell = ground_tile_map.get_cell_tile_data(2, coords)
+    if not ground_cell:
+        ground_cell = ground_tile_map.get_cell_tile_data(1, coords)
+    if not ground_cell:
+        ground_cell = ground_tile_map.get_cell_tile_data(0, coords)
+    if ground_cell:
+        return ground_cell.get_custom_data("is_tillable")
+    
+    return false
+
+
 var tilled_soil_layer := 0
 func place_tilled_soil_at_coords(coords: Vector2i) -> void:
     tilled_soil_tile_map.set_cell(tilled_soil_layer, coords, 0, Vector2i(1, 1))
     tilled_soil_tile_map.set_cells_terrain_connect(tilled_soil_layer, [coords], 0, 0)
-    set_grid_cell(coords, GridCellState.new(true, false))
+    set_grid_cell(coords, GridCellState.new(true, false, false))
 
 # todo: Remove the watered soil tile from the tile map, and just make it its own sprite2d that spawns with the water scene
 func expire_water_at_coords(coords: Vector2i) -> void:
