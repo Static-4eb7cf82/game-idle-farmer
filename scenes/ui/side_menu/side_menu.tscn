@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dy1xqvcbp8dta"]
+[gd_scene load_steps=30 format=3 uid="uid://dy1xqvcbp8dta"]
 
 [ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_1uqwe"]
 [ext_resource type="Texture2D" uid="uid://d2jyvul8auyhf" path="res://assets/items/crops/wheat.png" id="1_3ilig"]
@@ -15,6 +15,28 @@
 [ext_resource type="Texture2D" uid="uid://bpuivg5bntev5" path="res://assets/items/crops/pumpkin.png" id="12_2fgbh"]
 [ext_resource type="Texture2D" uid="uid://dpwgoqwnsxo2o" path="res://assets/structures/work_station.png" id="14_63eyh"]
 [ext_resource type="Script" path="res://scenes/ui/side_menu/priority.gd" id="14_q4fko"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7itsn"]
+bg_color = Color(0.854439, 0.840149, 0.795016, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.333333, 0.333333, 0.333333, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wxgs"]
+bg_color = Color(0.929715, 0.929715, 0.929715, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.333333, 0.333333, 0.333333, 1)
+corner_radius_top_left = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 2.0
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sodgg"]
 content_margin_left = 4.0
@@ -96,12 +118,32 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 300.0
-offset_bottom = 150.0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(12, 24)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7itsn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_3wxgs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7itsn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_7itsn")
+text = ">"
+
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 150)
+layout_mode = 2
 theme_override_colors/font_hovered_color = Color(0.333333, 0.333333, 0.333333, 1)
 theme_override_colors/font_unselected_color = Color(0.333333, 0.333333, 0.333333, 1)
+theme_override_constants/side_margin = 8
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_sodgg")
 theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_4w4vu")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_eaus3")
@@ -110,31 +152,32 @@ theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_wjaxt")
 current_tab = 1
 tab_focus_mode = 0
 
-[node name="PLANT" type="PanelContainer" parent="TabContainer"]
+[node name="PLANT" type="PanelContainer" parent="HBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT"]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/PLANT/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer"]
 layout_mode = 2
 
-[node name="TillGridContainer" type="GridContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="TillGridContainer" type="GridContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 columns = 3
 
-[node name="Till" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer"]
+[node name="Till" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -143,22 +186,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("1_1uqwe")
 stretch_mode = 2
 
-[node name="DestroyTill" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer"]
+[node name="DestroyTill" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -167,37 +210,37 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0.509804)
 layout_mode = 2
 texture = ExtResource("1_1uqwe")
 stretch_mode = 2
 
-[node name="Label" type="Label" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "X"
 
-[node name="HSeparator" type="HSeparator" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CropsGridContainer" type="GridContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="CropsGridContainer" type="GridContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 columns = 3
 
-[node name="Wheat" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Wheat" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -206,22 +249,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("1_3ilig")
 stretch_mode = 2
 
-[node name="Beet" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Beet" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -230,22 +273,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_5rlsh")
 stretch_mode = 2
 
-[node name="Lettuce" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Lettuce" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -254,22 +297,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("3_j6yng")
 stretch_mode = 2
 
-[node name="Carrot" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Carrot" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Carrot"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Carrot"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -278,23 +321,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Carrot/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Carrot/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Carrot/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Carrot/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("4_e6lk8")
 stretch_mode = 2
 
-[node name="Tomato" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Tomato" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Tomato"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Tomato"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -303,23 +346,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Tomato/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Tomato/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Tomato/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Tomato/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("5_7tpqq")
 stretch_mode = 2
 
-[node name="Cabbage" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Cabbage" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cabbage"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cabbage"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -328,23 +371,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cabbage/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cabbage/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cabbage/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cabbage/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("6_ejbmx")
 stretch_mode = 2
 
-[node name="Cauliflower" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Cauliflower" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cauliflower"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cauliflower"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -353,23 +396,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cauliflower/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cauliflower/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cauliflower/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cauliflower/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("7_l61m6")
 stretch_mode = 2
 
-[node name="Corn" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Corn" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Corn"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Corn"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -378,23 +421,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Corn/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Corn/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Corn/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Corn/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("8_p4bf1")
 stretch_mode = 2
 
-[node name="Eggplant" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Eggplant" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Eggplant"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Eggplant"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -403,23 +446,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Eggplant/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Eggplant/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Eggplant/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Eggplant/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("9_nr5ce")
 stretch_mode = 2
 
-[node name="Parsnip" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Parsnip" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Parsnip"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Parsnip"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -428,23 +471,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Parsnip/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Parsnip/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Parsnip/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Parsnip/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("10_m6204")
 stretch_mode = 2
 
-[node name="Cucumber" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Cucumber" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cucumber"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cucumber"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -453,23 +496,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cucumber/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cucumber/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cucumber/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Cucumber/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("11_mbdmi")
 stretch_mode = 2
 
-[node name="Pumpkin" type="PanelContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
+[node name="Pumpkin" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Pumpkin"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Pumpkin"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -478,37 +521,39 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Pumpkin/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Pumpkin/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Pumpkin/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Pumpkin/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("12_2fgbh")
 stretch_mode = 2
 
-[node name="BUILD" type="PanelContainer" parent="TabContainer"]
+[node name="BUILD" type="PanelContainer" parent="HBoxContainer/TabContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/BUILD/MarginContainer"]
-layout_mode = 2
-
-[node name="CropsGridContainer" type="GridContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer"]
+[node name="CropsGridContainer" type="GridContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer"]
 layout_mode = 2
 columns = 3
 
-[node name="Wheat" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Wheat" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Wheat"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Wheat"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -517,22 +562,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Wheat/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Wheat/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Wheat/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Wheat/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("14_63eyh")
 stretch_mode = 2
 
-[node name="Beet" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Beet" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Beet"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Beet"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -541,22 +586,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Beet/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Beet/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Beet/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Beet/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("2_5rlsh")
 stretch_mode = 2
 
-[node name="Lettuce" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Lettuce" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Lettuce"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Lettuce"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -565,22 +610,22 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Lettuce/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Lettuce/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Lettuce/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Lettuce/Button/MarginContainer"]
 layout_mode = 2
 texture = ExtResource("3_j6yng")
 stretch_mode = 2
 
-[node name="Carrot" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Carrot" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Carrot"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Carrot"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -589,23 +634,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Carrot/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Carrot/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Carrot/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Carrot/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("4_e6lk8")
 stretch_mode = 2
 
-[node name="Tomato" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Tomato" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Tomato"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Tomato"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -614,23 +659,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Tomato/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Tomato/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Tomato/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Tomato/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("5_7tpqq")
 stretch_mode = 2
 
-[node name="Cabbage" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Cabbage" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cabbage"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cabbage"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -639,23 +684,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cabbage/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cabbage/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cabbage/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cabbage/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("6_ejbmx")
 stretch_mode = 2
 
-[node name="Cauliflower" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Cauliflower" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cauliflower"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cauliflower"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -664,23 +709,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cauliflower/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cauliflower/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cauliflower/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cauliflower/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("7_l61m6")
 stretch_mode = 2
 
-[node name="Corn" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Corn" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Corn"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Corn"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -689,23 +734,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Corn/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Corn/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Corn/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Corn/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("8_p4bf1")
 stretch_mode = 2
 
-[node name="Eggplant" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Eggplant" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Eggplant"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Eggplant"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -714,23 +759,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Eggplant/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Eggplant/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Eggplant/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Eggplant/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("9_nr5ce")
 stretch_mode = 2
 
-[node name="Parsnip" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Parsnip" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Parsnip"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Parsnip"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -739,23 +784,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Parsnip/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Parsnip/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Parsnip/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Parsnip/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("10_m6204")
 stretch_mode = 2
 
-[node name="Cucumber" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Cucumber" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cucumber"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cucumber"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -764,23 +809,23 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cucumber/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cucumber/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cucumber/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Cucumber/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("11_mbdmi")
 stretch_mode = 2
 
-[node name="Pumpkin" type="PanelContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
+[node name="Pumpkin" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Pumpkin"]
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Pumpkin"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 mouse_default_cursor_shape = 2
@@ -789,32 +834,29 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Pumpkin/Button"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Pumpkin/Button"]
 layout_mode = 2
 offset_right = 64.0
 offset_bottom = 24.0
 
-[node name="TextureRect" type="TextureRect" parent="TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Pumpkin/Button/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/CropsGridContainer/Pumpkin/Button/MarginContainer"]
 modulate = Color(0, 0, 0, 0.588235)
 layout_mode = 2
 texture = ExtResource("12_2fgbh")
 stretch_mode = 2
 
-[node name="PRIORITY" type="PanelContainer" parent="TabContainer"]
+[node name="PRIORITY" type="PanelContainer" parent="HBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 script = ExtResource("14_q4fko")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/PRIORITY"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PRIORITY"]
 layout_mode = 2
+theme_override_constants/margin_left = 8
 
-[node name="Label" type="Label" parent="TabContainer/PRIORITY/MarginContainer"]
-layout_mode = 2
-text = "priorities"
-
-[node name="PriorityTree" type="Tree" parent="TabContainer/PRIORITY/MarginContainer"]
-custom_minimum_size = Vector2(0, 150)
+[node name="PriorityTree" type="Tree" parent="HBoxContainer/TabContainer/PRIORITY/MarginContainer"]
+custom_minimum_size = Vector2(0, 130)
 layout_mode = 2
 theme_override_colors/relationship_line_color = Color(0, 0, 0, 1)
 theme_override_colors/parent_hl_line_color = Color(0, 0, 0, 1)
