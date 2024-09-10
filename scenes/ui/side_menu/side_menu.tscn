@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://dy1xqvcbp8dta"]
+[gd_scene load_steps=39 format=3 uid="uid://dy1xqvcbp8dta"]
 
 [ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_1uqwe"]
 [ext_resource type="Texture2D" uid="uid://d2jyvul8auyhf" path="res://assets/items/crops/wheat.png" id="1_3ilig"]
 [ext_resource type="Script" path="res://scenes/ui/side_menu/side_menu.gd" id="1_va0up"]
 [ext_resource type="Texture2D" uid="uid://cg4tde0hdixfv" path="res://assets/items/crops/beet.png" id="2_5rlsh"]
+[ext_resource type="Script" path="res://scenes/ui/side_menu/plant_menu.gd" id="2_ufu8l"]
 [ext_resource type="Texture2D" uid="uid://fnu0kcdrtox0" path="res://assets/items/crops/lettuce.png" id="3_j6yng"]
 [ext_resource type="Texture2D" uid="uid://cn4xhcag4041o" path="res://assets/items/crops/carrot.png" id="4_e6lk8"]
 [ext_resource type="Texture2D" uid="uid://5eb2vpir235n" path="res://assets/items/crops/tomato.png" id="5_7tpqq"]
@@ -167,6 +168,7 @@ tab_focus_mode = 0
 [node name="PLANT" type="PanelContainer" parent="HBoxContainer/TabContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
+script = ExtResource("2_ufu8l")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT"]
 layout_mode = 2
@@ -823,3 +825,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_muuyg")
 hide_folding = true
 
 [connection signal="pressed" from="HBoxContainer/OpenCloseButton" to="." method="_on_open_close_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_wheat_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_beet_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_lettuce_button_pressed"]

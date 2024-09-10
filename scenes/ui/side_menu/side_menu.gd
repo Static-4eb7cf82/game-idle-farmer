@@ -30,7 +30,6 @@ func open_side_menu() -> void:
     var tween := get_tree().create_tween()
     tween.tween_property(self, "position", opened_position, 0.3).set_trans(Tween.TRANS_CUBIC)
     ($HBoxContainer/OpenCloseButton as Button).text = ">"
-    # position = opened_position
 
 
 func close_side_menu() -> void:

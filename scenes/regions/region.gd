@@ -67,12 +67,6 @@ func _process(_delta: float) -> void:
             job_queue.push(TillJob.new(get_global_mouse_position()))
             get_viewport().set_input_as_handled();
 
-# func _unhandled_input(event: InputEvent) -> void:
-#     if Input.is_action_just_released("accept") and Player.till_soil_selected:
-#         print("Adding TillJob to job queue")
-#         job_queue.push(TillJob.new(get_global_mouse_position()))
-#         get_viewport().set_input_as_handled();
-
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
     grid[pos.y][pos.x] = cell_state
