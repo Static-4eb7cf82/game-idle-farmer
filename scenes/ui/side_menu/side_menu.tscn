@@ -237,7 +237,7 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "X"
+text = "Destroy"
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
