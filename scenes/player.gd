@@ -19,6 +19,23 @@ enum SELECTED_ACTION {
 }
 var selected_action: SELECTED_ACTION = SELECTED_ACTION.NONE
 
+#region Till Soil Action
+var till_soil_action_scene := preload("res://scenes/ui/plant_menu/till_soil_action.tscn")
+var till_soil_action: TillSoilAction = null # Populated if Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL
+func set_till_soil_action() -> void:
+    if !till_soil_action:
+        till_soil_action = till_soil_action_scene.instantiate() as TillSoilAction
+        get_tree().get_first_node_in_group("ui_canvas_layer").add_child(till_soil_action)
+    selected_action = Player.SELECTED_ACTION.TILL_SOIL
+
+
+func unset_till_soil_action() -> void:
+    if till_soil_action:
+        till_soil_action.queue_free()
+        till_soil_action = null
+        selected_action = SELECTED_ACTION.NONE
+#endregion
+
 var click_particles : CPUParticles2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

@@ -18,27 +18,14 @@ func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_RIGHT:
         if event.is_pressed():
             if Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
-                dispose_till_soil_action()
+                Player.unset_till_soil_action()
             else:
                 destroy_selected_seed_packet()
         if event.is_pressed():
             destroy_selected_seed_packet()
 
-#region Till Soil Button
-var till_soil_action_scene := preload("res://scenes/ui/plant_menu/till_soil_action.tscn")
 func _on_till_soil_button_button_up() -> void:
-    # Set the current action to till soil
-    if !till_soil_action:
-        till_soil_action = till_soil_action_scene.instantiate() as TillSoilAction
-        get_tree().get_first_node_in_group("ui_canvas_layer").add_child(till_soil_action)
-    Player.selected_action = Player.SELECTED_ACTION.TILL_SOIL
-
-
-func dispose_till_soil_action() -> void:
-    if till_soil_action:
-        till_soil_action.dispose()
-        till_soil_action = null
-#endregion
+    Player.set_till_soil_action()
 
 
 func destroy_selected_seed_packet() -> void:

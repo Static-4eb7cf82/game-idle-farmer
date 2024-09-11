@@ -24,7 +24,7 @@ class Settings:
     var growth_duration_in_seconds_wheat: float = 50.0
     var growth_duration_in_seconds_beet: float = 75.0
     var growth_duration_in_seconds_lettuce: float = 125.0
-    var region_1_till_cost: int = 35
+    var till_cost: int = 35
     var watered_soil_duration: int = 25
     var player_starting_coins: int = 5
 
