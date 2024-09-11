@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceytmo4j1eo5h"]
+
+[ext_resource type="Texture2D" uid="uid://chl5amg0inhng" path="res://assets/items/build/singles/water_well.png" id="1_m6nyk"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8gecs"]
+radius = 5.0
+
+[node name="WaterWell" type="StaticBody2D"]
+y_sort_enabled = true
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+y_sort_enabled = true
+texture = ExtResource("1_m6nyk")
+offset = Vector2(0, -8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_8gecs")
