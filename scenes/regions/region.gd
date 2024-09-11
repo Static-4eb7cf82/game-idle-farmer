@@ -225,7 +225,7 @@ func get_closest_storage_to_pos(pos: Vector2) -> StorageContainer:
     return closest_storage
 
 
-var cat_worker_packed_scene := preload("res://scenes/character.tscn")
+var cat_worker_packed_scene := preload("res://scenes/cat_worker/cat_worker.tscn")
 func add_cat_worker(pos: Vector2) -> void:
     var cat_worker_instance := cat_worker_packed_scene.instantiate()
     cat_worker_instance.region = self

@@ -91,7 +91,7 @@ func unset_plant_crop_action() -> void:
 var click_particles : CPUParticles2D
 
 
-var particles_packed_scene := preload("res://scenes/generic_splash_particle.tscn")
+var particles_packed_scene := preload("res://scenes/player/generic_splash_particle.tscn")
 func spawn_particles_at_mouse() -> void:
     click_particles = particles_packed_scene.instantiate() as CPUParticles2D
     add_child(click_particles)

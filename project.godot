@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="SproutLandsIdleFarmer"
-run/main_scene="res://scenes/game_world.tscn"
+run/main_scene="res://scenes/game_world/game_world.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
-Player="*res://scenes/player.tscn"
+Player="*res://scenes/player/player.tscn"
 GlobalSignals="*res://scripts/global_signals.gd"
 
 [debug]

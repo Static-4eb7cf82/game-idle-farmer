@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cmrm6wiwuxbr1"]
 
-[ext_resource type="Script" path="res://scenes/generic_splash_particle.gd" id="1_r17rq"]
+[ext_resource type="Script" path="res://scenes/player/generic_splash_particle.gd" id="1_r17rq"]
 
 [node name="GenericSplashParticle" type="CPUParticles2D"]
 emitting = false
