@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://d10psh4plkqtf"]
 
-[ext_resource type="PackedScene" uid="uid://kpxfyxi8vwct" path="res://scenes/ui/status_bar.tscn" id="2_hnel0"]
+[ext_resource type="PackedScene" uid="uid://kpxfyxi8vwct" path="res://scenes/ui/status_bar/status_bar.tscn" id="1_j2x8x"]
 [ext_resource type="PackedScene" uid="uid://dy1xqvcbp8dta" path="res://scenes/ui/side_menu/side_menu.tscn" id="4_rwm7c"]
 
 [node name="UI" type="CanvasLayer" groups=["ui_canvas_layer"]]
 
-[node name="StatusBar" parent="." instance=ExtResource("2_hnel0")]
+[node name="StatusBar" parent="." instance=ExtResource("1_j2x8x")]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
