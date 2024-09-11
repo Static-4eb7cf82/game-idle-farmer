@@ -26,6 +26,8 @@
 [ext_resource type="Script" path="res://scenes/ui/priority_menu/priority.gd" id="24_q1qu5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7itsn"]
+content_margin_left = 8.0
+content_margin_top = 4.0
 bg_color = Color(0.854439, 0.840149, 0.795016, 1)
 border_width_left = 1
 border_width_top = 1
@@ -33,10 +35,11 @@ border_width_bottom = 1
 border_color = Color(0.333333, 0.333333, 0.333333, 1)
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
-expand_margin_top = 2.0
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wxgs"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ym0fe"]
+content_margin_left = 8.0
+content_margin_top = 4.0
 bg_color = Color(0.929715, 0.929715, 0.929715, 1)
 border_width_left = 1
 border_width_top = 1
@@ -44,7 +47,6 @@ border_width_bottom = 1
 border_color = Color(0.333333, 0.333333, 0.333333, 1)
 corner_radius_top_left = 4
 corner_radius_bottom_left = 4
-expand_margin_top = 2.0
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sodgg"]
@@ -124,9 +126,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -12.0
+offset_left = -16.0
 offset_top = -164.0
-offset_right = -12.0
+offset_right = -16.0
 offset_bottom = -164.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -139,7 +141,7 @@ offset_bottom = 40.0
 theme_override_constants/separation = 0
 
 [node name="OpenCloseButton" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(12, 24)
+custom_minimum_size = Vector2(16, 24)
 layout_mode = 2
 size_flags_vertical = 4
 focus_mode = 0
@@ -147,10 +149,11 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_styles/normal = SubResource("StyleBoxFlat_7itsn")
-theme_override_styles/hover = SubResource("StyleBoxFlat_3wxgs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ym0fe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_7itsn")
 theme_override_styles/focus = SubResource("StyleBoxFlat_7itsn")
 text = ">"
+alignment = 0
 
 [node name="TabContainer" type="TabContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 150)

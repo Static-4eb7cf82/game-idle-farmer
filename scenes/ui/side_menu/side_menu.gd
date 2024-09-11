@@ -1,8 +1,8 @@
 extends Control
 
 var is_open := false
-const opened_position := Vector2(322, 196)
-const closed_position := Vector2(628, 196)
+const opened_position := Vector2(318, 196)
+const closed_position := Vector2(624, 196)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
