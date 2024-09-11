@@ -1,6 +1,7 @@
 extends PanelContainer
 
 
+var till_soil_action: TillSoilAction = null
 var selected_seed_packet_instance: SelectedSeedPacket = null
 
 # Called when the node enters the scene tree for the first time.
@@ -16,18 +17,38 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
     if event is InputEventMouseButton && event.button_index == MOUSE_BUTTON_RIGHT:
         if event.is_pressed():
+            if Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
+                dispose_till_soil_action()
+            else:
+                destroy_selected_seed_packet()
+        if event.is_pressed():
             destroy_selected_seed_packet()
+
+#region Till Soil Button
+var till_soil_action_scene := preload("res://scenes/ui/plant_menu/till_soil_action.tscn")
+func _on_till_soil_button_button_up() -> void:
+    # Set the current action to till soil
+    if !till_soil_action:
+        till_soil_action = till_soil_action_scene.instantiate() as TillSoilAction
+        get_tree().get_first_node_in_group("ui_canvas_layer").add_child(till_soil_action)
+    Player.selected_action = Player.SELECTED_ACTION.TILL_SOIL
+
+
+func dispose_till_soil_action() -> void:
+    if till_soil_action:
+        till_soil_action.dispose()
+        till_soil_action = null
+#endregion
 
 
 func destroy_selected_seed_packet() -> void:
     if selected_seed_packet_instance:
-        Player.selected_seed_packet = null
-        selected_seed_packet_instance.queue_free()
+        selected_seed_packet_instance.destroy()
         selected_seed_packet_instance = null
 
 
 var selected_seed_packet_scene := preload("res://scenes/selected_seed_packet.tscn")
-func get_seed_packet_node() -> SelectedSeedPacket:
+func get_selected_seed_packet_instance() -> SelectedSeedPacket:
     if selected_seed_packet_instance:
         return selected_seed_packet_instance
     else:
@@ -41,10 +62,10 @@ func get_seed_packet_node() -> SelectedSeedPacket:
 var wheat_seed_packet_texture := preload("res://assets/items/seeds/wheat_seeds.png")
 var beet_seed_packet_texture := preload("res://assets/items/seeds/beet_seeds.png")
 var lettuce_seed_packet_texture := preload("res://assets/items/seeds/lettuce_seeds.png")
-func ensure_seed_packet_at_mouse_position(seed_type: Global.CROP_TYPE) -> void:
-    var selected_seed_packet := get_seed_packet_node()
+func ensure_seed_packet_at_mouse_position(crop_type: Global.CROP_TYPE) -> void:
+    var selected_seed_packet := get_selected_seed_packet_instance()
 
-    match seed_type:
+    match crop_type:
         Global.CROP_TYPE.WHEAT:
             selected_seed_packet.crop_type = Global.CROP_TYPE.WHEAT
             selected_seed_packet.texture = wheat_seed_packet_texture
@@ -61,6 +82,8 @@ func ensure_seed_packet_at_mouse_position(seed_type: Global.CROP_TYPE) -> void:
     Player.selected_seed_packet = selected_seed_packet
     selected_seed_packet.position = get_viewport().get_mouse_position()
     selected_seed_packet.show()
+
+
 
 
 func _on_wheat_button_pressed() -> void:

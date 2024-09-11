@@ -60,8 +60,11 @@ func _process(_delta: float) -> void:
                 return
             plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
             clicked_grid_cell.is_plottable = false
-    if Input.is_action_just_pressed("accept") and Player.till_soil_selected:
-        if is_tillable_at_coords(get_grid_coords_at_mouse()) and Player.coins >= till_cost:
+    if Input.is_action_just_pressed("accept") and Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
+        if Player.coins < till_cost:
+            print("Not enough coins to till soil")
+            return
+        if is_tillable_at_coords(get_grid_coords_at_mouse()):
             print("Adding TillJob to job queue")
             Player.coins -= till_cost
             job_queue.push(TillJob.new(get_global_mouse_position()))

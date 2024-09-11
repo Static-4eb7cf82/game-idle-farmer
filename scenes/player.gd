@@ -8,12 +8,22 @@ var coins : int:
         coins = value
         GlobalSignals.emit_player_coins_changed(coins)
 
+
+enum SELECTED_ACTION {
+    NONE,
+    TILL_SOIL,
+    DESTROY_TILLED_SOIL,
+    PLANT_WHEAT,
+    PLANT_BEET,
+    PLANT_LETTUCE,
+}
+var selected_action: SELECTED_ACTION = SELECTED_ACTION.NONE
+
 var click_particles : CPUParticles2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     coins = Global.settings.player_starting_coins
 
-var till_soil_selected := false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
