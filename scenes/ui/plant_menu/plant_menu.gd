@@ -19,7 +19,8 @@ func _input(event: InputEvent) -> void:
             if Player.selected_action == Player.SELECTED_ACTION.PLANT_CROP:
                 Player.unset_plant_crop_action()
 
-func _on_till_soil_button_button_up() -> void:
+
+func _on_till_soil_pressed() -> void:
     Player.set_till_soil_action()
 
 

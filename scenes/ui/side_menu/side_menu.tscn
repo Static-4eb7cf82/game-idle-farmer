@@ -825,7 +825,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_muuyg")
 hide_folding = true
 
 [connection signal="pressed" from="HBoxContainer/OpenCloseButton" to="." method="_on_open_close_button_pressed"]
-[connection signal="button_up" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_till_soil_button_button_up"]
+[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_till_soil_pressed"]
 [connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_wheat_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_beet_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_lettuce_button_pressed"]
