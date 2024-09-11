@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2dhnms5t178e"]
+
+[ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_bajr7"]
+[ext_resource type="Script" path="res://scenes/ui/plant_menu/till_soil_action.gd" id="1_xe3la"]
+
+[node name="TillSoilAction" type="Sprite2D"]
+texture = ExtResource("1_bajr7")
+script = ExtResource("1_xe3la")

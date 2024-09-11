@@ -1,9 +1,8 @@
 extends FollowMouse
 
-class_name SelectedSeedPacket
+class_name TillSoilAction
 
-var price: int
-var crop_type: Global.CROP_TYPE
+var cost: int = Global.settings.till_cost
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

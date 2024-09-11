@@ -14,7 +14,6 @@ var crops_group_name: String
 var cats_group_name: String
 var storage_group_name: String
 var job_queue : JobQueue = JobQueue.new()
-var till_cost: int
 
 class GridCellState:
     
@@ -47,32 +46,35 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+    pass
 
-    # This exists in _process to allow holding down the mouse to plant seeds
-    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_seed_packet:
-        var clicked_tilemap_coords := ground_tile_map.local_to_map(self.get_local_mouse_position())
-        var clicked_grid_cell := get_grid_cell_from_coords(clicked_tilemap_coords)
-        if clicked_grid_cell and clicked_grid_cell.is_plottable:
-            # instantiate the crop type that the player has selected at these coords
-            # Plant it and set input as handled
-            if Player.coins < Player.selected_seed_packet.price:
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event is InputEventMouseMotion or event is InputEventMouseButton:
+        if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_action == Player.SELECTED_ACTION.PLANT_CROP:
+            if Player.coins < Player.plant_crop_action.cost:
                 print("Not enough coins to plant this crop")
                 return
-            plant_crop(Player.selected_seed_packet, ground_tile_map.map_to_local(clicked_tilemap_coords))
-            clicked_grid_cell.is_plottable = false
-    if Input.is_action_just_pressed("accept") and Player.till_soil_selected:
-        if is_tillable_at_coords(get_grid_coords_at_mouse()) and Player.coins >= till_cost:
-            print("Adding TillJob to job queue")
-            Player.coins -= till_cost
-            job_queue.push(TillJob.new(get_global_mouse_position()))
-            get_viewport().set_input_as_handled();
-
-# func _unhandled_input(event: InputEvent) -> void:
-#     if Input.is_action_just_released("accept") and Player.till_soil_selected:
-#         print("Adding TillJob to job queue")
-#         job_queue.push(TillJob.new(get_global_mouse_position()))
-#         get_viewport().set_input_as_handled();
-
+            var clicked_tilemap_coords := ground_tile_map.local_to_map(self.get_local_mouse_position())
+            var clicked_grid_cell := get_grid_cell_from_coords(clicked_tilemap_coords)
+            if clicked_grid_cell and clicked_grid_cell.is_plottable:
+                # instantiate the crop type that the player has selected at these coords
+                # Plant it and set input as handled
+                Player.coins -= Player.plant_crop_action.cost
+                clicked_grid_cell.is_plottable = false
+                plant_crop(Player.plant_crop_action.crop_type, ground_tile_map.map_to_local(clicked_tilemap_coords))
+    
+    if event is InputEventMouseButton:
+        var mouse_event := event as InputEventMouseButton
+        if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.is_released() and Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
+            if Player.coins < Player.till_soil_action.cost:
+                print("Not enough coins to till soil")
+                return
+            if is_tillable_at_coords(get_grid_coords_at_mouse()):
+                print("Adding TillJob to job queue")
+                Player.coins -= Player.till_soil_action.cost
+                job_queue.push(TillJob.new(get_global_mouse_position()))
+                get_viewport().set_input_as_handled();
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
     grid[pos.y][pos.x] = cell_state
@@ -111,9 +113,9 @@ func get_grid_cell_from_pos(pos: Vector2) -> GridCellState:
 var wheat_crop_scene := preload("res://scenes/growables/wheat.tscn")
 var beet_crop_scene := preload("res://scenes/growables/beet.tscn")
 var lettuce_crop_scene := preload("res://scenes/growables/lettuce.tscn")
-func plant_crop(selected_seed_packet: SelectedSeedPacket, pos: Vector2) -> void:
+func plant_crop(crop_type: Global.CROP_TYPE, pos: Vector2) -> void:
     var crop_packed_scene: PackedScene
-    match selected_seed_packet.crop_type:
+    match crop_type:
         Global.CROP_TYPE.WHEAT:
             crop_packed_scene = wheat_crop_scene
         Global.CROP_TYPE.BEET:
@@ -125,11 +127,10 @@ func plant_crop(selected_seed_packet: SelectedSeedPacket, pos: Vector2) -> void:
         var instance := crop_packed_scene.instantiate() as Crop
         instance.position = pos
         instance.region = self
-        instance.crop_type = selected_seed_packet.crop_type
+        instance.crop_type = crop_type
         add_child(instance)
         instance.add_to_group(crops_group_name)
 
-        Player.coins -= selected_seed_packet.price
         print("Player coins after planting: ", Player.coins)
 
 

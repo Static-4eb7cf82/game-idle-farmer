@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duc3i43253tk7"]
+
+[ext_resource type="Script" path="res://scenes/ui/plant_menu/plant_crop_action.gd" id="1_j17cy"]
+
+[node name="PlantCropAction" type="Sprite2D"]
+script = ExtResource("1_j17cy")

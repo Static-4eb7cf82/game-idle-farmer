@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bomcf703ii5ci"]
-
-[ext_resource type="Script" path="res://scenes/selected_seed_packet.gd" id="1_1jqx7"]
-
-[node name="SelectedSeedPacket" type="Sprite2D"]
-script = ExtResource("1_1jqx7")
