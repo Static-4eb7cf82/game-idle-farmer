@@ -1,9 +1,6 @@
 extends PanelContainer
 
 
-var till_soil_action: TillSoilAction = null
-var selected_seed_packet_instance: SelectedSeedPacket = null
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     pass # Replace with function body.
