@@ -48,6 +48,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 
     # This exists in _process to allow holding down the mouse to plant seeds
+    # Bug: However, because this is not in unhandled_input, if you click on a UI element, it will still plant seeds
+    # If it was in unhandled_input, and you clicked on a UI element, the UI element would mark input as handled and the seeds would not be planted
     if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_action == Player.SELECTED_ACTION.PLANT_CROP:
         if Player.coins < Player.plant_crop_action.cost:
             print("Not enough coins to plant this crop")
@@ -60,16 +62,20 @@ func _process(_delta: float) -> void:
             Player.coins -= Player.plant_crop_action.cost
             clicked_grid_cell.is_plottable = false
             plant_crop(Player.plant_crop_action.crop_type, ground_tile_map.map_to_local(clicked_tilemap_coords))
-    if Input.is_action_just_pressed("accept") and Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
-        if Player.coins < Player.till_soil_action.cost:
-            print("Not enough coins to till soil")
-            return
-        if is_tillable_at_coords(get_grid_coords_at_mouse()):
-            print("Adding TillJob to job queue")
-            Player.coins -= Player.till_soil_action.cost
-            job_queue.push(TillJob.new(get_global_mouse_position()))
-            get_viewport().set_input_as_handled();
 
+
+func _unhandled_input(event: InputEvent) -> void:
+    if event is InputEventMouseButton:
+        var mouse_event := event as InputEventMouseButton
+        if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.is_released() and Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
+            if Player.coins < Player.till_soil_action.cost:
+                print("Not enough coins to till soil")
+                return
+            if is_tillable_at_coords(get_grid_coords_at_mouse()):
+                print("Adding TillJob to job queue")
+                Player.coins -= Player.till_soil_action.cost
+                job_queue.push(TillJob.new(get_global_mouse_position()))
+                get_viewport().set_input_as_handled();
 
 func set_grid_cell(pos: Vector2i, cell_state: GridCellState) -> void:
     grid[pos.y][pos.x] = cell_state
