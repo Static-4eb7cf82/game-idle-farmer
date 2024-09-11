@@ -46,25 +46,24 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-
-    # This exists in _process to allow holding down the mouse to plant seeds
-    # Bug: However, because this is not in unhandled_input, if you click on a UI element, it will still plant seeds
-    # If it was in unhandled_input, and you clicked on a UI element, the UI element would mark input as handled and the seeds would not be planted
-    if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_action == Player.SELECTED_ACTION.PLANT_CROP:
-        if Player.coins < Player.plant_crop_action.cost:
-            print("Not enough coins to plant this crop")
-            return
-        var clicked_tilemap_coords := ground_tile_map.local_to_map(self.get_local_mouse_position())
-        var clicked_grid_cell := get_grid_cell_from_coords(clicked_tilemap_coords)
-        if clicked_grid_cell and clicked_grid_cell.is_plottable:
-            # instantiate the crop type that the player has selected at these coords
-            # Plant it and set input as handled
-            Player.coins -= Player.plant_crop_action.cost
-            clicked_grid_cell.is_plottable = false
-            plant_crop(Player.plant_crop_action.crop_type, ground_tile_map.map_to_local(clicked_tilemap_coords))
+    pass
 
 
 func _unhandled_input(event: InputEvent) -> void:
+    if event is InputEventMouseMotion or event is InputEventMouseButton:
+        if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_action == Player.SELECTED_ACTION.PLANT_CROP:
+            if Player.coins < Player.plant_crop_action.cost:
+                print("Not enough coins to plant this crop")
+                return
+            var clicked_tilemap_coords := ground_tile_map.local_to_map(self.get_local_mouse_position())
+            var clicked_grid_cell := get_grid_cell_from_coords(clicked_tilemap_coords)
+            if clicked_grid_cell and clicked_grid_cell.is_plottable:
+                # instantiate the crop type that the player has selected at these coords
+                # Plant it and set input as handled
+                Player.coins -= Player.plant_crop_action.cost
+                clicked_grid_cell.is_plottable = false
+                plant_crop(Player.plant_crop_action.crop_type, ground_tile_map.map_to_local(clicked_tilemap_coords))
+    
     if event is InputEventMouseButton:
         var mouse_event := event as InputEventMouseButton
         if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.is_released() and Player.selected_action == Player.SELECTED_ACTION.TILL_SOIL:
