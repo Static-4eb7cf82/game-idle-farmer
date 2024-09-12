@@ -13,6 +13,7 @@ var grid: Array
 var crops_group_name: String
 var cats_group_name: String
 var storage_group_name: String
+var water_well_group_name: String
 var job_queue : JobQueue = JobQueue.new()
 
 class GridCellState:
@@ -42,6 +43,7 @@ func _ready() -> void:
     crops_group_name = "%s_crops" % region_name
     cats_group_name = "%s_cat_workers" % region_name
     storage_group_name = "%s_storage" % region_name
+    water_well_group_name = "%s_water_wells" % region_name
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -204,15 +206,6 @@ func get_crop_at_coords(coords: Vector2i) -> Crop:
     return null
 
 
-func get_storage_at_coords(coords: Vector2i) -> StorageContainer:
-    var region_crops := get_tree().get_nodes_in_group(storage_group_name)
-    for crop in region_crops:
-        # todo: cast to Crop type
-        if crop.region_coords == coords:
-            return crop
-    return null
-
-
 func get_closest_storage_to_pos(pos: Vector2) -> StorageContainer:
     var storage_containers := get_tree().get_nodes_in_group(storage_group_name)
 
@@ -223,6 +216,18 @@ func get_closest_storage_to_pos(pos: Vector2) -> StorageContainer:
             closest_storage = storage_container
 
     return closest_storage
+
+
+func get_closest_water_well_to_pos(pos: Vector2) -> WaterWell:
+    var water_wells := get_tree().get_nodes_in_group(water_well_group_name)
+
+    var closest_water_well := water_wells[0]
+    for water_well in water_wells:
+        var cur_distance := pos.distance_to(water_well.position)
+        if cur_distance < pos.distance_to(closest_water_well.position):
+            closest_water_well = water_well
+
+    return closest_water_well
 
 
 var cat_worker_packed_scene := preload("res://scenes/cat_worker/cat_worker.tscn")
@@ -241,6 +246,15 @@ func add_storage_container(coords: Vector2i) -> void:
     storage_container_instance.position = ground_tile_map.map_to_local(coords)
     add_child(storage_container_instance)
     storage_container_instance.add_to_group(storage_group_name)
+
+
+var water_well_packed_scene := preload("res://scenes/objects/water_well.tscn")
+func add_water_well(coords: Vector2i) -> void:
+    var water_well_instance := water_well_packed_scene.instantiate()
+    water_well_instance.region = self
+    water_well_instance.position = ground_tile_map.map_to_local(coords)
+    add_child(water_well_instance)
+    water_well_instance.add_to_group(water_well_group_name)
 
 
 func debug_seed_grid() -> void:

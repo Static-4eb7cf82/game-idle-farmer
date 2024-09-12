@@ -15,6 +15,7 @@ class DebugSettings extends Settings:
 
 class Settings:
     var cat_worker_speed: float = 25.0
+    var cat_worker_water_count: int = 5
     var coin_cost_wheat: int = 1
     var coin_cost_beet: int = 3
     var coin_cost_lettuce: int = 6

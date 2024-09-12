@@ -5,6 +5,7 @@ class_name CatWorker
 var region: Region
 var speed: float = Global.settings.cat_worker_speed
 var performing_action_animation := false
+var water_count: int = Global.settings.cat_worker_water_count
 
 # Target based movement
 var move_to_target := false
@@ -167,8 +168,45 @@ func execute_water_job(water_job: WaterJob) -> void:
     
     # perform animation for job duration
     # print("performing water animation")
-    var watered_soil = await perform_water_in_front_of_cat()
+    var watered_soil := await perform_water_in_front_of_cat()
     water_job._subject.water = watered_soil
+    water_count -= 1
+
+    # Check if need to refill water
+    if water_count <= 0:
+        await execute_refill_water()
+
+
+func execute_refill_water() -> void:
+    # ask the region for the closest water well
+    var closest_water_well := region.get_closest_storage_to_pos(position)
+
+    # move to target position
+    # print("moving to position")
+    move_to_position(get_closest_adjacent_target_position(closest_water_well.position))
+    await reached_target_position
+
+    # turn towards target position
+    # print("turning towards target position")
+    set_character_direction_towards_target_position(closest_water_well.position)
+
+    # perform refill water
+    await perform_refill_water()
+
+
+func perform_refill_water() -> void:
+    # perform animation for job duration
+    # print("performing refill water animation")
+    performing_action_animation = true
+    # play animation water_count times
+    for i in range(Global.settings.cat_worker_water_count):
+        $AnimatedSprite2D.play("water_" + character_direction)
+        await $AnimatedSprite2D.animation_finished
+    performing_action_animation = false
+
+    # refill water
+    water_count = Global.settings.cat_worker_water_count
+
 
 func execute_harvest_job(harvest_job: HarvestJob) -> void:
 

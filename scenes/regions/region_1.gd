@@ -9,6 +9,7 @@ func _ready() -> void:
     # add_cat_worker(Vector2(216, 200))
     add_storage_container(Vector2i(15, 4))
     # add_storage_container(Vector2i(10, 4))
+    add_water_well(Vector2i(23, 9))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
