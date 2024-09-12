@@ -179,7 +179,7 @@ func execute_water_job(water_job: WaterJob) -> void:
 
 func execute_refill_water() -> void:
     # ask the region for the closest water well
-    var closest_water_well := region.get_closest_storage_to_pos(position)
+    var closest_water_well := region.get_closest_water_well_to_pos(position)
 
     # move to target position
     # print("moving to position")
