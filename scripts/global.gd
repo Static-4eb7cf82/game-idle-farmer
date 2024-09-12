@@ -22,11 +22,11 @@ class Settings:
     var coin_reward_wheat: int = 7
     var coin_reward_beet: int = 12
     var coin_reward_lettuce: int = 18
-    var growth_duration_in_seconds_wheat: float = 50.0
-    var growth_duration_in_seconds_beet: float = 75.0
-    var growth_duration_in_seconds_lettuce: float = 125.0
+    var growth_duration_in_seconds_wheat: float = 70.0
+    var growth_duration_in_seconds_beet: float = 105.0
+    var growth_duration_in_seconds_lettuce: float = 175.0
     var till_cost: int = 35
-    var watered_soil_duration: int = 25
+    var watered_soil_duration: int = 35
     var player_starting_coins: int = 5
 
 
