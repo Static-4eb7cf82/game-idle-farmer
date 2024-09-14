@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bkryf4aii122f" path="res://scenes/ground/bright_grass_tile_map.tscn" id="3_in8wm"]
 [ext_resource type="PackedScene" uid="uid://cds8uwxnv0jyh" path="res://scenes/ground/tilled_tile_map.tscn" id="4_n1pfy"]
 [ext_resource type="PackedScene" uid="uid://2apahtiinwt2" path="res://scenes/ground/building_tile_map.tscn" id="6_cskbm"]
-[ext_resource type="PackedScene" uid="uid://bvs1gorodfo7o" path="res://scenes/objects/wood_tree.tscn" id="7_scfml"]
+[ext_resource type="PackedScene" uid="uid://bvs1gorodfo7o" path="res://scenes/objects/trees/wood_tree.tscn" id="7_scfml"]
 [ext_resource type="PackedScene" uid="uid://c8jlk70a3dkkf" path="res://scenes/ground/ground_objects_tile_map.tscn" id="8_mjx5k"]
 
 [node name="Region1" type="Node2D" node_paths=PackedStringArray("ground_tile_map", "tilled_soil_tile_map")]
