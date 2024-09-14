@@ -8,3 +8,5 @@ script = ExtResource("1_k4boo")
 name = "wood"
 texture = ExtResource("2_06s2p")
 radius = 8
+coin_reward = 0
+wood_reward = 1

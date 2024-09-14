@@ -6,6 +6,7 @@ var region: Region
 var speed: float = Global.settings.cat_worker_speed
 var performing_action_animation := false
 var water_count: int = Global.settings.cat_worker_water_count
+var carryable_item : CarryableItem
 
 # Target based movement
 var move_to_target := false
@@ -276,19 +277,19 @@ func execute_chop_tree_job(chop_tree_job: ChopTreeJob) -> void:
 
     # print("Collected item")
     # ask the region for the closest storage container
-    # var closest_storage := region.get_closest_storage_to_pos(position)
+    var closest_storage := region.get_closest_storage_to_pos(position)
 
     # # move to target position
     # # print("moving to position")
-    # move_to_position(get_closest_adjacent_target_position(closest_storage.position))
-    # await reached_target_position
+    move_to_position(get_closest_adjacent_target_position(closest_storage.position))
+    await reached_target_position
 
     # # turn towards target position
     # # print("turning towards target position")
-    # set_character_direction_towards_target_position(closest_storage.position)
+    set_character_direction_towards_target_position(closest_storage.position)
 
     # perform place in container and recieve reward
-    # await place_item_in_storage(harvest_job._subject, closest_storage)
+    await place_carryable_item_in_storage(closest_storage)
 
 
 func set_character_direction_towards_target_position(target_pos: Vector2) -> void:
@@ -373,6 +374,20 @@ func place_item_in_storage(item: Crop, storage_container: StorageContainer) -> v
     storage_container.close()
 
 
+func place_carryable_item_in_storage(storage_container: StorageContainer) -> void:
+    # open storage
+    # call item.recieve_reward()
+    # queue_free() item
+    await storage_container.open()
+
+    # print("Storage container opened")
+    carryable_item.item.recieve_reward()
+    carryable_item.queue_free()
+    carryable_item = null
+
+    storage_container.close()
+
+
 func _on_water_from_can_animation_animation_finished() -> void:
     performing_action_animation = false
     handle_animation()
@@ -400,7 +415,7 @@ func get_coords_in_front_of_cat() -> Vector2i:
 var carryable_item_scene := preload("res://scenes/objects/items/carryable_item.tscn")
 func collect_item(item: CollectableItem) -> void:
     print("Cat Worker collected item")
-    var carryable_item := carryable_item_scene.instantiate() as CarryableItem
+    carryable_item = carryable_item_scene.instantiate() as CarryableItem
     carryable_item.item = item
     add_child(carryable_item)
     # put item above cat: cat worker height + margin between + item radius

@@ -8,6 +8,14 @@ var coins : int:
         coins = value
         GlobalSignals.emit_player_coins_changed(coins)
 
+var wood : int:
+    get:
+        return wood
+    set(value):
+        wood = value
+        print("Player wood changed to %s" % wood)
+        GlobalSignals.emit_player_wood_changed(wood)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

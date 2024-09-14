@@ -311,7 +311,7 @@ animations = [{
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_g4kkd")
-regenDurationInSeconds = 20
+regenDurationInSeconds = 15
 drop_item_data = ExtResource("2_e6f3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -44,5 +44,5 @@ layer_1/tile_data = PackedInt32Array(196638, 196609, 5, 196635, 196609, 3, 19663
 layer_2/tile_data = PackedInt32Array(131103, 1, 1, 196639, 1, 2)
 
 [node name="WoodTree" parent="." node_paths=PackedStringArray("region") instance=ExtResource("7_scfml")]
-position = Vector2(136, 152)
+position = Vector2(136, 168)
 region = NodePath("..")
