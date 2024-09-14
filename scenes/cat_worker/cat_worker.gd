@@ -259,10 +259,16 @@ func execute_chop_tree_job(chop_tree_job: ChopTreeJob) -> void:
     chop_tree_job._subject.start_harvest()
     
     # start hitting the tree
-    print("Hitting the tree")
-    await chop_tree_job._subject.harvest_finished
-    # stop hitting the tree
+    while not chop_tree_job._subject.harvest_finished:
+        performing_action_animation = true
+        $AnimatedSprite2D.play("chop_pt1_" + character_direction)
+        await $AnimatedSprite2D.animation_finished
+        chop_tree_job._subject.on_hit()
+        $AnimatedSprite2D.play("chop_pt2_" + character_direction)
+        await $AnimatedSprite2D.animation_finished
+        performing_action_animation = false
     print("Stopped hitting the tree")
+    $AnimatedSprite2D.play("idle_" + character_direction)
 
     var dropped_item : DroppedItem = await chop_tree_job._subject.item_dropped
     dropped_item.give_to(self)

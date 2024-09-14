@@ -120,7 +120,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"fall",
-"speed": 6.0
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vi7y"]
@@ -255,7 +255,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"hit",
-"speed": 10.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -11,7 +11,7 @@ class_name WoodTree
 @onready var regen_timer: Timer = $RegenTimer
 
 @export var region: Region
-signal harvest_finished
+var harvest_finished := false
 signal item_dropped(item: DroppedItem)
 
 # Called when the node enters the scene tree for the first time.
@@ -28,6 +28,7 @@ func setup_for_harvest() -> void:
     fall_animation.hide()
     animated_sprite_2d.show()
     animated_sprite_2d.play("idle")
+    harvest_finished = false
     ready_for_harvest()
 
 
@@ -47,9 +48,7 @@ func on_hit() -> void:
 
 func _on_harvest_timer_timeout() -> void:
     # Done harvesting
-    
-    # Let cat worker know to stop hitting the tree
-    harvest_finished.emit()
+    harvest_finished = true
 
     # Wait for current hit animation to finish
     if animated_sprite_2d.animation == "hit":
