@@ -54,3 +54,6 @@ enum CROP_TYPE {
     LETTUCE,
     CARROT,
 }
+
+const PLAYER_GROUP_NAME = "player"
+const UI_GROUP_NAME = "ui_canvas_layer"

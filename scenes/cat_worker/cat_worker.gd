@@ -345,3 +345,13 @@ func get_coords_in_front_of_cat() -> Vector2i:
 
     var coords_in_front_of_cat := cat_grid_coords + direction_offset
     return coords_in_front_of_cat
+
+
+var carryable_item_scene := preload("res://scenes/objects/items/carryable_item.tscn")
+func collect_item(item: CollectableItem) -> void:
+    print("Cat Worker collected item")
+    var carryable_item := carryable_item_scene.instantiate() as CarryableItem
+    carryable_item.item = item
+    add_child(carryable_item)
+    # put item above cat: cat worker height + margin between + item radius
+    carryable_item.position = Vector2(0, -16) + Vector2(0, -1 * carryable_item.item.radius)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmtmdmr508w3"]
+
+[ext_resource type="Texture2D" uid="uid://cchfdbrjmkuce" path="res://assets/items/collectable/wood.png" id="1_avcgo"]
+[ext_resource type="Script" path="res://scenes/objects/items/carryable_item.gd" id="1_mj0vn"]
+[ext_resource type="Resource" uid="uid://d4cea8gjb2fki" path="res://scenes/objects/items/wood.tres" id="3_yulvw"]
+
+[node name="CarryableItem" type="Sprite2D"]
+texture = ExtResource("1_avcgo")
+script = ExtResource("1_mj0vn")
+item = ExtResource("3_yulvw")
