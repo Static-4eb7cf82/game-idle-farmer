@@ -118,6 +118,8 @@ func poll_and_receive_jobs() -> void:
             await execute_water_job(job)
         elif job is HarvestJob:
             await execute_harvest_job(job)
+        elif job is ChopTreeJob:
+            await execute_chop_tree_job(job)
         # Global.JOB_TYPE.WATER:
         #     perform_water_in_front_of_cat()
         # Global.JOB_TYPE.HARVEST:
@@ -239,6 +241,48 @@ func execute_harvest_job(harvest_job: HarvestJob) -> void:
 
     # perform place in container and recieve reward
     await place_item_in_storage(harvest_job._subject, closest_storage)
+
+
+func execute_chop_tree_job(chop_tree_job: ChopTreeJob) -> void:
+
+    # move to target position
+    # print("moving to position")
+    move_to_position(get_closest_adjacent_target_position(chop_tree_job.pos))
+    await reached_target_position
+
+    # turn towards target position
+    # print("turning towards target position")
+    set_character_direction_towards_target_position(chop_tree_job.pos)
+    
+    # perform animation for job duration
+    print("start harvest tree")
+    chop_tree_job._subject.start_harvest()
+    
+    # start hitting the tree
+    print("Hitting the tree")
+    await chop_tree_job._subject.harvest_finished
+    # stop hitting the tree
+    print("Stopped hitting the tree")
+
+    var dropped_item : DroppedItem = await chop_tree_job._subject.item_dropped
+    dropped_item.give_to(self)
+    await dropped_item.collected
+
+    # print("Collected item")
+    # ask the region for the closest storage container
+    # var closest_storage := region.get_closest_storage_to_pos(position)
+
+    # # move to target position
+    # # print("moving to position")
+    # move_to_position(get_closest_adjacent_target_position(closest_storage.position))
+    # await reached_target_position
+
+    # # turn towards target position
+    # # print("turning towards target position")
+    # set_character_direction_towards_target_position(closest_storage.position)
+
+    # perform place in container and recieve reward
+    # await place_item_in_storage(harvest_job._subject, closest_storage)
 
 
 func set_character_direction_towards_target_position(target_pos: Vector2) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://isj6fe114qca"]
+[gd_scene load_steps=8 format=3 uid="uid://isj6fe114qca"]
 
 [ext_resource type="Script" path="res://scenes/regions/region_1.gd" id="1_b71uf"]
 [ext_resource type="PackedScene" uid="uid://bqrfd3uubg43" path="res://scenes/ground/water_tile_map.tscn" id="2_0nsll"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cds8uwxnv0jyh" path="res://scenes/ground/tilled_tile_map.tscn" id="4_n1pfy"]
 [ext_resource type="PackedScene" uid="uid://2apahtiinwt2" path="res://scenes/ground/building_tile_map.tscn" id="6_cskbm"]
 [ext_resource type="PackedScene" uid="uid://bvs1gorodfo7o" path="res://scenes/objects/trees/wood_tree.tscn" id="7_scfml"]
-[ext_resource type="PackedScene" uid="uid://oj6phmxoovad" path="res://scenes/objects/items/dropped_item.tscn" id="8_0xo8n"]
 [ext_resource type="PackedScene" uid="uid://c8jlk70a3dkkf" path="res://scenes/ground/ground_objects_tile_map.tscn" id="8_mjx5k"]
 
 [node name="Region1" type="Node2D" node_paths=PackedStringArray("ground_tile_map", "tilled_soil_tile_map")]
@@ -44,14 +43,6 @@ layer_0/tile_data = PackedInt32Array(327705, 0, 2, 262169, 0, 1, 196633, 0, 1, 1
 layer_1/tile_data = PackedInt32Array(196638, 196609, 5, 196635, 196609, 3, 196634, 262145, 3, 196639, 262145, 5, 131102, 131073, 0, 131099, 458753, 3, 327707, 131072, 2, 327708, 0, 2, 327710, 196608, 2)
 layer_2/tile_data = PackedInt32Array(131103, 1, 1, 196639, 1, 2)
 
-[node name="WoodTree" parent="." instance=ExtResource("7_scfml")]
-position = Vector2(120, 144)
-
-[node name="DroppedItem" parent="." instance=ExtResource("8_0xo8n")]
-position = Vector2(180, 155)
-
-[node name="DroppedItem2" parent="." instance=ExtResource("8_0xo8n")]
-position = Vector2(246, 162)
-
-[node name="DroppedItem3" parent="." instance=ExtResource("8_0xo8n")]
-position = Vector2(312, 167)
+[node name="WoodTree" parent="." node_paths=PackedStringArray("region") instance=ExtResource("7_scfml")]
+position = Vector2(136, 152)
+region = NodePath("..")

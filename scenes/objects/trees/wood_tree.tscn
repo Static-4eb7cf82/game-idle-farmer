@@ -119,7 +119,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_420fm")
 }],
 "loop": false,
-"name": &"default",
+"name": &"fall",
 "speed": 6.0
 }]
 
@@ -311,6 +311,7 @@ animations = [{
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_g4kkd")
+regenDurationInSeconds = 20
 drop_item_data = ExtResource("2_e6f3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -324,8 +325,7 @@ offset = Vector2(0, -2)
 [node name="FallAnimation" type="AnimatedSprite2D" parent="."]
 visible = false
 sprite_frames = SubResource("SpriteFrames_1f7ub")
-frame = 12
-frame_progress = 1.0
+animation = &"fall"
 offset = Vector2(-8, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -337,8 +337,10 @@ frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [node name="HarvestTimer" type="Timer" parent="."]
+one_shot = true
 
 [node name="RegenTimer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="timeout" from="HarvestTimer" to="." method="_on_harvest_timer_timeout"]
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

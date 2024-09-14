@@ -1,13 +1,18 @@
 extends StaticBody2D
 
+class_name WoodTree
+
 @export var harvestDurationInSeconds: int = 5
-@export var regenDurationInSeconds: int = 6
+@export var regenDurationInSeconds: int = 60
 @export var drop_item_data : CollectableItem
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fall_animation: AnimatedSprite2D = $FallAnimation
 @onready var harvest_timer: Timer = $HarvestTimer
 @onready var regen_timer: Timer = $RegenTimer
 
+@export var region: Region
+signal harvest_finished
+signal item_dropped(item: DroppedItem)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,8 +32,7 @@ func setup_for_harvest() -> void:
 
 
 func ready_for_harvest() -> void:
-    # submit a chop job
-    pass
+    region.job_queue.push(ChopTreeJob.new(position, self))
 
 
 func start_harvest() -> void:
@@ -45,7 +49,7 @@ func _on_harvest_timer_timeout() -> void:
     # Done harvesting
     
     # Let cat worker know to stop hitting the tree
-    # emit a signal to the cat worker
+    harvest_finished.emit()
 
     # Wait for current hit animation to finish
     if animated_sprite_2d.animation == "hit":
@@ -68,6 +72,8 @@ func drop_item() -> void:
     var dropped_item := dropped_item_scene.instantiate() as DroppedItem
     dropped_item.item = drop_item_data
     add_child(dropped_item)
+    dropped_item.position = Vector2(0, 24)
+    item_dropped.emit(dropped_item)
 
 
 func _on_regen_timer_timeout() -> void:
