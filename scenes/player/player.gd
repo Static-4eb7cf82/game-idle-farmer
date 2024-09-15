@@ -8,10 +8,19 @@ var coins : int:
         coins = value
         GlobalSignals.emit_player_coins_changed(coins)
 
+var wood : int:
+    get:
+        return wood
+    set(value):
+        wood = value
+        print("Player wood changed to %s" % wood)
+        GlobalSignals.emit_player_wood_changed(wood)
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     coins = Global.settings.player_starting_coins
+    wood = Global.settings.player_starting_wood
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,7 +63,7 @@ func set_till_soil_action() -> void:
         unset_current_action()
     
     till_soil_action = till_soil_action_scene.instantiate() as TillSoilAction
-    get_tree().get_first_node_in_group("ui_canvas_layer").add_child(till_soil_action)
+    get_tree().get_first_node_in_group(Global.UI_GROUP_NAME).add_child(till_soil_action)
     selected_action = Player.SELECTED_ACTION.TILL_SOIL
 
 
@@ -74,7 +83,7 @@ func set_plant_crop_action(crop_type: Global.CROP_TYPE) -> void:
     
     plant_crop_action = plant_crop_action_scene.instantiate() as PlantCropAction
     plant_crop_action.as_crop_type(crop_type)
-    get_tree().get_first_node_in_group("ui_canvas_layer").add_child(plant_crop_action)
+    get_tree().get_first_node_in_group(Global.UI_GROUP_NAME).add_child(plant_crop_action)
     selected_action = Player.SELECTED_ACTION.PLANT_CROP
 
 

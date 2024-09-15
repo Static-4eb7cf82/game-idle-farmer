@@ -6,6 +6,7 @@ enum JOB_TYPE {
     TILL,
     WATER,
     HARVEST,
+    CHOP_TREE,
     BUILD_WORKBENCH,
 }
 

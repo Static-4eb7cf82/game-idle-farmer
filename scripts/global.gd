@@ -12,6 +12,9 @@ class DebugSettings extends Settings:
         growth_duration_in_seconds_lettuce = 15.0
         coin_reward_lettuce = 60
         player_starting_coins = 100
+        player_starting_wood = 100
+        wood_tree_max_hp = 2
+        wood_tree_regen_duration_in_seconds = 15
 
 class Settings:
     var cat_worker_speed: float = 25.0
@@ -28,6 +31,9 @@ class Settings:
     var till_cost: int = 35
     var watered_soil_duration: int = 35
     var player_starting_coins: int = 5
+    var player_starting_wood: int = 0
+    var wood_tree_max_hp: int = 10
+    var wood_tree_regen_duration_in_seconds: int = 60
 
 
 
@@ -54,3 +60,6 @@ enum CROP_TYPE {
     LETTUCE,
     CARROT,
 }
+
+const PLAYER_GROUP_NAME = "player"
+const UI_GROUP_NAME = "ui_canvas_layer"

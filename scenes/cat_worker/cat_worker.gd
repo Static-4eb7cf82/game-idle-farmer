@@ -6,6 +6,7 @@ var region: Region
 var speed: float = Global.settings.cat_worker_speed
 var performing_action_animation := false
 var water_count: int = Global.settings.cat_worker_water_count
+var carryable_item : CarryableItem
 
 # Target based movement
 var move_to_target := false
@@ -118,6 +119,8 @@ func poll_and_receive_jobs() -> void:
             await execute_water_job(job)
         elif job is HarvestJob:
             await execute_harvest_job(job)
+        elif job is ChopTreeJob:
+            await execute_chop_tree_job(job)
         # Global.JOB_TYPE.WATER:
         #     perform_water_in_front_of_cat()
         # Global.JOB_TYPE.HARVEST:
@@ -241,6 +244,51 @@ func execute_harvest_job(harvest_job: HarvestJob) -> void:
     await place_item_in_storage(harvest_job._subject, closest_storage)
 
 
+func execute_chop_tree_job(chop_tree_job: ChopTreeJob) -> void:
+
+    # move to target position
+    # print("moving to position")
+    move_to_position(get_closest_adjacent_target_position(chop_tree_job.pos))
+    await reached_target_position
+
+    # turn towards target position
+    # print("turning towards target position")
+    set_character_direction_towards_target_position(chop_tree_job.pos)
+    
+    # start hitting the tree
+    # print("start harvest tree")
+    while not chop_tree_job._subject.harvest_finished:
+        performing_action_animation = true
+        $AnimatedSprite2D.play("chop_pt1_" + character_direction)
+        await $AnimatedSprite2D.animation_finished
+        chop_tree_job._subject.on_hit()
+        $AnimatedSprite2D.play("chop_pt2_" + character_direction)
+        await $AnimatedSprite2D.animation_finished
+        performing_action_animation = false
+    print("Stopped hitting the tree")
+    $AnimatedSprite2D.play("idle_" + character_direction)
+
+    var dropped_item : DroppedItem = await chop_tree_job._subject.item_dropped
+    dropped_item.give_to(self)
+    await dropped_item.collected
+
+    # print("Collected item")
+    # ask the region for the closest storage container
+    var closest_storage := region.get_closest_storage_to_pos(position)
+
+    # # move to target position
+    # # print("moving to position")
+    move_to_position(get_closest_adjacent_target_position(closest_storage.position))
+    await reached_target_position
+
+    # # turn towards target position
+    # # print("turning towards target position")
+    set_character_direction_towards_target_position(closest_storage.position)
+
+    # perform place in container and recieve reward
+    await place_carryable_item_in_storage(closest_storage)
+
+
 func set_character_direction_towards_target_position(target_pos: Vector2) -> void:
     var position_diff := (target_pos - position).abs()
     if position_diff.x > position_diff.y:
@@ -323,6 +371,20 @@ func place_item_in_storage(item: Crop, storage_container: StorageContainer) -> v
     storage_container.close()
 
 
+func place_carryable_item_in_storage(storage_container: StorageContainer) -> void:
+    # open storage
+    # call item.recieve_reward()
+    # queue_free() item
+    await storage_container.open()
+
+    # print("Storage container opened")
+    carryable_item.item.recieve_reward()
+    carryable_item.queue_free()
+    carryable_item = null
+
+    storage_container.close()
+
+
 func _on_water_from_can_animation_animation_finished() -> void:
     performing_action_animation = false
     handle_animation()
@@ -345,3 +407,13 @@ func get_coords_in_front_of_cat() -> Vector2i:
 
     var coords_in_front_of_cat := cat_grid_coords + direction_offset
     return coords_in_front_of_cat
+
+
+var carryable_item_scene := preload("res://scenes/objects/items/carryable_item.tscn")
+func collect_item(item: CollectableItem) -> void:
+    print("Cat Worker collected item")
+    carryable_item = carryable_item_scene.instantiate() as CarryableItem
+    carryable_item.item = item
+    add_child(carryable_item)
+    # put item above cat: cat worker height + margin between + item radius
+    carryable_item.position = Vector2(0, -16) + Vector2(0, -1 * carryable_item.item.radius)
