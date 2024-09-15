@@ -16,4 +16,4 @@ func on_player_coins_changed(new_coins: int) -> void:
 
 
 func get_label_text(coins: int) -> String:
-    return "coins " + str(coins)
+    return str(coins)

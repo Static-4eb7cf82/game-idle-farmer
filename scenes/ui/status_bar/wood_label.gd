@@ -16,4 +16,4 @@ func on_player_wood_changed(new_wood: int) -> void:
 
 
 func get_label_text(wood: int) -> String:
-    return "wood " + str(wood)
+    return str(wood)
