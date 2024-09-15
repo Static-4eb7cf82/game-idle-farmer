@@ -37,8 +37,6 @@ func _ready() -> void:
         grid.append([])
         for x in dimensions.x:
             grid[y].append(null)
-    
-    debug_seed_grid()
 
     crops_group_name = "%s_crops" % region_name
     cats_group_name = "%s_cat_workers" % region_name
@@ -255,12 +253,3 @@ func add_water_well(coords: Vector2i) -> void:
     water_well_instance.position = ground_tile_map.map_to_local(coords)
     add_child(water_well_instance)
     water_well_instance.add_to_group(water_well_group_name)
-
-
-func debug_seed_grid() -> void:
-    place_tilled_soil_at_coords(Vector2i(15, 11))
-    place_tilled_soil_at_coords(Vector2i(16, 11))
-    place_tilled_soil_at_coords(Vector2i(17, 11))
-    place_tilled_soil_at_coords(Vector2i(15, 12))
-    place_tilled_soil_at_coords(Vector2i(16, 12))
-    place_tilled_soil_at_coords(Vector2i(17, 12))

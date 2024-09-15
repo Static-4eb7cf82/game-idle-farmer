@@ -221,7 +221,7 @@ func perform_refill_water() -> void:
     # print("performing refill water animation")
     performing_action_animation = true
     # play animation water_count times
-    for i in range(Global.settings.cat_worker_water_count):
+    for i in range(3):
         $AnimatedSprite2D.play("water_" + character_direction)
         await $AnimatedSprite2D.animation_finished
     performing_action_animation = false

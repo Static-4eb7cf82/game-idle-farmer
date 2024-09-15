@@ -1,6 +1,6 @@
 extends Node
 
-var debug := true
+var debug := false
 var settings := Settings.new()
 class DebugSettings extends Settings:
     func _init() -> void:
@@ -15,26 +15,26 @@ class DebugSettings extends Settings:
         player_starting_wood = 100
         wood_tree_max_hp = 2
         wood_tree_regen_duration_in_seconds = 15
-        till_cost = 10
+        till_cost = 5
 
 class Settings:
     var cat_worker_speed: float = 25.0
-    var cat_worker_water_count: int = 5
+    var cat_worker_water_count: int = 10
     var coin_cost_wheat: int = 1
-    var coin_cost_beet: int = 3
-    var coin_cost_lettuce: int = 6
-    var coin_reward_wheat: int = 7
-    var coin_reward_beet: int = 12
-    var coin_reward_lettuce: int = 18
+    var coin_cost_beet: int = 2
+    var coin_cost_lettuce: int = 4
+    var coin_reward_wheat: int = 4
+    var coin_reward_beet: int = 6
+    var coin_reward_lettuce: int = 10
     var growth_duration_in_seconds_wheat: float = 70.0
     var growth_duration_in_seconds_beet: float = 105.0
     var growth_duration_in_seconds_lettuce: float = 175.0
-    var till_cost: int = 35
+    var till_cost: int = 25
     var watered_soil_duration: int = 35
-    var player_starting_coins: int = 5
+    var player_starting_coins: int = 100
     var player_starting_wood: int = 0
     var wood_tree_max_hp: int = 10
-    var wood_tree_regen_duration_in_seconds: int = 60
+    var wood_tree_regen_duration_in_seconds: int = 120
 
 
 
