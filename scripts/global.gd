@@ -15,6 +15,7 @@ class DebugSettings extends Settings:
         player_starting_wood = 100
         wood_tree_max_hp = 2
         wood_tree_regen_duration_in_seconds = 15
+        till_cost = 10
 
 class Settings:
     var cat_worker_speed: float = 25.0

@@ -10,11 +10,13 @@ enum JOB_TYPE {
     BUILD_WORKBENCH,
 }
 
-# Broader job category
+# Broader job category, can be prioritized
 enum JOB_CATEGORY {
     WATER,
-    HARVEST,
+    TILL,
     BUILD,
+    HARVEST,
+    HARVEST_WOOD,
 }
 
 # Job state

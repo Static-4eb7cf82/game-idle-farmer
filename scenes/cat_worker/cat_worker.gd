@@ -16,6 +16,15 @@ signal reached_target_position()
 # Jobs
 var performing_job := false
 
+# Job Priority
+var job_priority : Array[Job.JOB_CATEGORY] = [
+    Job.JOB_CATEGORY.BUILD,
+    Job.JOB_CATEGORY.TILL,
+    Job.JOB_CATEGORY.WATER,
+    Job.JOB_CATEGORY.HARVEST_WOOD,
+    Job.JOB_CATEGORY.HARVEST,
+]
+
 
 var character_direction := DIRECTION_DOWN
 const DIRECTION_DOWN = "down"
@@ -108,9 +117,8 @@ func poll_and_receive_jobs() -> void:
         return
     
     if !region.job_queue.is_empty():
-        print("Receiving a job")
-        # var job_queue : JobQueue = region.job_queue
-        var job : Job = region.job_queue.pop() # Perform any job category for now
+        # print("Receiving a job")
+        var job : Job = get_job_by_priority()
         
         performing_job = true
         if job is TillJob:
@@ -133,6 +141,18 @@ func poll_and_receive_jobs() -> void:
         # Do nothing
         $AnimatedSprite2D.play("idle_" + character_direction)
 
+
+func get_job_by_priority() -> Job:
+    # Try to get a job by priority type first
+    for search_job_category in job_priority:
+        print("Searching for job category: ", search_job_category)
+        var job := region.job_queue.pop_by_category(search_job_category)
+        if job:
+            print("Found job category: ", search_job_category)
+            return job
+    
+    print("No job found by priority")
+    return region.job_queue.pop() # Get whatever job is available
 
 func execute_till_job(till_job: TillJob) -> void:
 
