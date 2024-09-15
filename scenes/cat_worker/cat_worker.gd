@@ -20,9 +20,8 @@ var performing_job := false
 var job_priority : Array[Job.JOB_CATEGORY] = [
     Job.JOB_CATEGORY.BUILD,
     Job.JOB_CATEGORY.TILL,
-    Job.JOB_CATEGORY.WATER,
-    Job.JOB_CATEGORY.HARVEST_WOOD,
     Job.JOB_CATEGORY.HARVEST,
+    Job.JOB_CATEGORY.WATER,
 ]
 
 
