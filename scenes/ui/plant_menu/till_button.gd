@@ -1,0 +1,12 @@
+extends PanelContainer
+
+signal button_pressed()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+    $Button/MarginContainer/HBoxContainer/HBoxContainer/CoinCostLabel.text = str(Global.settings.till_cost)
+
+
+func _on_button_pressed() -> void:
+    button_pressed.emit()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=3 uid="uid://dy1xqvcbp8dta"]
+[gd_scene load_steps=40 format=3 uid="uid://dy1xqvcbp8dta"]
 
 [ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_1uqwe"]
 [ext_resource type="Script" path="res://scenes/ui/side_menu/side_menu.gd" id="1_va0up"]
 [ext_resource type="Script" path="res://scenes/ui/plant_menu/plant_menu.gd" id="2_dk4ia"]
+[ext_resource type="PackedScene" uid="uid://cdppxwnu0y0b1" path="res://scenes/ui/plant_menu/till_button.tscn" id="3_a4dbm"]
 [ext_resource type="Texture2D" uid="uid://cn4xhcag4041o" path="res://assets/items/crops/carrot.png" id="4_e6lk8"]
 [ext_resource type="PackedScene" uid="uid://eb354dmqycki" path="res://scenes/ui/plant_menu/crop_button.tscn" id="4_m64pm"]
 [ext_resource type="Resource" uid="uid://cp8mvyi7jygxm" path="res://scenes/growables/beet.tres" id="5_4t58m"]
@@ -188,29 +189,8 @@ layout_mode = 2
 layout_mode = 2
 columns = 3
 
-[node name="Till" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="TillButton" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer" instance=ExtResource("3_a4dbm")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
-
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button"]
-layout_mode = 2
-offset_right = 64.0
-offset_bottom = 24.0
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_1uqwe")
-stretch_mode = 2
 
 [node name="DestroyTill" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -242,7 +222,9 @@ stretch_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill/Button/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 1
 text = "Destroy"
+vertical_alignment = 2
 
 [node name="HSeparator" type="HSeparator" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
@@ -767,7 +749,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_muuyg")
 hide_folding = true
 
 [connection signal="pressed" from="HBoxContainer/OpenCloseButton" to="." method="_on_open_close_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_till_soil_pressed"]
+[connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/TillButton" to="HBoxContainer/TabContainer/PLANT" method="_on_till_soil_pressed"]
 [connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
 [connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
 [connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]

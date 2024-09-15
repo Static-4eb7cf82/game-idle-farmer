@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdppxwnu0y0b1"]
+
+[ext_resource type="Script" path="res://scenes/ui/plant_menu/till_button.gd" id="1_tduu7"]
+[ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="2_nvo5t"]
+[ext_resource type="Texture2D" uid="uid://n4ulm0vk7v8p" path="res://assets/ui/coin.png" id="3_tle8k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bti86"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1s1tx"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ohtj"]
+bg_color = Color(1, 1, 1, 0.196078)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_geek8"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qpcrb"]
+bg_color = Color(1, 1, 1, 0)
+
+[node name="TillButton" type="PanelContainer"]
+custom_minimum_size = Vector2(64, 0)
+theme_override_styles/panel = SubResource("StyleBoxFlat_bti86")
+script = ExtResource("1_tduu7")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
+
+[node name="MarginContainer" type="MarginContainer" parent="Button"]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 24.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer"]
+layout_mode = 2
+
+[node name="HoeTexture" type="TextureRect" parent="Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_nvo5t")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Button/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="CoinTexture" type="TextureRect" parent="Button/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_tle8k")
+stretch_mode = 2
+
+[node name="CoinCostLabel" type="Label" parent="Button/MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "1"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
