@@ -3,9 +3,9 @@ extends StaticBody2D
 class_name WoodTree
 
 @export var region: Region
-@export var max_hp: int = 3
-@export var regenDurationInSeconds: int = 60
 @export var drop_item_data : CollectableItem
+@onready var max_hp: int = Global.settings.wood_tree_max_hp
+@onready var regen_duration_in_seconds: int = Global.settings.wood_tree_regen_duration_in_seconds
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fall_animation: AnimatedSprite2D = $FallAnimation
 @onready var regen_timer: Timer = $RegenTimer
@@ -17,7 +17,7 @@ signal item_dropped(item: DroppedItem)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     # first time setup
-    regen_timer.wait_time = regenDurationInSeconds
+    regen_timer.wait_time = regen_duration_in_seconds
 
     # re-occuring setup
     setup_for_harvest()

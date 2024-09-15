@@ -12,6 +12,8 @@ class DebugSettings extends Settings:
         growth_duration_in_seconds_lettuce = 15.0
         coin_reward_lettuce = 60
         player_starting_coins = 100
+        wood_tree_max_hp = 2
+        wood_tree_regen_duration_in_seconds = 30
 
 class Settings:
     var cat_worker_speed: float = 25.0
@@ -28,6 +30,8 @@ class Settings:
     var till_cost: int = 35
     var watered_soil_duration: int = 35
     var player_starting_coins: int = 5
+    var wood_tree_max_hp: int = 10
+    var wood_tree_regen_duration_in_seconds: int = 60
 
 
 
