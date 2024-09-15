@@ -97,30 +97,30 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kjd8m")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_f387m")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_oqdlp")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_voycq")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_ykreo")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_xm0qo")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_oqw7w")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_420fm")
 }],
 "loop": false,
 "name": &"fall",
-"speed": 8.0
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vi7y"]
@@ -311,7 +311,7 @@ animations = [{
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_g4kkd")
-regenDurationInSeconds = 15
+regenDurationInSeconds = 5
 drop_item_data = ExtResource("2_e6f3r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -323,12 +323,14 @@ sprite_frames = SubResource("SpriteFrames_6nsny")
 offset = Vector2(0, -2)
 
 [node name="FallAnimation" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_1f7ub")
 animation = &"fall"
+frame = 12
+frame_progress = 1.0
 offset = Vector2(-8, -16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_wu02j")
 animation = &"hit"
 autoplay = "idle"
@@ -336,11 +338,7 @@ frame = 5
 frame_progress = 1.0
 offset = Vector2(0, -16)
 
-[node name="HarvestTimer" type="Timer" parent="."]
-one_shot = true
-
 [node name="RegenTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="timeout" from="HarvestTimer" to="." method="_on_harvest_timer_timeout"]
 [connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

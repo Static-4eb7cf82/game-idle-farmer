@@ -668,7 +668,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"chop_pt1_down",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -688,7 +688,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"chop_pt1_left",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -708,7 +708,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"chop_pt1_right",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -728,7 +728,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"chop_pt1_up",
-"speed": 5.0
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1468,7 +1468,7 @@ shape = SubResource("CircleShape2D_0yf26")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3fveb")
-animation = &"chop_pt2_up"
+animation = &"chop_pt1_up"
 autoplay = "idle_down"
 offset = Vector2(0, -6)
 

@@ -255,11 +255,8 @@ func execute_chop_tree_job(chop_tree_job: ChopTreeJob) -> void:
     # print("turning towards target position")
     set_character_direction_towards_target_position(chop_tree_job.pos)
     
-    # perform animation for job duration
-    print("start harvest tree")
-    chop_tree_job._subject.start_harvest()
-    
     # start hitting the tree
+    # print("start harvest tree")
     while not chop_tree_job._subject.harvest_finished:
         performing_action_animation = true
         $AnimatedSprite2D.play("chop_pt1_" + character_direction)
