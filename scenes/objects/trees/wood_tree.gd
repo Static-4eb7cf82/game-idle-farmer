@@ -29,10 +29,10 @@ func setup_for_harvest() -> void:
     animated_sprite_2d.show()
     animated_sprite_2d.play("idle")
     harvest_finished = false
-    ready_for_harvest()
+    notify_ready_for_harvest()
 
 
-func ready_for_harvest() -> void:
+func notify_ready_for_harvest() -> void:
     region.job_queue.push(ChopTreeJob.new(position, self))
 
 

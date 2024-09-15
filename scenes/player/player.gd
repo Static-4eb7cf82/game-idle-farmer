@@ -20,6 +20,7 @@ var wood : int:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     coins = Global.settings.player_starting_coins
+    wood = Global.settings.player_starting_wood
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
