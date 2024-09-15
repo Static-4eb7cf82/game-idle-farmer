@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CropResource" load_steps=3 format=3 uid="uid://bt7roicjt34so"]
+
+[ext_resource type="Script" path="res://scenes/growables/crop_resource.gd" id="1_63bpq"]
+[ext_resource type="Texture2D" uid="uid://fnu0kcdrtox0" path="res://assets/items/crops/lettuce.png" id="2_41nql"]
+
+[resource]
+script = ExtResource("1_63bpq")
+type = 3
+texture = ExtResource("2_41nql")

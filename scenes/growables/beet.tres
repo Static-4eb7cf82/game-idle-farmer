@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CropResource" load_steps=3 format=3 uid="uid://cp8mvyi7jygxm"]
+
+[ext_resource type="Script" path="res://scenes/growables/crop_resource.gd" id="1_80c3b"]
+[ext_resource type="Texture2D" uid="uid://cg4tde0hdixfv" path="res://assets/items/crops/beet.png" id="2_8uvyw"]
+
+[resource]
+script = ExtResource("1_80c3b")
+type = 2
+texture = ExtResource("2_8uvyw")

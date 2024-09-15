@@ -24,18 +24,18 @@ var wheat_seed_packet_texture := preload("res://assets/items/seeds/wheat_seeds.p
 func as_wheat() -> void:
     crop_type = Global.CROP_TYPE.WHEAT
     self.texture = wheat_seed_packet_texture
-    cost = Global.settings.coin_cost_wheat
+    cost = Global.CROP_COST[Global.CROP_TYPE.WHEAT]
 
 
 var beet_seed_packet_texture := preload("res://assets/items/seeds/beet_seeds.png")
 func as_beet() -> void:
     crop_type = Global.CROP_TYPE.BEET
     self.texture = beet_seed_packet_texture
-    cost = Global.settings.coin_cost_beet
+    cost = Global.CROP_COST[Global.CROP_TYPE.BEET]
 
 
 var lettuce_seed_packet_texture := preload("res://assets/items/seeds/lettuce_seeds.png")
 func as_lettuce() -> void:
     crop_type = Global.CROP_TYPE.LETTUCE
     self.texture = lettuce_seed_packet_texture
-    cost = Global.settings.coin_cost_lettuce
+    cost = Global.CROP_COST[Global.CROP_TYPE.LETTUCE]

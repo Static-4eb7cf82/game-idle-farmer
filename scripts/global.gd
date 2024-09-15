@@ -62,5 +62,11 @@ enum CROP_TYPE {
     CARROT,
 }
 
+var CROP_COST = {
+    CROP_TYPE.WHEAT: settings.coin_cost_wheat,
+    CROP_TYPE.BEET: settings.coin_cost_beet,
+    CROP_TYPE.LETTUCE: settings.coin_cost_lettuce,
+}
+
 const PLAYER_GROUP_NAME = "player"
 const UI_GROUP_NAME = "ui_canvas_layer"

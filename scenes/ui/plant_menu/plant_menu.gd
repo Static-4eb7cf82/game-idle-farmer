@@ -24,6 +24,9 @@ func _on_till_soil_pressed() -> void:
     Player.set_till_soil_action()
 
 
+func _on_crop_button_pressed(crop_resource: CropResource) -> void:
+    Player.set_plant_crop_action(crop_resource.type)
+
 func _on_wheat_button_pressed() -> void:
     Player.set_plant_crop_action(Global.CROP_TYPE.WHEAT)
 

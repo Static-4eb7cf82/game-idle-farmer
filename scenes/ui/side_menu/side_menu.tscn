@@ -1,14 +1,14 @@
 [gd_scene load_steps=39 format=3 uid="uid://dy1xqvcbp8dta"]
 
 [ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_1uqwe"]
-[ext_resource type="Texture2D" uid="uid://d2jyvul8auyhf" path="res://assets/items/crops/wheat.png" id="1_3ilig"]
 [ext_resource type="Script" path="res://scenes/ui/side_menu/side_menu.gd" id="1_va0up"]
-[ext_resource type="Texture2D" uid="uid://cg4tde0hdixfv" path="res://assets/items/crops/beet.png" id="2_5rlsh"]
 [ext_resource type="Script" path="res://scenes/ui/plant_menu/plant_menu.gd" id="2_dk4ia"]
-[ext_resource type="Texture2D" uid="uid://fnu0kcdrtox0" path="res://assets/items/crops/lettuce.png" id="3_j6yng"]
 [ext_resource type="Texture2D" uid="uid://cn4xhcag4041o" path="res://assets/items/crops/carrot.png" id="4_e6lk8"]
+[ext_resource type="PackedScene" uid="uid://eb354dmqycki" path="res://scenes/ui/plant_menu/crop_button.tscn" id="4_m64pm"]
+[ext_resource type="Resource" uid="uid://cp8mvyi7jygxm" path="res://scenes/growables/beet.tres" id="5_4t58m"]
 [ext_resource type="Texture2D" uid="uid://5eb2vpir235n" path="res://assets/items/crops/tomato.png" id="5_7tpqq"]
 [ext_resource type="Texture2D" uid="uid://b14nt8r6vvai6" path="res://assets/items/crops/cabbage.png" id="6_ejbmx"]
+[ext_resource type="Resource" uid="uid://bt7roicjt34so" path="res://scenes/growables/lettuce.tres" id="6_sts7v"]
 [ext_resource type="Texture2D" uid="uid://bxmbdfxmyb7kx" path="res://assets/items/crops/cauliflower.png" id="7_l61m6"]
 [ext_resource type="Texture2D" uid="uid://bdgt87hrg5tmx" path="res://assets/items/crops/corn.png" id="8_p4bf1"]
 [ext_resource type="Texture2D" uid="uid://biqaim5hnaq11" path="res://assets/items/crops/eggplant.png" id="9_nr5ce"]
@@ -251,77 +251,16 @@ layout_mode = 2
 layout_mode = 2
 columns = 3
 
-[node name="Wheat" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
-custom_minimum_size = Vector2(64, 0)
+[node name="Wheat" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer" instance=ExtResource("4_m64pm")]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat"]
-custom_minimum_size = Vector2(0, 24)
+[node name="Beet" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer" instance=ExtResource("4_m64pm")]
 layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
+crop_resource = ExtResource("5_4t58m")
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button"]
+[node name="Lettuce" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer" instance=ExtResource("4_m64pm")]
 layout_mode = 2
-offset_right = 64.0
-offset_bottom = 24.0
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_3ilig")
-stretch_mode = 2
-
-[node name="Beet" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
-
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button"]
-layout_mode = 2
-offset_right = 64.0
-offset_bottom = 24.0
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("2_5rlsh")
-stretch_mode = 2
-
-[node name="Lettuce" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
-
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
-theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
-theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button"]
-layout_mode = 2
-offset_right = 64.0
-offset_bottom = 24.0
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("3_j6yng")
-stretch_mode = 2
+crop_resource = ExtResource("6_sts7v")
 
 [node name="Carrot" type="PanelContainer" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -829,6 +768,6 @@ hide_folding = true
 
 [connection signal="pressed" from="HBoxContainer/OpenCloseButton" to="." method="_on_open_close_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/Till/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_till_soil_pressed"]
-[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_wheat_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_beet_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce/Button" to="HBoxContainer/TabContainer/PLANT" method="_on_lettuce_button_pressed"]
+[connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
+[connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
+[connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
