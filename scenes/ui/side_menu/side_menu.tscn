@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://dy1xqvcbp8dta"]
+[gd_scene load_steps=44 format=3 uid="uid://dy1xqvcbp8dta"]
 
 [ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_1uqwe"]
 [ext_resource type="Script" path="res://scenes/ui/side_menu/side_menu.gd" id="1_va0up"]
@@ -25,6 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://5dot5tyva042" path="res://assets/items/build/singles/chicken_coop.png" id="21_fq2oi"]
 [ext_resource type="Texture2D" uid="uid://bgqxh2f6ibxe3" path="res://assets/items/build/singles/fence.png" id="22_on27n"]
 [ext_resource type="Script" path="res://scenes/ui/priority_menu/priority.gd" id="24_q1qu5"]
+[ext_resource type="Texture2D" uid="uid://cmulpy0hjhv5b" path="res://assets/items/tools/axe.png" id="25_3fvyd"]
+[ext_resource type="Script" path="res://scenes/ui/ability_menu/ability_menu.gd" id="25_ygbf7"]
+[ext_resource type="Texture2D" uid="uid://n4ulm0vk7v8p" path="res://assets/ui/coin.png" id="26_rfds8"]
+[ext_resource type="Texture2D" uid="uid://x6anwxvq6jsj" path="res://assets/items/tools/pickaxe.png" id="26_ua0qv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7itsn"]
 content_margin_left = 8.0
@@ -167,9 +171,11 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_4w4vu")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_eaus3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_c1r6h")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_wjaxt")
+current_tab = 1
 tab_focus_mode = 0
 
 [node name="PLANT" type="PanelContainer" parent="HBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 script = ExtResource("2_dk4ia")
@@ -470,7 +476,6 @@ texture = ExtResource("12_2fgbh")
 stretch_mode = 2
 
 [node name="BUILD" type="PanelContainer" parent="HBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 
@@ -494,6 +499,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Wheat"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Sign"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -523,6 +529,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Beet"]
 layout_mode = 2
+tooltip_text = "Wood Path"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -552,6 +559,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Lettuce"]
 layout_mode = 2
+tooltip_text = "Stone Path"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -583,6 +591,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Carrot"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Workbench"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -613,6 +622,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Tomato"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Water Well"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -644,6 +654,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Cabbage"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Storage"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -675,6 +686,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Cauliflower"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Chicken Coop"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -706,6 +718,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Fence"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -727,6 +740,128 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("22_on27n")
 stretch_mode = 2
+
+[node name="ABILITY" type="PanelContainer" parent="HBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
+script = ExtResource("25_ygbf7")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/ABILITY"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer"]
+custom_minimum_size = Vector2(250, 130)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Axe" type="PanelContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
+
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+tooltip_text = "Axe
+Unlock ability to gather wood"
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture = ExtResource("25_3fvyd")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="CoinTexture" type="TextureRect" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("26_rfds8")
+stretch_mode = 2
+
+[node name="CoinCostLabel" type="Label" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "1"
+
+[node name="Pickaxe" type="PanelContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
+
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+tooltip_text = "Pickaxe
+Unlock ability to gather stone"
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button"]
+custom_minimum_size = Vector2(64, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button/MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+texture = ExtResource("26_ua0qv")
+stretch_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 14)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 10
+
+[node name="CoinTexture" type="TextureRect" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("26_rfds8")
+stretch_mode = 2
+
+[node name="CoinCostLabel" type="Label" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "1"
 
 [node name="PRIORITY" type="PanelContainer" parent="HBoxContainer/TabContainer"]
 visible = false

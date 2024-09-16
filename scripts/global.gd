@@ -16,6 +16,8 @@ class DebugSettings extends Settings:
         wood_tree_max_hp = 2
         wood_tree_regen_duration_in_seconds = 15
         till_cost = 5
+        ability_axe_cost = 10
+        ability_pickaxe_cost = 20
 
 class Settings:
     var cat_worker_speed: float = 25.0
@@ -35,6 +37,8 @@ class Settings:
     var player_starting_wood: int = 0
     var wood_tree_max_hp: int = 10
     var wood_tree_regen_duration_in_seconds: int = 120
+    var ability_axe_cost: int = 200
+    var ability_pickaxe_cost: int = 400
 
 
 
