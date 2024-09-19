@@ -66,10 +66,30 @@ enum CROP_TYPE {
     CARROT,
 }
 
+const CROP_NAMES = {
+    CROP_TYPE.WHEAT: "Wheat",
+    CROP_TYPE.BEET: "Beet",
+    CROP_TYPE.LETTUCE: "Lettuce",
+    CROP_TYPE.CARROT: "Carrot",
+}
+
+# todo: Should these be moved to the crop resources?
+var CROP_GROWTH_DURATION = {
+    CROP_TYPE.WHEAT: settings.growth_duration_in_seconds_wheat,
+    CROP_TYPE.BEET: settings.growth_duration_in_seconds_beet,
+    CROP_TYPE.LETTUCE: settings.growth_duration_in_seconds_lettuce,
+}
+
 var CROP_COST = {
     CROP_TYPE.WHEAT: settings.coin_cost_wheat,
     CROP_TYPE.BEET: settings.coin_cost_beet,
     CROP_TYPE.LETTUCE: settings.coin_cost_lettuce,
+}
+
+var CROP_REWARD = {
+    CROP_TYPE.WHEAT: settings.coin_reward_wheat,
+    CROP_TYPE.BEET: settings.coin_reward_beet,
+    CROP_TYPE.LETTUCE: settings.coin_reward_lettuce,
 }
 
 const PLAYER_GROUP_NAME = "player"

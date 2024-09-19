@@ -208,6 +208,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/TillGridContainer/DestroyTill"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
+tooltip_text = "Undo a tilled soil tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
