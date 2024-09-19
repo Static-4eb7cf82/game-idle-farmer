@@ -46,8 +46,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 func _physics_process(_delta: float) -> void:
     if move_to_target:
         handle_target_movement()
-    else:
-        handle_player_provided_movement()
+    # else:
+    #     handle_player_provided_movement()
     move_and_slide()
     handle_animation()
 
