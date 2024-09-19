@@ -1459,7 +1459,8 @@ animations = [{
 }]
 
 [node name="CatWorker" type="CharacterBody2D"]
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_yu1qw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
