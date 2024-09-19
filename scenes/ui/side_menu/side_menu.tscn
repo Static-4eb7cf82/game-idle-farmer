@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dy1xqvcbp8dta"]
+[gd_scene load_steps=46 format=3 uid="uid://dy1xqvcbp8dta"]
 
 [ext_resource type="Texture2D" uid="uid://xltgrajcqeku" path="res://assets/items/tools/hoe.png" id="1_1uqwe"]
 [ext_resource type="Script" path="res://scenes/ui/side_menu/side_menu.gd" id="1_va0up"]
@@ -25,8 +25,10 @@
 [ext_resource type="Texture2D" uid="uid://5dot5tyva042" path="res://assets/items/build/singles/chicken_coop.png" id="21_fq2oi"]
 [ext_resource type="Texture2D" uid="uid://bgqxh2f6ibxe3" path="res://assets/items/build/singles/fence.png" id="22_on27n"]
 [ext_resource type="Script" path="res://scenes/ui/priority_menu/priority.gd" id="24_q1qu5"]
+[ext_resource type="Texture2D" uid="uid://c2w33p5fc5m06" path="res://assets/items/build/singles/bed.png" id="25_3dbhh"]
 [ext_resource type="Texture2D" uid="uid://cmulpy0hjhv5b" path="res://assets/items/tools/axe.png" id="25_3fvyd"]
 [ext_resource type="Script" path="res://scenes/ui/ability_menu/ability_menu.gd" id="25_ygbf7"]
+[ext_resource type="Texture2D" uid="uid://g45tideq8ojg" path="res://assets/items/build/singles/bridge.png" id="26_cfldd"]
 [ext_resource type="Texture2D" uid="uid://n4ulm0vk7v8p" path="res://assets/ui/coin.png" id="26_rfds8"]
 [ext_resource type="Texture2D" uid="uid://x6anwxvq6jsj" path="res://assets/items/tools/pickaxe.png" id="26_ua0qv"]
 
@@ -499,7 +501,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Wheat"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Sign"
+tooltip_text = "Sign
+Crops planted near and matching this sign type get a growth speed bonus
+15 wood"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -529,7 +533,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Beet"]
 layout_mode = 2
-tooltip_text = "Wood Path"
+tooltip_text = "Wood Path
+Cat workers get a minor movement speed bonus
+10 wood / tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -559,7 +565,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Lettuce"]
 layout_mode = 2
-tooltip_text = "Stone Path"
+tooltip_text = "Stone Path
+Cat workers get a moderate movement speed bonus
+10 stone / tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -591,7 +599,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Carrot"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Workbench"
+tooltip_text = "Workbench
+Unlocks ability to build advanced items
+50 wood"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -622,7 +632,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Tomato"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Water Well"
+tooltip_text = "Water Well
+A place to refill your water pitcher
+10 wood 20 stone
+Requires workbench"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -654,7 +667,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Cabbage"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Storage"
+tooltip_text = "Storage
+A place to store your things
+10 wood 10 stone
+Requires workbench"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -686,7 +702,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Cauliflower"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Chicken Coop"
+tooltip_text = "Chicken Coop
+Chickens!
+60 wood
+Requires workbench"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -718,7 +737,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Fence"
+tooltip_text = "Fence
+Keep things out or in
+5 wood / tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -739,6 +760,75 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("22_on27n")
+stretch_mode = 2
+
+[node name="Corn2" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
+
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn2"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+tooltip_text = "Bed
+Invite another cat worker to join the area
+A bed must be placed in a house
+50 wood
+Requires workbench"
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn2/Button"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn2/Button/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("25_3dbhh")
+stretch_mode = 2
+
+[node name="Corn3" type="PanelContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
+
+[node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn3"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+tooltip_text = "Bridge
+Expand to another area"
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn3/Button"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Corn3/Button/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("26_cfldd")
 stretch_mode = 2
 
 [node name="ABILITY" type="PanelContainer" parent="HBoxContainer/TabContainer"]
