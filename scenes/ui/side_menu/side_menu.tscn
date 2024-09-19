@@ -173,7 +173,7 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_4w4vu")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_eaus3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_c1r6h")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_wjaxt")
-current_tab = 1
+current_tab = 2
 tab_focus_mode = 0
 
 [node name="PLANT" type="PanelContainer" parent="HBoxContainer/TabContainer"]
@@ -478,6 +478,7 @@ texture = ExtResource("12_2fgbh")
 stretch_mode = 2
 
 [node name="BUILD" type="PanelContainer" parent="HBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 
@@ -501,8 +502,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Wheat"]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
-tooltip_text = "Sign
-Crops planted near and matching this sign type get a growth speed bonus
+tooltip_text = "Crop Sign
+Crops planted near a matching crop sign get a growth speed bonus
 15 wood"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
@@ -534,7 +535,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Beet"]
 layout_mode = 2
 tooltip_text = "Wood Path
-Cat workers get a minor movement speed bonus
+Gives a minor movement speed bonus
 10 wood / tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
@@ -566,7 +567,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 [node name="Button" type="Button" parent="HBoxContainer/TabContainer/BUILD/MarginContainer/ScrollContainer/HBoxContainer/Lettuce"]
 layout_mode = 2
 tooltip_text = "Stone Path
-Cat workers get a moderate movement speed bonus
+Gives a moderate movement speed bonus
 10 stone / tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
@@ -600,7 +601,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 tooltip_text = "Workbench
-Unlocks ability to build advanced items
+Unlocks ability to build advanced items in the area
 50 wood"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
@@ -635,7 +636,7 @@ layout_mode = 2
 tooltip_text = "Water Well
 A place to refill your water pitcher
 10 wood 20 stone
-Requires workbench"
+Requires a workbench in the area"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -670,7 +671,7 @@ layout_mode = 2
 tooltip_text = "Storage
 A place to store your things
 10 wood 10 stone
-Requires workbench"
+Requires a workbench in the area"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -705,7 +706,7 @@ layout_mode = 2
 tooltip_text = "Chicken Coop
 Chickens!
 60 wood
-Requires workbench"
+Requires a workbench in the area"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -738,7 +739,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 tooltip_text = "Fence
-Keep things out or in
+Keep things out, or in...?
 5 wood / tile"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
@@ -772,10 +773,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 tooltip_text = "Bed
-Invite another cat worker to join the area
+Invite another cat friend to join the area
 A bed must be placed in a house
 50 wood
-Requires workbench"
+Requires a workbench in the area"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -832,7 +833,6 @@ texture = ExtResource("26_cfldd")
 stretch_mode = 2
 
 [node name="ABILITY" type="PanelContainer" parent="HBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 script = ExtResource("25_ygbf7")
@@ -858,7 +858,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 tooltip_text = "Axe
-Unlock ability to gather wood"
+Permanently unlock the ability to gather wood"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
@@ -910,7 +910,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_36c6v")
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 tooltip_text = "Pickaxe
-Unlock ability to gather stone"
+Permanently unlock the ability to gather stone"
 mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
