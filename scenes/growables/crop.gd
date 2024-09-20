@@ -3,7 +3,7 @@ extends Node2D
 class_name Crop
 
 @export
-var growthDurationInSeconds := 15.0
+var growthDurationInSeconds := 15
 @export
 var growthStages := 3 # 3 growing frames, 1 harvest frame
 @export
@@ -28,7 +28,7 @@ var water: WateredSoil:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
     # Place in on ready to take in exported variable changes
-    timePerGrowthStage = growthDurationInSeconds / growthStages
+    timePerGrowthStage = (1.0 * growthDurationInSeconds) / growthStages
     region_coords = region.get_grid_coords_from_pos(position)
     _on_water_has_expired()
     ($Area2D as Area2D).body_entered.connect(_on_area_2d_body_entered)
