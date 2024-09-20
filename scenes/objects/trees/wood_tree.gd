@@ -22,6 +22,12 @@ func _ready() -> void:
     # re-occuring setup
     setup_for_harvest()
 
+    GlobalSignals.player_ability_unlocked.connect(on_ability_unlocked)
+
+
+func is_growing() -> bool:
+    return !regen_timer.is_stopped()
+
 
 func setup_for_harvest() -> void:
     hp = max_hp
@@ -29,7 +35,9 @@ func setup_for_harvest() -> void:
     animated_sprite_2d.show()
     animated_sprite_2d.play("idle")
     harvest_finished = false
-    notify_ready_for_harvest()
+
+    if Player.is_ability_unlocked(Global.ABILITY_TYPE.AXE):
+        notify_ready_for_harvest()
 
 
 func notify_ready_for_harvest() -> void:
@@ -73,3 +81,8 @@ func drop_item() -> void:
 
 func _on_regen_timer_timeout() -> void:
     setup_for_harvest()
+
+
+func on_ability_unlocked(ability: Global.ABILITY_TYPE) -> void:
+    if ability == Global.ABILITY_TYPE.AXE and !is_growing():
+        notify_ready_for_harvest()
