@@ -173,11 +173,9 @@ theme_override_styles/tab_hovered = SubResource("StyleBoxFlat_4w4vu")
 theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_eaus3")
 theme_override_styles/panel = SubResource("StyleBoxFlat_c1r6h")
 theme_override_styles/tabbar_background = SubResource("StyleBoxFlat_wjaxt")
-current_tab = 2
 tab_focus_mode = 0
 
 [node name="PLANT" type="PanelContainer" parent="HBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 script = ExtResource("2_dk4ia")
@@ -834,6 +832,7 @@ texture = ExtResource("26_cfldd")
 stretch_mode = 2
 
 [node name="ABILITY" type="PanelContainer" parent="HBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_axatx")
 script = ExtResource("25_ygbf7")
