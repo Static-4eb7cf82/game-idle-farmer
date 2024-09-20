@@ -9,4 +9,4 @@ name = "wood"
 texture = ExtResource("2_06s2p")
 radius = 8
 coin_reward = 0
-wood_reward = 1
+wood_reward = 4

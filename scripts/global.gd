@@ -5,11 +5,11 @@ var settings := Settings.new()
 class DebugSettings extends Settings:
     func _init() -> void:
         cat_worker_speed = 50.0
-        growth_duration_in_seconds_wheat = 5.0
+        growth_duration_in_seconds_wheat = 5
         coin_reward_wheat = 20
-        growth_duration_in_seconds_beet = 10.0
+        growth_duration_in_seconds_beet = 10
         coin_reward_beet = 40
-        growth_duration_in_seconds_lettuce = 15.0
+        growth_duration_in_seconds_lettuce = 15
         coin_reward_lettuce = 60
         player_starting_coins = 100
         player_starting_wood = 100
@@ -25,18 +25,18 @@ class Settings:
     var coin_cost_wheat: int = 1
     var coin_cost_beet: int = 2
     var coin_cost_lettuce: int = 4
-    var coin_reward_wheat: int = 4
-    var coin_reward_beet: int = 6
-    var coin_reward_lettuce: int = 10
-    var growth_duration_in_seconds_wheat: float = 70.0
-    var growth_duration_in_seconds_beet: float = 105.0
-    var growth_duration_in_seconds_lettuce: float = 140.0
+    var coin_reward_wheat: int = 6
+    var coin_reward_beet: int = 8
+    var coin_reward_lettuce: int = 11
+    var growth_duration_in_seconds_wheat: int = 60 # 5 coin/minute
+    var growth_duration_in_seconds_beet: int = 75 # 4.5 coin/minute
+    var growth_duration_in_seconds_lettuce: int = 90 # 4.66 coin/minute
     var till_cost: int = 25
-    var watered_soil_duration: int = 35
+    var watered_soil_duration: int = 60
     var player_starting_coins: int = 100
     var player_starting_wood: int = 0
     var wood_tree_max_hp: int = 10
-    var wood_tree_regen_duration_in_seconds: int = 120
+    var wood_tree_regen_duration_in_seconds: int = 240 # wood drops 4 so 1 wood/minute
     var ability_axe_cost: int = 200
     var ability_pickaxe_cost: int = 400
 
