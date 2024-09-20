@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cr41on4d5l50j"]
+[gd_scene load_steps=5 format=3 uid="uid://cr41on4d5l50j"]
 
 [ext_resource type="Script" path="res://scenes/game_world/game_world.gd" id="1_r8rbg"]
 [ext_resource type="PackedScene" uid="uid://isj6fe114qca" path="res://scenes/regions/region_1.tscn" id="2_iq1oq"]
 [ext_resource type="Script" path="res://scenes/game_world/main_camera.gd" id="10_wnp34"]
-[ext_resource type="PackedScene" uid="uid://krxot781cttb" path="res://scenes/player/player.tscn" id="11_n18x1"]
 [ext_resource type="PackedScene" uid="uid://d10psh4plkqtf" path="res://scenes/ui/ui.tscn" id="13_e3kwm"]
 
 [node name="GameWorld" type="Node2D"]
@@ -12,8 +11,6 @@ script = ExtResource("1_r8rbg")
 [node name="Regions" type="Node2D" parent="."]
 
 [node name="Region1" parent="Regions" instance=ExtResource("2_iq1oq")]
-
-[node name="Player" parent="." instance=ExtResource("11_n18x1")]
 
 [node name="MainCamera" type="Camera2D" parent="."]
 position = Vector2(320, 180)

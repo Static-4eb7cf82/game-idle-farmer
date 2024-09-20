@@ -19,8 +19,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*res://scripts/global.gd"
-Player="*res://scenes/player/player.tscn"
 GlobalSignals="*res://scripts/global_signals.gd"
+Player="*res://scenes/player/player.gd"
 
 [debug]
 

@@ -43,6 +43,7 @@ var _unlocked_abilities := {
 
 
 func unlock_ability(ability: Global.ABILITY_TYPE) -> void:
+    print("Player unlocked ability: %s" % ability)
     _unlocked_abilities[ability] = true
 
 
