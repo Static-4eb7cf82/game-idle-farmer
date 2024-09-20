@@ -22,6 +22,10 @@ func _process(_delta: float) -> void:
 
 
 func _on_timer_timeout() -> void:
-    region.expire_water_at_coords(coords)
     water_has_expired.emit()
+    dispose()
+
+
+func dispose() -> void:
+    region.expire_water_at_coords(coords)
     queue_free()

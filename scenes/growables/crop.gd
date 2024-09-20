@@ -21,7 +21,8 @@ var water: WateredSoil:
         return water
     set(value):
         water = value
-        water.water_has_expired.connect(_on_water_has_expired)
+        if water != null:
+            water.water_has_expired.connect(_on_water_has_expired)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -70,6 +71,10 @@ func _on_water_has_expired() -> void:
 
 func harvest(harvested_by: Node2D) -> void:
     region.get_grid_cell_from_pos(position).is_plottable = true
+
+    if water != null:
+        water.dispose()
+        water = null
 
     ($AnimatedSprite2D as Node2D).hide()
     region.remove_child(self)
