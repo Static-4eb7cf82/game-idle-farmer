@@ -21,6 +21,7 @@ var wood : int:
 func _ready() -> void:
     coins = Global.settings.player_starting_coins
     wood = Global.settings.player_starting_wood
+    GlobalSignals.player_ability_unlocked.connect(unlock_ability)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,6 +34,22 @@ func _unhandled_input(event: InputEvent) -> void:
         if mouse_event.button_index == MOUSE_BUTTON_LEFT and mouse_event.pressed:
             spawn_particles_at_mouse()
             # get_viewport().set_input_as_handled()
+
+#region Unlocked Abilities
+var _unlocked_abilities := {
+    Global.ABILITY_TYPE.AXE: false,
+    Global.ABILITY_TYPE.PICKAXE: false,
+}
+
+
+func unlock_ability(ability: Global.ABILITY_TYPE) -> void:
+    _unlocked_abilities[ability] = true
+
+
+func is_ability_unlocked(ability: Global.ABILITY_TYPE) -> bool:
+    return _unlocked_abilities[ability]
+#endregion
+
 
 #region Player Actions
 enum SELECTED_ACTION {

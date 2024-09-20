@@ -94,3 +94,8 @@ var CROP_REWARD = {
 
 const PLAYER_GROUP_NAME = "player"
 const UI_GROUP_NAME = "ui_canvas_layer"
+
+enum ABILITY_TYPE {
+    AXE,
+    PICKAXE,
+}

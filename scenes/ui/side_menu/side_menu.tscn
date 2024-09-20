@@ -864,6 +864,7 @@ mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button"]
@@ -916,6 +917,7 @@ mouse_default_cursor_shape = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/hover = SubResource("StyleBoxFlat_5ohtj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_geek8")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_1s1tx")
 theme_override_styles/focus = SubResource("StyleBoxFlat_qpcrb")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button"]
@@ -979,3 +981,5 @@ hide_folding = true
 [connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Wheat" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
 [connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Beet" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
 [connection signal="button_pressed" from="HBoxContainer/TabContainer/PLANT/MarginContainer/ScrollContainer/VBoxContainer/CropsGridContainer/Lettuce" to="HBoxContainer/TabContainer/PLANT" method="_on_crop_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Axe/Button" to="HBoxContainer/TabContainer/ABILITY" method="_on_axe_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TabContainer/ABILITY/MarginContainer/ScrollContainer/HBoxContainer/Pickaxe/Button" to="HBoxContainer/TabContainer/ABILITY" method="_on_pickaxe_button_pressed"]
