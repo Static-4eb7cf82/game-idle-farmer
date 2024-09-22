@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SproutLandsIdleFarmer"
+config/name="Verdant Acres"
 run/main_scene="res://scenes/game_world/game_world.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 run/max_fps=120
