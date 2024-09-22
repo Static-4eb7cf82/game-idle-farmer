@@ -24,10 +24,6 @@ func _ready() -> void:
     GlobalSignals.player_ability_unlocked.connect(unlock_ability)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-    pass
-
 func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventMouseButton:
         var mouse_event := event as InputEventMouseButton

@@ -44,11 +44,6 @@ func _ready() -> void:
     water_well_group_name = "%s_water_wells" % region_name
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-    pass
-
-
 func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventMouseMotion or event is InputEventMouseButton:
         if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Player.selected_action == Player.SELECTED_ACTION.PLANT_CROP:

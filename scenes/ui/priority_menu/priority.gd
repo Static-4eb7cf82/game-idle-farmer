@@ -23,8 +23,3 @@ func _ready() -> void:
     var item_water := tree.create_item(root)
     item_water.set_text(0, ":: WATER")
 
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass

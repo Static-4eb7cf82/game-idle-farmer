@@ -9,11 +9,6 @@ func _ready() -> void:
     close_side_menu()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    pass
-
-
 func _on_open_close_button_pressed() -> void:
     toggle_open()
 

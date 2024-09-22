@@ -5,10 +5,6 @@ class_name PlantCropAction
 var cost: int
 var crop_type: Global.CROP_TYPE
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-    pass # Replace with function body.
-
 
 func as_crop_type(type: Global.CROP_TYPE) -> void:
     match type:

@@ -52,10 +52,6 @@ func _ready() -> void:
         settings = Settings.new()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-    pass
-
 # todo: Move to a static constants class
 # rename this class to GlobalState
 enum CROP_TYPE {

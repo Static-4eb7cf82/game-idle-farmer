@@ -14,11 +14,6 @@ func _ready() -> void:
     debug_seed_tilled_soil()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-    super(delta)
-
-
 func debug_seed_tilled_soil() -> void:
     place_tilled_soil_at_coords(Vector2i(14, 10))
     place_tilled_soil_at_coords(Vector2i(15, 10))
