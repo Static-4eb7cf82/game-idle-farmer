@@ -36,13 +36,6 @@ func _process(_delta: float) -> void:
     poll_and_receive_jobs()
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-    if event is InputEventKey:
-        if event.pressed:
-            if event.keycode == KEY_1:
-                perform_water_in_front_of_cat()
-
-
 func _physics_process(_delta: float) -> void:
     if move_to_target:
         handle_target_movement()
