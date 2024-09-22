@@ -20,7 +20,7 @@ class DebugSettings extends Settings:
         ability_pickaxe_cost = 20
 
 class Settings:
-    var cat_worker_speed: float = 25.0
+    var cat_worker_speed: float = 20.0
     var cat_worker_water_count: int = 10
     var coin_cost_wheat: int = 1
     var coin_cost_beet: int = 2
@@ -31,7 +31,7 @@ class Settings:
     var growth_duration_in_seconds_wheat: int = 60 # 5 coin/minute
     var growth_duration_in_seconds_beet: int = 75 # 4.5 coin/minute
     var growth_duration_in_seconds_lettuce: int = 90 # 4.66 coin/minute
-    var till_cost: int = 25
+    var till_cost: int = 20
     var watered_soil_duration: int = 60
     var player_starting_coins: int = 100
     var player_starting_wood: int = 0
