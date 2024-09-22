@@ -1,15 +1,15 @@
 [gd_scene load_steps=16 format=3 uid="uid://bkryf4aii122f"]
 
-[ext_resource type="Texture2D" uid="uid://7wg8w7thcm2v" path="res://assets/ground/bright_grass_biome/Grass_tiles_v2.png" id="1_dtdsk"]
-[ext_resource type="Texture2D" uid="uid://byf2n0vopmux4" path="res://assets/ground/bright_grass_biome/Grass_Hill_Tiles_v2.png" id="2_0onau"]
-[ext_resource type="Texture2D" uid="uid://c6usmkq3g4ih0" path="res://assets/ground/bright_grass_biome/Grass_Tile_layers2.png" id="3_pgmpa"]
-[ext_resource type="Texture2D" uid="uid://cm7xevug8kcat" path="res://assets/ground/bright_grass_biome/Grass_Hill_Tiles_Slopes v.2.png" id="4_iq1u5"]
-[ext_resource type="Texture2D" uid="uid://cys06d5vu1on" path="res://assets/ground/bright_grass_biome/Soil_Ground_Tiles.png" id="5_u4b0o"]
-[ext_resource type="Texture2D" uid="uid://bu80pdbiphlf" path="res://assets/ground/bright_grass_biome/Soil_Ground_HiIls_Tiles.png" id="6_c32tm"]
-[ext_resource type="Texture2D" uid="uid://s78pp4ucvrqw" path="res://assets/ground/bright_grass_biome/Ground_Hill_Tiles_Slopes.png" id="7_4b5uf"]
+[ext_resource type="Texture2D" uid="uid://7wg8w7thcm2v" path="res://assets/ground/bright_grass_biome/grass_tiles_v2.png" id="1_pkvw6"]
+[ext_resource type="Texture2D" uid="uid://byf2n0vopmux4" path="res://assets/ground/bright_grass_biome/grass_hill_tiles_v2.png" id="2_nsa86"]
+[ext_resource type="Texture2D" uid="uid://c6usmkq3g4ih0" path="res://assets/ground/bright_grass_biome/grass_tile_layers2.png" id="3_5uigr"]
+[ext_resource type="Texture2D" uid="uid://cm7xevug8kcat" path="res://assets/ground/bright_grass_biome/grass_hill_tiles_slopes_v2.png" id="4_7klnk"]
+[ext_resource type="Texture2D" uid="uid://cys06d5vu1on" path="res://assets/ground/bright_grass_biome/soil_ground_tiles.png" id="5_q34ml"]
+[ext_resource type="Texture2D" uid="uid://bu80pdbiphlf" path="res://assets/ground/bright_grass_biome/soil_ground_hills_tiles.png" id="6_k7sv8"]
+[ext_resource type="Texture2D" uid="uid://s78pp4ucvrqw" path="res://assets/ground/bright_grass_biome/ground_hill_tiles_slopes.png" id="7_unmju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vafdp"]
-texture = ExtResource("1_dtdsk")
+texture = ExtResource("1_pkvw6")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -84,7 +84,7 @@ texture = ExtResource("1_dtdsk")
 5:6/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38f33"]
-texture = ExtResource("2_0onau")
+texture = ExtResource("2_nsa86")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -159,7 +159,7 @@ texture = ExtResource("2_0onau")
 5:6/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vjejn"]
-texture = ExtResource("3_pgmpa")
+texture = ExtResource("3_5uigr")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -221,7 +221,7 @@ texture = ExtResource("3_pgmpa")
 5:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hciqk"]
-texture = ExtResource("4_iq1u5")
+texture = ExtResource("4_7klnk")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -240,7 +240,7 @@ texture = ExtResource("4_iq1u5")
 5:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6lfc7"]
-texture = ExtResource("5_u4b0o")
+texture = ExtResource("5_q34ml")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -300,7 +300,7 @@ texture = ExtResource("5_u4b0o")
 4:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0v0n"]
-texture = ExtResource("6_c32tm")
+texture = ExtResource("6_k7sv8")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -360,7 +360,7 @@ texture = ExtResource("6_c32tm")
 4:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rbp40"]
-texture = ExtResource("7_4b5uf")
+texture = ExtResource("7_unmju")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

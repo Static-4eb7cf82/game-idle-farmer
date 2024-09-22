@@ -1,16 +1,16 @@
 [gd_scene load_steps=47 format=3 uid="uid://bvs1gorodfo7o"]
 
 [ext_resource type="Script" path="res://scenes/objects/trees/wood_tree.gd" id="1_g4kkd"]
-[ext_resource type="Texture2D" uid="uid://dnsc4dhwqigul" path="res://assets/objects/trees/Trees, stumps and bushes.png" id="1_s7kep"]
 [ext_resource type="Resource" uid="uid://d4cea8gjb2fki" path="res://scenes/objects/items/wood.tres" id="2_e6f3r"]
 [ext_resource type="Texture2D" uid="uid://dgd8s8x1sgag7" path="res://assets/objects/trees/tree_fall_animation_sprite_sheet.png" id="2_qf3g3"]
 [ext_resource type="Texture2D" uid="uid://kjrjha0qsesd" path="res://assets/objects/trees/tree_sprites.png" id="3_bh5d8"]
+[ext_resource type="Texture2D" uid="uid://dnsc4dhwqigul" path="res://assets/objects/trees/trees_stumps_bushes.png" id="3_x3otq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uurdf"]
 size = Vector2(8, 5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iswk2"]
-atlas = ExtResource("1_s7kep")
+atlas = ExtResource("3_x3otq")
 region = Rect2(16, 98, 16, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6nsny"]

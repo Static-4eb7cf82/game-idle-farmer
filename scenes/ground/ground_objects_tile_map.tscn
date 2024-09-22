@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c8jlk70a3dkkf"]
 
-[ext_resource type="Texture2D" uid="uid://65yg8j331kmv" path="res://assets/ground/Mushrooms, Flowers, Stones.png" id="1_3yfi2"]
+[ext_resource type="Texture2D" uid="uid://65yg8j331kmv" path="res://assets/ground/mushrooms_flowers_stones.png" id="1_3yfi2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trg28"]
 texture = ExtResource("1_3yfi2")

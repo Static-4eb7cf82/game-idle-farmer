@@ -1,11 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://cds8uwxnv0jyh"]
 
-[ext_resource type="Texture2D" uid="uid://dg6ehj70ipkx5" path="res://assets/ground/Tilled_Dirt.png" id="1_7sv1v"]
-[ext_resource type="Texture2D" uid="uid://b0w6oa2clod7" path="res://assets/ground/Tilled_Dirt_Wide.png" id="2_cklq2"]
+[ext_resource type="Texture2D" uid="uid://dg6ehj70ipkx5" path="res://assets/ground/tilled_dirt.png" id="1_kevu1"]
+[ext_resource type="Texture2D" uid="uid://b0w6oa2clod7" path="res://assets/ground/tilled_dirt_wide.png" id="2_l8pp0"]
 [ext_resource type="Texture2D" uid="uid://cx043manifvys" path="res://assets/ground/watered_tile.png" id="3_rouam"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ihaq0"]
-texture = ExtResource("1_7sv1v")
+texture = ExtResource("1_kevu1")
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/terrains_peering_bit/bottom_right_corner = 0
@@ -277,7 +277,7 @@ texture = ExtResource("1_7sv1v")
 9:6/0/custom_data_1 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qgydj"]
-texture = ExtResource("2_cklq2")
+texture = ExtResource("2_l8pp0")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0

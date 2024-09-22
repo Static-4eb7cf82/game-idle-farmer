@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bypo4bb1mivo3"]
 
 [ext_resource type="Script" path="res://scenes/growables/wheat.gd" id="1_470yn"]
-[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/items/Farming Plants.png" id="1_ll2kt"]
+[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/items/farming_plants.png" id="1_ll2kt"]
 [ext_resource type="Texture2D" uid="uid://d2jyvul8auyhf" path="res://assets/items/crops/wheat.png" id="3_3nu5v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kne0i"]

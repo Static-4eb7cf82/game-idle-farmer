@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://bf0tfmhh62ylj"]
+[gd_scene load_steps=7 format=3 uid="uid://cskvgrrmc2hib"]
 
-[ext_resource type="Texture2D" uid="uid://eue4esi7lq1n" path="res://assets/ground/water/Water_1.png" id="1_8rmex"]
-[ext_resource type="Texture2D" uid="uid://bfelsibcj0e4j" path="res://assets/ground/water/Water_2.png" id="2_depcp"]
-[ext_resource type="Texture2D" uid="uid://dngfvr4rfnli5" path="res://assets/ground/water/Water_3.png" id="3_r1g2s"]
-[ext_resource type="Texture2D" uid="uid://bp1ynfl5u51af" path="res://assets/ground/water/Water_4.png" id="4_vw3jh"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vcpnk"]
+load_path = "res://.godot/imported/water_1.png-163cbe1dd13afb072571a38f00a5d0ca.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_shl8i"]
+load_path = "res://.godot/imported/water_2.png-10979093d087dbf2f4783e0dfa4ae2e5.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p68ea"]
+load_path = "res://.godot/imported/water_3.png-409b3dfca145b8fbd97ba4d2f54812d2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2j7yh"]
+load_path = "res://.godot/imported/water_4.png-e548b45e54779707440b0506005fcd5d.ctex"
 
 [sub_resource type="Animation" id="Animation_s7vtc"]
 resource_name = "water"
@@ -19,7 +26,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1, 2, 3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_8rmex"), ExtResource("2_depcp"), ExtResource("3_r1g2s"), ExtResource("4_vw3jh")]
+"values": [SubResource("CompressedTexture2D_vcpnk"), SubResource("CompressedTexture2D_shl8i"), SubResource("CompressedTexture2D_p68ea"), SubResource("CompressedTexture2D_2j7yh")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n05xo"]
@@ -36,4 +43,4 @@ libraries = {
 autoplay = "water"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8rmex")
+texture = SubResource("CompressedTexture2D_vcpnk")

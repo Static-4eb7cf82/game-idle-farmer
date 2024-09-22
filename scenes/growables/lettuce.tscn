@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cnferm36tmcs7"]
 
 [ext_resource type="Script" path="res://scenes/growables/lettuce.gd" id="1_qwrn1"]
-[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/items/Farming Plants.png" id="2_b5hv3"]
+[ext_resource type="Texture2D" uid="uid://ctnmod50b26t" path="res://assets/items/farming_plants.png" id="2_b5hv3"]
 [ext_resource type="Texture2D" uid="uid://fnu0kcdrtox0" path="res://assets/items/crops/lettuce.png" id="3_vqv3j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pvr5w"]
