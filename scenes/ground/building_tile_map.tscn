@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://2apahtiinwt2"]
 
-[ext_resource type="Texture2D" uid="uid://c2ihgewrj2ug1" path="res://assets/structures/Wooden_House_Walls_Tilset.png" id="1_k1hpc"]
-[ext_resource type="Texture2D" uid="uid://cuksf7ngjlifk" path="res://assets/structures/Basic_Furniture.png" id="2_350w0"]
+[ext_resource type="Texture2D" uid="uid://c2ihgewrj2ug1" path="res://assets/structures/wooden_house_walls_tileset.png" id="1_k1hpc"]
+[ext_resource type="Texture2D" uid="uid://cuksf7ngjlifk" path="res://assets/structures/basic_furniture.png" id="2_350w0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j00qc"]
 texture = ExtResource("1_k1hpc")

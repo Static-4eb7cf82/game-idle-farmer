@@ -1,8 +1,8 @@
 [gd_scene load_steps=195 format=3 uid="uid://lpexokwjiav8"]
 
 [ext_resource type="Script" path="res://scenes/cat_worker/cat_worker.gd" id="1_yu1qw"]
-[ext_resource type="Texture2D" uid="uid://bdb56uc3qe7vb" path="res://assets/character/Premium Charakter Spritesheet.png" id="2_hhlku"]
-[ext_resource type="Texture2D" uid="uid://dceve3vh7iobb" path="res://assets/character/water from wateringcan frames.png" id="3_o34r4"]
+[ext_resource type="Texture2D" uid="uid://bdb56uc3qe7vb" path="res://assets/character/premium_character_spritesheet.png" id="2_hhlku"]
+[ext_resource type="Texture2D" uid="uid://dceve3vh7iobb" path="res://assets/character/water_from_wateringcan_frames.png" id="3_o34r4"]
 [ext_resource type="Script" path="res://scenes/cat_worker/water_from_can_animation.gd" id="4_sop1h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0yf26"]
