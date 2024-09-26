@@ -20,7 +20,7 @@ class DebugSettings extends Settings:
         ability_pickaxe_cost = 20
 
 class Settings:
-    var cat_worker_speed: float = 20.0
+    var cat_worker_speed: float = 25.0
     var cat_worker_water_count: int = 10
     var coin_cost_wheat: int = 1
     var coin_cost_beet: int = 2
