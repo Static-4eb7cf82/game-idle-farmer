@@ -38,4 +38,4 @@ September continued to implement core gameplay functionality and shifted from ma
 
 ## Release Commit
 
-Commit hash: `tbd`
+Commit hash: `0ebf4112b738a7c322c0edaf0c481e570ecfe24a`
